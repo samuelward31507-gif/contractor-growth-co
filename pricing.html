@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Contractor Growth Co.</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --surface2: #1c1c26;
+      --border: #2a2a3d;
+      --accent: #f97316;
+      --accent2: #fb923c;
+      --text: #f0f0f5;
+      --muted: #6b7280;
+      --green: #22c55e;
+      --gold: #eab308;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      padding: 80px 2rem 60px;
+      position: relative;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse at top, rgba(249,115,22,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      display: inline-block;
+      background: var(--accent2);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: .35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+    header h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    header h1 span { color: var(--accent); }
+    header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+    .toggle-wrap {
+      display: inline-flex;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 0;
+    }
+    .toggle-btn {
+      padding: .45rem 1.25rem;
+      border-radius: 999px;
+      border: none;
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      background: transparent;
+      color: var(--muted);
+    }
+    .toggle-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ── PACKAGES ── */
+    section { padding: 0 2rem 80px; }
+    .section-label {
+      text-align: center;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .cards {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 280px;
+      max-width: 340px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      transition: transform .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card.featured {
+      border-color: var(--accent);
+      background: linear-gradient(160deg, #1e1a14 0%, var(--surface) 100%);
+    }
+    .badge-popular {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .card-tier {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .5rem;
+    }
+    .card-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: .25rem;
+    }
+    .card-tagline {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .price-block { margin-bottom: 1.5rem; }
+    .price-setup {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-bottom: .15rem;
+    }
+    .price-setup strong { color: var(--text); }
+    .price-monthly {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text);
+    }
+    .price-monthly span {
+      font-size: .95rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+    .price-save {
+      display: inline-block;
+      background: rgba(34,197,94,.12);
+      color: var(--green);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      margin-top: .4rem;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.25rem 0;
+    }
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+      margin-bottom: 1.75rem;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      font-size: .88rem;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .feature-list li .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(34,197,94,.15);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .cta-btn {
+      display: block;
+      width: 100%;
+      padding: .85rem;
+      border-radius: 12px;
+      border: none;
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: opacity .15s;
+    }
+    .cta-btn:hover { opacity: .85; }
+    .cta-primary { background: var(--accent); color: #fff; }
+    .cta-ghost   { background: transparent; color: var(--text); border: 1px solid var(--border); }
+
+    /* ── À LA CARTE ── */
+    .ala-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .ala-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+      transition: border-color .2s;
+    }
+    .ala-row:hover { border-color: var(--accent); }
+    .ala-left { display: flex; align-items: center; gap: 1rem; }
+    .ala-icon {
+      font-size: 1.5rem;
+      width: 46px;
+      height: 46px;
+      background: var(--surface2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ala-name { font-size: .95rem; font-weight: 700; margin-bottom: .15rem; }
+    .ala-desc { font-size: .8rem; color: var(--muted); }
+    .ala-prices {
+      display: flex;
+      gap: 1.5rem;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .ala-price-item .label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+    .ala-price-item .val   { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .ala-price-item .val.green { color: var(--green); }
+
+    /* ── FOOTER NOTE ── */
+    .footer-note {
+      text-align: center;
+      padding: 2rem 2rem 4rem;
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.7;
+    }
+    .footer-note strong { color: var(--text); }
+
+    /* ── GUARANTEE ── */
+    .guarantee {
+      max-width: 640px;
+      margin: 0 auto 60px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+      text-align: center;
+    }
+    .guarantee .g-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .guarantee h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .4rem; }
+    .guarantee p  { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+
+    @media (max-width: 640px) {
+      .ala-prices { gap: 1rem; }
+      .price-monthly { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="eyebrow">Contractor Growth Co.</div>
+    <h1>Simple, Transparent <span>Pricing</span></h1>
+    <p>Done-for-you AI automation systems that keep your phone ringing and your calendar full — on autopilot.</p>
+  </header>
+
+  <!-- PACKAGES -->
+  <section>
+    <div class="section-label">Choose Your Package</div>
+    <div class="cards">
+
+      <!-- STARTER -->
+      <div class="card">
+        <div class="card-tier">Starter</div>
+        <div class="card-name">🌱 Get Found</div>
+        <div class="card-tagline">Perfect for contractors just getting started online</div>
+        <div class="price-block">
+          <div class="price-setup">One-time setup: <strong>$1,497</strong></div>
+          <div class="price-monthly">$297 <span>/ month</span></div>
+          <div class="price-save">Save $200 vs. à la carte</div>
+        </div>
+        <hr class="divider" />
+        <ul class="feature-list">
+          <li><span class="check">✓</span> Custom Contractor Website</li>
+          <li><span class="check">✓</span> Mobile-Friendly & SEO-Ready</li>
+          <li><span class="check">✓</span> Missed Call Text-Back</li>
+          <li><span class="check">✓</span> Monthly Maintenance & Hosting</li>
+          <li><span class="check">✓</span> Dedicated Support</li>
+        </ul>
+        <a href="#contact" class="cta-btn cta-ghost">Get Started</a>
+      </div>
+
+      <!-- GROWTH (FEATURED) -->
+      <div class="card featured">
+        <div class="badge-popular">⚡ Most Popular</div>
+        <div class="card-tier">Growth</div>
+        <div class="card-name">🚀 Get Leads</div>
+        <div class="card-tagline">Full lead capture & follow-up system on autopilot</div>
+        <div class="price-block">
+          <div class="price-setup">One-time setup: <strong>$1,997</strong></div>
+          <div class="price-monthly">$497 <span>/ month</span></div>
+          <div class="price-save">Save $600 vs. à la carte</div>
+        </div>
+        <hr class="divider" />
+        <ul class="feature-list">
+          <li><span class="check">✓</span> Everything in Starter</li>
+          <li><span class="check">✓</span> 7-Day Automated Follow-Up Sequences</li>
+          <li><span class="check">✓</span> SMS + Email Drip Campaigns</li>
+          <li><span class="check">✓</span> Automated Review Requests</li>
+          <li><span class="check">✓</span> Google Review Growth System</li>
+          <li><span class="check">✓</span> Monthly Performance Report</li>
+        </ul>
+        <a href="#contact" class="cta-btn cta-primary">Get Started</a>
+      </div>
+
+      <!-- PRO -->
+      <div class="card">
+        <div class="card-tier">Pro</div>
+        <div class="card-name">👑 Get Booked</div>
+        <div class="card-tagline">Full AI-powered booking machine for serious contractors</div>
+        <div class="price-block">
+          <div class="price-setup">One-time setup: <strong>$2,997</strong></div>
+          <div class="price-monthly">$797 <span>/ month</span></div>
+          <div class="price-save">Save $1,400+ vs. à la carte</div>
+        </div>
+        <hr class="divider" />
+        <ul class="feature-list">
+          <li><span class="check">✓</span> Everything in Growth</li>
+          <li><span class="check">✓</span> AI Website Chatbot (24/7)</li>
+          <li><span class="check">✓</span> Voice AI — Answers Calls & Books Jobs</li>
+          <li><span class="check">✓</span> Social Media Automation (Weekly Posts)</li>
+          <li><span class="check">✓</span> Stat Tracking Dashboard</li>
+          <li><span class="check">✓</span> Priority Support & Onboarding Call</li>
+        </ul>
+        <a href="#contact" class="cta-btn cta-ghost">Get Started</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <div style="padding: 0 2rem;">
+    <div class="guarantee">
+      <div class="g-icon">🛡️</div>
+      <h3>30-Day Satisfaction Guarantee</h3>
+      <p>If you're not completely happy with your system in the first 30 days, we'll make it right — no questions asked. We're here to make sure your investment works.</p>
+    </div>
+  </div>
+
+  <!-- À LA CARTE -->
+  <section>
+    <div class="section-label">À La Carte — Add Individual Services</div>
+    <div class="ala-wrap">
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">🌐</div>
+          <div>
+            <div class="ala-name">Website Design</div>
+            <div class="ala-desc">Custom contractor website — mobile-friendly, SEO-ready, built to convert</div>
+          </div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$1,200</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147/mo</div></div>
+        </div>
+      </div>
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">☎️</div>
+          <div>
+            <div class="ala-name">Missed Call Text-Back</div>
+            <div class="ala-desc">Auto-texts anyone who calls and doesn't get an answer — never lose a lead again</div>
+          </div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$197</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97/mo</div></div>
+        </div>
+      </div>
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">📩</div>
+          <div>
+            <div class="ala-name">Follow-Up Sequences</div>
+            <div class="ala-desc">7–14 day SMS + email drip for every new lead until they book or say stop</div>
+          </div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$397</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147/mo</div></div>
+        </div>
+      </div>
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">🤖</div>
+          <div>
+            <div class="ala-name">AI Website Chatbot</div>
+            <div class="ala-desc">24/7 chatbot that answers questions, captures leads, and books appointments</div>
+          </div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$597</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$197/mo</div></div>
+        </div>
+      </div>
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">⭐</div>
+          <div>
+            <div class="ala-name">Review Automation</div>
+            <div class="ala-desc">Auto-requests Google reviews after every completed job — builds trust on autopilot</div>
+          </div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$197</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97/mo</div></div>
+        </div>
+      </div>
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">📱</div>
+          <div>
+            <div class="ala-name">Social Media Automation</div>
+            <div class="ala-desc">AI writes and schedules weekly posts so your clients stay active without lifting a finger</div>
+          </div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$197/mo</div></div>
+        </div>
+      </div>
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">🎙️</div>
+          <div>
+            <div class="ala-name">Voice AI Agent</div>
+            <div class="ala-desc">AI answers calls, qualifies leads, and books appointments — even at 2am</div>
+          </div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$797</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$297/mo</div></div>
+        </div>
+      </div>
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">📊</div>
+          <div>
+            <div class="ala-name">Stat Tracking Dashboard</div>
+            <div class="ala-desc">Custom dashboard showing leads, revenue, and site performance — all in one place</div>
+          </div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$497</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97/mo</div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    <strong>Questions?</strong> Text or call us anytime.<br />
+    All packages include onboarding, setup, and ongoing support.<br />
+    <span style="color:#f97316; font-weight:700;">Contractor Growth Co.</span> — Built for contractors. Run on autopilot.
+  </div>
+
+</body>
+</html>
