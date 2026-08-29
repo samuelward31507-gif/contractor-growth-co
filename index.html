@@ -28,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* ── HEADER ── */
     header {
       text-align: center;
       padding: 80px 2rem 60px;
@@ -70,32 +69,7 @@
       margin: 0 auto 2rem;
       line-height: 1.6;
     }
-    .toggle-wrap {
-      display: inline-flex;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 4px;
-      gap: 4px;
-      margin-bottom: 0;
-    }
-    .toggle-btn {
-      padding: .45rem 1.25rem;
-      border-radius: 999px;
-      border: none;
-      font-size: .85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all .2s;
-      background: transparent;
-      color: var(--muted);
-    }
-    .toggle-btn.active {
-      background: var(--accent);
-      color: #fff;
-    }
 
-    /* ── PACKAGES ── */
     section { padding: 0 2rem 80px; }
     .section-label {
       text-align: center;
@@ -155,34 +129,13 @@
       color: var(--accent);
       margin-bottom: .5rem;
     }
-    .card-name {
-      font-size: 1.3rem;
-      font-weight: 800;
-      margin-bottom: .25rem;
-    }
-    .card-tagline {
-      font-size: .85rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
+    .card-name { font-size: 1.3rem; font-weight: 800; margin-bottom: .25rem; }
+    .card-tagline { font-size: .85rem; color: var(--muted); margin-bottom: 1.5rem; }
     .price-block { margin-bottom: 1.5rem; }
-    .price-setup {
-      font-size: .8rem;
-      color: var(--muted);
-      margin-bottom: .15rem;
-    }
+    .price-setup { font-size: .8rem; color: var(--muted); margin-bottom: .15rem; }
     .price-setup strong { color: var(--text); }
-    .price-monthly {
-      font-size: 2.5rem;
-      font-weight: 800;
-      line-height: 1;
-      color: var(--text);
-    }
-    .price-monthly span {
-      font-size: .95rem;
-      font-weight: 400;
-      color: var(--muted);
-    }
+    .price-monthly { font-size: 2.5rem; font-weight: 800; line-height: 1; color: var(--text); }
+    .price-monthly span { font-size: .95rem; font-weight: 400; color: var(--muted); }
     .price-save {
       display: inline-block;
       background: rgba(34,197,94,.12);
@@ -193,11 +146,7 @@
       border-radius: 999px;
       margin-top: .4rem;
     }
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 1.25rem 0;
-    }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
     .feature-list {
       list-style: none;
       display: flex;
@@ -214,8 +163,7 @@
       line-height: 1.4;
     }
     .feature-list li .check {
-      width: 18px;
-      height: 18px;
+      width: 18px; height: 18px;
       border-radius: 50%;
       background: rgba(34,197,94,.15);
       color: var(--green);
@@ -226,6 +174,8 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
+
+    .btn-group { display: flex; flex-direction: column; gap: .6rem; }
     .cta-btn {
       display: block;
       width: 100%;
@@ -242,15 +192,10 @@
     .cta-btn:hover { opacity: .85; }
     .cta-primary { background: var(--accent); color: #fff; }
     .cta-ghost   { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .cta-pay     { background: rgba(34,197,94,.15); color: var(--green); border: 1px solid rgba(34,197,94,.3); font-size: .88rem; }
+    .cta-pay:hover { background: rgba(34,197,94,.25); opacity: 1; }
 
-    /* ── À LA CARTE ── */
-    .ala-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .ala-wrap { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
     .ala-row {
       display: flex;
       align-items: center;
@@ -266,47 +211,24 @@
     .ala-row:hover { border-color: var(--accent); }
     .ala-left { display: flex; align-items: center; gap: 1rem; }
     .ala-icon {
-      font-size: 1.5rem;
-      width: 46px;
-      height: 46px;
-      background: var(--surface2);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      font-size: 1.5rem; width: 46px; height: 46px;
+      background: var(--surface2); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
     .ala-name { font-size: .95rem; font-weight: 700; margin-bottom: .15rem; }
     .ala-desc { font-size: .8rem; color: var(--muted); }
-    .ala-prices {
-      display: flex;
-      gap: 1.5rem;
-      flex-shrink: 0;
-      text-align: right;
-    }
+    .ala-prices { display: flex; gap: 1.5rem; flex-shrink: 0; text-align: right; }
     .ala-price-item .label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
     .ala-price-item .val   { font-size: 1rem; font-weight: 700; color: var(--text); }
     .ala-price-item .val.green { color: var(--green); }
 
-    /* ── FOOTER NOTE ── */
-    .footer-note {
-      text-align: center;
-      padding: 2rem 2rem 4rem;
-      color: var(--muted);
-      font-size: .85rem;
-      line-height: 1.7;
-    }
+    .footer-note { text-align: center; padding: 2rem 2rem 4rem; color: var(--muted); font-size: .85rem; line-height: 1.7; }
     .footer-note strong { color: var(--text); }
 
-    /* ── GUARANTEE ── */
     .guarantee {
-      max-width: 640px;
-      margin: 0 auto 60px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.75rem 2rem;
-      text-align: center;
+      max-width: 640px; margin: 0 auto 60px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.75rem 2rem; text-align: center;
     }
     .guarantee .g-icon { font-size: 2rem; margin-bottom: .75rem; }
     .guarantee h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .4rem; }
@@ -320,14 +242,12 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="eyebrow">Contractor Growth Co.</div>
     <h1>Simple, Transparent <span>Pricing</span></h1>
     <p>Done-for-you AI automation systems that keep your phone ringing and your calendar full — on autopilot.</p>
   </header>
 
-  <!-- PACKAGES -->
   <section>
     <div class="section-label">Choose Your Package</div>
     <div class="cards">
@@ -335,34 +255,37 @@
       <!-- STARTER -->
       <div class="card">
         <div class="card-tier">Starter</div>
-        <div class="card-name">🌱 Get Found</div>
+        <div class="card-name">🏗️ Get Found</div>
         <div class="card-tagline">Perfect for contractors just getting started online</div>
         <div class="price-block">
           <div class="price-setup">One-time setup: <strong>$1,297</strong></div>
-<div class="price-monthly">$297 <span>/ month</span></div>
-<div class="price-save">Save $100 on setup vs. à la carte</div>
+          <div class="price-monthly">$297 <span>/ month</span></div>
+          <div class="price-save">Save $100 on setup vs. à la carte</div>
         </div>
         <hr class="divider" />
         <ul class="feature-list">
           <li><span class="check">✓</span> Custom Contractor Website</li>
-          <li><span class="check">✓</span> Mobile-Friendly & SEO-Ready</li>
+          <li><span class="check">✓</span> Mobile-Friendly &amp; SEO-Ready</li>
           <li><span class="check">✓</span> Missed Call Text-Back</li>
-          <li><span class="check">✓</span> Monthly Maintenance & Hosting</li>
+          <li><span class="check">✓</span> Monthly Maintenance &amp; Hosting</li>
           <li><span class="check">✓</span> Dedicated Support</li>
         </ul>
-        <a href="sms:+17196742436&body=GROW" class="cta-btn cta-ghost">Text GROW to (719) 674-2436 →</a>
+        <div class="btn-group">
+          <a href="sms:+17196742436&amp;body=GROW" class="cta-btn cta-ghost">Text GROW to (719) 674-2436 →</a>
+          <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00" class="cta-btn cta-pay" target="_blank">💳 Pay Now — $1,297 + $297/mo</a>
+        </div>
       </div>
 
-      <!-- GROWTH (FEATURED) -->
+      <!-- GROWTH -->
       <div class="card featured">
         <div class="badge-popular">⚡ Most Popular</div>
         <div class="card-tier">Growth</div>
-        <div class="card-name">🚀 Get Leads</div>
-        <div class="card-tagline">Full lead capture & follow-up system on autopilot</div>
+        <div class="card-name">📈 Get Leads</div>
+        <div class="card-tagline">Full lead capture &amp; follow-up system on autopilot</div>
         <div class="price-block">
-         <div class="price-setup">One-time setup: <strong>$1,797</strong></div>
-<div class="price-monthly">$497 <span>/ month</span></div>
-<div class="price-save">Save $194 on setup vs. à la carte</div>
+          <div class="price-setup">One-time setup: <strong>$1,797</strong></div>
+          <div class="price-monthly">$497 <span>/ month</span></div>
+          <div class="price-save">Save $194 on setup vs. à la carte</div>
         </div>
         <hr class="divider" />
         <ul class="feature-list">
@@ -370,14 +293,18 @@
           <li><span class="check">✓</span> 7-Day Automated Follow-Up Sequences</li>
           <li><span class="check">✓</span> SMS + Email Drip Campaigns</li>
           <li><span class="check">✓</span> Automated Review Request System</li>
+          <li><span class="check">✓</span> AI Website Chatbot (24/7)</li>
         </ul>
-        <a href="sms:+17196742436&body=GROW" class="cta-btn cta-primary">Text GROW to (719) 674-2436 →</a>
+        <div class="btn-group">
+          <a href="sms:+17196742436&amp;body=GROW" class="cta-btn cta-primary">Text GROW to (719) 674-2436 →</a>
+          <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01" class="cta-btn cta-pay" target="_blank">💳 Pay Now — $1,797 + $497/mo</a>
+        </div>
       </div>
 
       <!-- PRO -->
       <div class="card">
         <div class="card-tier">Pro</div>
-        <div class="card-name">👑 Get Booked</div>
+        <div class="card-name">🚀 Get Booked</div>
         <div class="card-tagline">Full AI-powered booking machine for serious contractors</div>
         <div class="price-block">
           <div class="price-setup">One-time setup: <strong>$2,497</strong></div>
@@ -387,38 +314,35 @@
         <hr class="divider" />
         <ul class="feature-list">
           <li><span class="check">✓</span> Everything in Growth</li>
-          <li><span class="check">✓</span> AI Website Chatbot (24/7)</li>
-          <li><span class="check">✓</span> Voice AI — Answers Calls & Books Jobs</li>
-          <li><span class="check">✓</span> TrackPro — Leads, Jobs, Expenses & Monthly P&L Reports</li>
-          <li><span class="check">✓</span> Priority Support & Onboarding Call</li>
+          <li><span class="check">✓</span> Voice AI — Answers Calls &amp; Books Jobs</li>
+          <li><span class="check">✓</span> TrackPro — Leads, Jobs, Expenses &amp; Monthly P&amp;L</li>
+          <li><span class="check">✓</span> Priority Support &amp; Onboarding Call</li>
         </ul>
-        <a href="sms:+17196742436&body=GROW" class="cta-btn cta-ghost">Text GROW to (719) 674-2436 →</a>
+        <div class="btn-group">
+          <a href="sms:+17196742436&amp;body=GROW" class="cta-btn cta-ghost">Text GROW to (719) 674-2436 →</a>
+          <a href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02" class="cta-btn cta-pay" target="_blank">💳 Pay Now — $2,497 + $797/mo</a>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- GUARANTEE -->
   <div style="padding: 0 2rem;">
     <div class="guarantee">
       <div class="g-icon">🛡️</div>
       <h3>30-Day Satisfaction Guarantee</h3>
-      <p>If you're not completely happy with your system in the first 30 days, we'll make it right — no questions asked. We're here to make sure your investment works.</p>
+      <p>If you're not completely happy with your system in the first 30 days, we'll make it right — no questions asked.</p>
     </div>
   </div>
 
-  <!-- À LA CARTE -->
   <section>
     <div class="section-label">À La Carte — Add Individual Services</div>
     <div class="ala-wrap">
 
       <div class="ala-row">
         <div class="ala-left">
-          <div class="ala-icon">🌐</div>
-          <div>
-            <div class="ala-name">Website Design</div>
-            <div class="ala-desc">Custom contractor website — mobile-friendly, SEO-ready, built to convert</div>
-          </div>
+          <div class="ala-icon">🖥️</div>
+          <div><div class="ala-name">Website Design</div><div class="ala-desc">Custom contractor website — mobile-friendly, SEO-ready, built to convert</div></div>
         </div>
         <div class="ala-prices">
           <div class="ala-price-item"><div class="label">Setup</div><div class="val">$1,200</div></div>
@@ -429,52 +353,7 @@
       <div class="ala-row">
         <div class="ala-left">
           <div class="ala-icon">☎️</div>
-          <div>
-            <div class="ala-name">Missed Call Text-Back</div>
-            <div class="ala-desc">Auto-texts anyone who calls and doesn't get an answer — never lose a lead again</div>
-          </div>
-        </div>
-        <div class="ala-prices">
-          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$197</div></div>
-          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97/mo</div></div>
-        </div>
-      </div>
-
-      <div class="ala-row">
-        <div class="ala-left">
-          <div class="ala-icon">📩</div>
-          <div>
-            <div class="ala-name">Follow-Up Sequences</div>
-            <div class="ala-desc">7–14 day SMS + email drip for every new lead until they book or say stop</div>
-          </div>
-        </div>
-        <div class="ala-prices">
-          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$397</div></div>
-          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147/mo</div></div>
-        </div>
-      </div>
-
-      <div class="ala-row">
-        <div class="ala-left">
-          <div class="ala-icon">🤖</div>
-          <div>
-            <div class="ala-name">AI Website Chatbot</div>
-            <div class="ala-desc">24/7 chatbot that answers questions, captures leads, and books appointments</div>
-          </div>
-        </div>
-        <div class="ala-prices">
-          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$597</div></div>
-          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$197/mo</div></div>
-        </div>
-      </div>
-
-      <div class="ala-row">
-        <div class="ala-left">
-          <div class="ala-icon">⭐</div>
-          <div>
-            <div class="ala-name">Review Automation</div>
-            <div class="ala-desc">Auto-requests Google reviews after every completed job — builds trust on autopilot</div>
-          </div>
+          <div><div class="ala-name">Missed Call Text-Back</div><div class="ala-desc">Auto-texts anyone who calls and doesn't get an answer — never lose a lead again</div></div>
         </div>
         <div class="ala-prices">
           <div class="ala-price-item"><div class="label">Setup</div><div class="val">$197</div></div>
@@ -485,10 +364,40 @@
       <div class="ala-row">
         <div class="ala-left">
           <div class="ala-icon">📱</div>
-          <div>
-            <div class="ala-name">Social Media Automation</div>
-            <div class="ala-desc">AI writes and schedules weekly posts so your clients stay active without lifting a finger</div>
-          </div>
+          <div><div class="ala-name">Follow-Up Sequences</div><div class="ala-desc">7–14 day SMS + email drip for every new lead until they book or say stop</div></div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$397</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147/mo</div></div>
+        </div>
+      </div>
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">🤖</div>
+          <div><div class="ala-name">AI Website Chatbot</div><div class="ala-desc">24/7 chatbot that answers questions, captures leads, and books appointments</div></div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$597</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$197/mo</div></div>
+        </div>
+      </div>
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">⭐</div>
+          <div><div class="ala-name">Review Automation</div><div class="ala-desc">Auto-requests Google reviews after every completed job — builds trust on autopilot</div></div>
+        </div>
+        <div class="ala-prices">
+          <div class="ala-price-item"><div class="label">Setup</div><div class="val">$197</div></div>
+          <div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97/mo</div></div>
+        </div>
+      </div>
+
+      <div class="ala-row">
+        <div class="ala-left">
+          <div class="ala-icon">📣</div>
+          <div><div class="ala-name">Social Media Automation</div><div class="ala-desc">AI writes and schedules weekly posts so your clients stay active without lifting a finger</div></div>
         </div>
         <div class="ala-prices">
           <div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div>
@@ -499,10 +408,7 @@
       <div class="ala-row">
         <div class="ala-left">
           <div class="ala-icon">🎙️</div>
-          <div>
-            <div class="ala-name">Voice AI Agent</div>
-            <div class="ala-desc">AI answers calls, qualifies leads, and books appointments — even at 2am</div>
-          </div>
+          <div><div class="ala-name">Voice AI Agent</div><div class="ala-desc">AI answers calls, qualifies leads, and books appointments — even at 2am</div></div>
         </div>
         <div class="ala-prices">
           <div class="ala-price-item"><div class="label">Setup</div><div class="val">$797</div></div>
@@ -513,10 +419,7 @@
       <div class="ala-row">
         <div class="ala-left">
           <div class="ala-icon">📊</div>
-          <div>
-            <div class="ala-name">Stat Tracking Dashboard</div>
-            <div class="ala-desc">Custom dashboard showing leads, revenue, and site performance — all in one place</div>
-          </div>
+          <div><div class="ala-name">Stat Tracking Dashboard</div><div class="ala-desc">Custom dashboard showing leads, revenue, and site performance — all in one place</div></div>
         </div>
         <div class="ala-prices">
           <div class="ala-price-item"><div class="label">Setup</div><div class="val">$497</div></div>
@@ -527,7 +430,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <div class="footer-note">
     <strong>Questions?</strong> Text or call us anytime.<br />
     All packages include onboarding, setup, and ongoing support.<br />
