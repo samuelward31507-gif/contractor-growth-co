@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contractor Growth Co. — Websites That Win Contractors More Jobs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg:         #050505;
-      --surface:    #0a0a0a;
-      --surface2:   #111111;
-      --surface3:   #191919;
-      --border:     rgba(255,255,255,0.07);
-      --border-md:  rgba(255,255,255,0.11);
-      --accent:     #f97316;
-      --accent2:    #fb923c;
-      --accent-dim: rgba(249,115,22,0.08);
-      --accent-glow:rgba(249,115,22,0.14);
+      --surface:    #090907;
+      --surface2:   #0f0f0c;
+      --surface3:   #161613;
+      --border:     rgba(201,168,76,0.09);
+      --border-md:  rgba(201,168,76,0.16);
+      --accent:     #C9A84C;
+      --accent2:    #B89535;
+      --accent-dim: rgba(201,168,76,0.07);
+      --accent-glow:rgba(201,168,76,0.12);
       --text:       #f0f0f0;
       --text-2:     #a3a3a3;
       --text-3:     #555;
@@ -31,6 +31,30 @@
       --radius-xl:  22px;
     }
 
+    /* Luxury hero ambient glow */
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Luxury grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: .028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+    }
     html { scroll-behavior: smooth; }
 
     body {
@@ -44,9 +68,9 @@
     }
 
     a { color: inherit; text-decoration: none; }
+    h1 { font-family: 'Playfair Display', Georgia, serif; }
     img { display: block; max-width: 100%; }
 
-    /* ─────────────────── NAV ─────────────────── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -66,39 +90,23 @@
       -webkit-backdrop-filter: blur(24px);
       border-bottom-color: var(--border);
     }
-    .nav-logo {
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text);
-    }
-    .nav-logo span { color: var(--accent); }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: .8rem;
-      font-weight: 500;
-      color: var(--text-2);
-      letter-spacing: .01em;
-      transition: color .2s;
-    }
+    .nav-logo { font-size: 1rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text); }
+    .nav-logo span { color: #C9A84C; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: .8rem; font-weight: 500; color: var(--text-2); letter-spacing: .01em; transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
-      background: var(--accent);
-      color: #fff;
+      background: linear-gradient(135deg, #C9A84C 0%, #9E7A2B 100%);
+      color: #050505;
       padding: .55rem 1.25rem;
       border-radius: var(--radius-sm);
       font-size: .8rem;
-      font-weight: 700;
-      letter-spacing: .01em;
-      transition: background .2s, transform .15s;
+      font-weight: 800;
+      letter-spacing: .02em;
+      transition: all .2s;
     }
-    .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+    .nav-cta:hover { background: linear-gradient(135deg, #D4B45C 0%, #B08930 100%); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(201,168,76,.25); }
 
-    /* ─────────────────── SHARED ─────────────────── */
     section { padding: 120px 2.5rem; }
     .container { max-width: 1080px; margin: 0 auto; }
 
@@ -113,60 +121,41 @@
       color: var(--text-3);
       margin-bottom: 1.5rem;
     }
-    .eyebrow-num {
-      font-size: .6rem;
-      color: var(--accent);
-      letter-spacing: .1em;
-      font-weight: 800;
-    }
-    .eyebrow-line {
-      width: 28px;
-      height: 1px;
-      background: var(--border-md);
-    }
+    .eyebrow-num { font-size: .6rem; color: #C9A84C; letter-spacing: .14em; font-weight: 700; }
+    .eyebrow-line { width: 32px; height: 1px; background: linear-gradient(90deg, rgba(201,168,76,0.5), transparent); }
 
     h2 {
       font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1.15;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       color: var(--text);
+      font-family: 'Playfair Display', Georgia, serif;
     }
-    h2 em { font-style: normal; color: var(--accent); }
+    h2 em { font-style: italic; color: var(--accent); }
+    h3 { font-family: 'Playfair Display', Georgia, serif; letter-spacing: -.01em; }
 
     .section-sub {
       color: var(--text-2);
-      font-size: 1rem;
-      line-height: 1.7;
-      max-width: 480px;
-      margin-top: .9rem;
+      font-size: .95rem;
+      line-height: 1.75;
+      max-width: 500px;
+      margin-top: 1rem;
+      font-weight: 300;
+      letter-spacing: .01em;
     }
 
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: .1s; }
     .reveal-delay-2 { transition-delay: .2s; }
     .reveal-delay-3 { transition-delay: .3s; }
     .reveal-delay-4 { transition-delay: .4s; }
     .reveal-delay-5 { transition-delay: .5s; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-    }
+    .section-divider { width: 100%; height: 1px; background: var(--border); }
 
-    /* Dividers */
-    .section-divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -182,814 +171,169 @@
       white-space: nowrap;
     }
     .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 0 0 0 rgba(249,115,22,0);
+      background: linear-gradient(135deg, #C9A84C 0%, #9E7A2B 100%);
+      color: #050505;
+      font-weight: 800;
+      box-shadow: 0 0 0 0 rgba(201,168,76,0);
     }
-    .btn-primary:hover {
-      background: var(--accent2);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(249,115,22,.25);
-    }
-    .btn-ghost {
-      background: transparent;
-      color: var(--text-2);
-      border: 1px solid var(--border-md);
-    }
-    .btn-ghost:hover {
-      color: var(--text);
-      border-color: rgba(255,255,255,.2);
-      transform: translateY(-1px);
-    }
+    .btn-primary:hover { background: linear-gradient(135deg, #D4B45C 0%, #B08930 100%); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,.28); }
+    .btn-ghost { background: transparent; color: var(--text-2); border: 1px solid var(--border-md); }
+    .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,.2); transform: translateY(-1px); }
     .btn-arrow::after { content: '→'; transition: transform .2s; }
     .btn-arrow:hover::after { transform: translateX(3px); }
 
-    /* ─────────────────── HERO ─────────────────── */
-    #hero {
-      position: relative;
-      padding-top: 180px;
-      padding-bottom: 130px;
-      text-align: center;
-      overflow: hidden;
-    }
+    #hero { position: relative; padding-top: 180px; padding-bottom: 130px; text-align: center; overflow: hidden; }
     .hero-dot-grid {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background-image: radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px);
       background-size: 28px 28px;
       -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, black 10%, transparent 75%);
       mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, black 10%, transparent 75%);
       pointer-events: none;
     }
-    .hero-glow {
-      position: absolute;
-      top: -160px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 900px;
-      height: 500px;
-      background: radial-gradient(ellipse, rgba(249,115,22,.1) 0%, transparent 68%);
-      pointer-events: none;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: var(--accent-dim);
-      border: 1px solid rgba(249,115,22,.18);
-      color: var(--accent);
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: .4rem 1rem;
-      border-radius: 999px;
-      margin-bottom: 2rem;
-    }
-    .hero-badge-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulse-dot 2s ease infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .5; transform: scale(.7); }
-    }
-    h1 {
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 900;
-      line-height: 1.06;
-      letter-spacing: -0.04em;
-      color: var(--text);
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
+    .hero-glow { position: absolute; top: -160px; left: 50%; transform: translateX(-50%); width: 900px; height: 500px; background: radial-gradient(ellipse, rgba(201,168,76,.1) 0%, transparent 68%); pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent-dim); border: 1px solid rgba(201,168,76,.18); color: var(--accent); font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .4rem 1rem; border-radius: 999px; margin-bottom: 2rem; }
+    .hero-badge-dot { width: 6px; height: 6px; background: linear-gradient(135deg,#C9A84C,#9E7A2B); border-radius: 50%; animation: pulse-dot 2s ease infinite; }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(.7); } }
+    h1 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; line-height: 1.06; letter-spacing: -0.04em; color: var(--text); margin-bottom: 1.5rem; position: relative; }
     h1 em { font-style: normal; color: var(--accent); }
-    .hero-sub {
-      font-size: 1.05rem;
-      color: var(--text-2);
-      max-width: 540px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
-      font-weight: 400;
-    }
-    .hero-cta-group {
-      display: flex;
-      gap: .85rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      margin-top: 5rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
-    .hero-stat {
-      flex: 1;
-      min-width: 140px;
-      max-width: 220px;
-      padding: 0 2.5rem;
-      text-align: center;
-      position: relative;
-    }
-    .hero-stat + .hero-stat::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 10%;
-      height: 80%;
-      width: 1px;
-      background: var(--border);
-    }
-    .stat-num {
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--text);
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
+    .hero-sub { font-size: 1.05rem; color: var(--text-2); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.7; font-weight: 400; }
+    .hero-cta-group { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+    .hero-stats { display: flex; justify-content: center; gap: 0; margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .hero-stat { flex: 1; min-width: 140px; max-width: 220px; padding: 0 2.5rem; text-align: center; position: relative; }
+    .hero-stat + .hero-stat::before { content: ''; position: absolute; left: 0; top: 10%; height: 80%; width: 1px; background: var(--border); }
+    .stat-num { font-size: 2.2rem; font-weight: 900; color: var(--text); letter-spacing: -0.04em; line-height: 1; }
     .stat-num span { color: var(--accent); }
-    .stat-label {
-      font-size: .72rem;
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-top: .5rem;
-      font-weight: 600;
-    }
+    .stat-label { font-size: .72rem; color: var(--text-3); text-transform: uppercase; letter-spacing: .1em; margin-top: .5rem; font-weight: 600; }
 
-    /* ─────────────────── PROBLEM ─────────────────── */
-    #problem {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .problem-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .problem-text p {
-      color: var(--text-2);
-      font-size: .95rem;
-      line-height: 1.8;
-      margin-bottom: .9rem;
-    }
-    .pain-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .75rem;
-      margin-top: 1.75rem;
-    }
-    .pain-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.1rem 1.25rem;
-      transition: border-color .25s, background .25s;
-    }
-    .pain-item:hover {
-      border-color: rgba(249,115,22,.25);
-      background: rgba(249,115,22,.03);
-    }
-    .pain-icon {
-      font-size: 1.1rem;
-      flex-shrink: 0;
-      margin-top: .1rem;
-    }
-    .pain-text strong {
-      display: block;
-      font-size: .88rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: .2rem;
-    }
-    .pain-text span {
-      font-size: .82rem;
-      color: var(--text-2);
-      line-height: 1.55;
-    }
+    #problem { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .problem-text p { color: var(--text-2); font-size: .95rem; line-height: 1.8; margin-bottom: .9rem; }
+    .pain-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; margin-top: 1.75rem; }
+    .pain-item { display: flex; align-items: flex-start; gap: 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.25rem; transition: border-color .25s, background .25s; }
+    .pain-item:hover { border-color: rgba(201,168,76,.25); background: rgba(201,168,76,.03); }
+    .pain-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+    .pain-text strong { display: block; font-size: .88rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
+    .pain-text span { font-size: .82rem; color: var(--text-2); line-height: 1.55; }
 
-    /* ─────────────────── SERVICES ─────────────────── */
     #services .section-header { margin-bottom: 3.5rem; }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .service-card {
-      background: var(--surface);
-      padding: 2rem 1.75rem;
-      transition: background .25s;
-      position: relative;
-    }
-    .service-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 1.75rem; right: 1.75rem;
-      height: 1px;
-      background: transparent;
-      transition: background .25s;
-    }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .service-card { background: var(--surface); padding: 2rem 1.75rem; transition: background .25s; position: relative; }
+    .service-card::after { content: ''; position: absolute; bottom: 0; left: 1.75rem; right: 1.75rem; height: 1px; background: transparent; transition: background .25s; }
     .service-card:hover { background: var(--surface2); }
-    .service-card:hover::after { background: var(--accent); }
-    .service-icon {
-      font-size: 1.5rem;
-      margin-bottom: 1.1rem;
-    }
-    .service-num {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.5rem;
-      font-size: .58rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      color: var(--text-3);
-    }
-    .service-card h3 {
-      font-size: .95rem;
-      font-weight: 700;
-      margin-bottom: .5rem;
-      letter-spacing: -.01em;
-    }
-    .service-card p {
-      font-size: .82rem;
-      color: var(--text-2);
-      line-height: 1.65;
-    }
+    .service-card:hover::after { background: linear-gradient(135deg,#C9A84C,#9E7A2B); }
+    .service-icon { font-size: 1.5rem; margin-bottom: 1.1rem; }
+    .service-num { position: absolute; top: 1.25rem; right: 1.5rem; font-size: .58rem; font-weight: 700; letter-spacing: .12em; color: var(--text-3); }
+    .service-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .5rem; letter-spacing: -.01em; }
+    .service-card p { font-size: .82rem; color: var(--text-2); line-height: 1.65; }
 
-    /* ─────────────────── PROCESS ─────────────────── */
-    #process {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1.5rem;
-      position: relative;
-      margin-top: 3rem;
-    }
-    .process-steps::before {
-      content: '';
-      position: absolute;
-      top: 23px;
-      left: calc(10% + 12px);
-      right: calc(10% + 12px);
-      height: 1px;
-      background: repeating-linear-gradient(90deg, var(--border-md) 0, var(--border-md) 6px, transparent 6px, transparent 14px);
-    }
+    #process { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; position: relative; margin-top: 3rem; }
+    .process-steps::before { content: ''; position: absolute; top: 23px; left: calc(10% + 12px); right: calc(10% + 12px); height: 1px; background: repeating-linear-gradient(90deg, var(--border-md) 0, var(--border-md) 6px, transparent 6px, transparent 14px); }
     .process-step { text-align: center; position: relative; }
-    .step-num {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 1px solid var(--border-md);
-      color: var(--accent);
-      font-weight: 800;
-      font-size: .85rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.1rem;
-      position: relative;
-      z-index: 1;
-      transition: border-color .25s, background .25s;
-    }
-    .process-step:hover .step-num {
-      border-color: var(--accent);
-      background: var(--accent-dim);
-    }
-    .step-title {
-      font-size: .82rem;
-      font-weight: 700;
-      margin-bottom: .35rem;
-      letter-spacing: -.01em;
-    }
-    .step-desc {
-      font-size: .75rem;
-      color: var(--text-2);
-      line-height: 1.55;
-    }
+    .step-num { width: 46px; height: 46px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border-md); color: var(--accent); font-weight: 800; font-size: .85rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.1rem; position: relative; z-index: 1; transition: border-color .25s, background .25s; }
+    .process-step:hover .step-num { border-color: var(--accent); background: var(--accent-dim); }
+    .step-title { font-size: .82rem; font-weight: 700; margin-bottom: .35rem; letter-spacing: -.01em; }
+    .step-desc { font-size: .75rem; color: var(--text-2); line-height: 1.55; }
 
-    /* ─────────────────── PRICING ─────────────────── */
-    #pricing {
-      padding-bottom: 80px;
-    }
-    .pricing-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .pricing-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: var(--accent-dim);
-      border: 1px solid rgba(249,115,22,.15);
-      color: var(--accent);
-      font-size: .65rem;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: .35rem 1rem;
-      border-radius: 999px;
-      margin-bottom: 1.5rem;
-    }
-    .pricing-header p {
-      color: var(--text-2);
-      font-size: .95rem;
-      max-width: 460px;
-      margin: .85rem auto 0;
-      line-height: 1.7;
-    }
-    .pkg-label {
-      font-size: .62rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      text-align: center;
-      margin-bottom: 1.75rem;
-    }
-    .cards {
-      display: flex;
-      gap: 1.25rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 1080px;
-      margin: 0 auto;
-      align-items: stretch;
-    }
-    .card {
-      flex: 1;
-      min-width: 280px;
-      max-width: 330px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 2rem;
-      position: relative;
-      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: var(--border-md);
-      box-shadow: 0 20px 60px rgba(0,0,0,.5);
-    }
-    .card.featured {
-      border-color: rgba(249,115,22,.35);
-      background: linear-gradient(160deg, #161008 0%, var(--surface) 55%);
-    }
-    .card.featured:hover {
-      border-color: rgba(249,115,22,.6);
-      box-shadow: 0 20px 60px rgba(249,115,22,.1);
-    }
-    .badge-popular {
-      position: absolute;
-      top: -13px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--accent);
-      color: #fff;
-      font-size: .6rem;
-      font-weight: 800;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: .28rem .9rem;
-      border-radius: 999px;
-      white-space: nowrap;
-    }
-    .card-tier {
-      font-size: .62rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: .5rem;
-    }
-    .card-name {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -.02em;
-      margin-bottom: .25rem;
-    }
-    .card-tagline {
-      font-size: .78rem;
-      color: var(--text-2);
-      margin-bottom: 1.5rem;
-      line-height: 1.5;
-    }
+    #pricing { padding-bottom: 80px; }
+    .pricing-header { text-align: center; margin-bottom: 4rem; }
+    .pricing-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent-dim); border: 1px solid rgba(201,168,76,.15); color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; }
+    .pricing-header p { color: var(--text-2); font-size: .95rem; max-width: 460px; margin: .85rem auto 0; line-height: 1.7; }
+    .pkg-label { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); text-align: center; margin-bottom: 1.75rem; }
+    .cards { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; max-width: 1080px; margin: 0 auto; align-items: stretch; }
+    .card { flex: 1; min-width: 280px; max-width: 330px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; position: relative; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-5px); border-color: var(--border-md); box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+    .card.featured { border-color: rgba(201,168,76,.35); background: linear-gradient(160deg, #161008 0%, var(--surface) 55%); }
+    .card.featured:hover { border-color: rgba(201,168,76,.6); box-shadow: 0 20px 60px rgba(201,168,76,.1); }
+    .badge-popular { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg,#C9A84C,#9E7A2B); color: #fff; font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: .28rem .9rem; border-radius: 999px; white-space: nowrap; }
+    .card-tier { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+    .card-name { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .25rem; }
+    .card-tagline { font-size: .78rem; color: var(--text-2); margin-bottom: 1.5rem; line-height: 1.5; }
     .price-block { margin-bottom: 1.5rem; }
-    .price-setup {
-      font-size: .75rem;
-      color: var(--text-2);
-      margin-bottom: .2rem;
-    }
+    .price-setup { font-size: .75rem; color: var(--text-2); margin-bottom: .2rem; }
     .price-setup strong { color: var(--text); font-weight: 700; }
-    .price-monthly {
-      font-size: 2.4rem;
-      font-weight: 900;
-      letter-spacing: -.04em;
-      line-height: 1;
-      color: var(--text);
-    }
-    .price-monthly span {
-      font-size: .85rem;
-      font-weight: 400;
-      color: var(--text-2);
-      letter-spacing: 0;
-    }
-    .price-save {
-      display: inline-block;
-      background: var(--green-dim);
-      border: 1px solid rgba(34,197,94,.15);
-      color: var(--green);
-      font-size: .68rem;
-      font-weight: 700;
-      padding: .18rem .55rem;
-      border-radius: 4px;
-      margin-top: .5rem;
-    }
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 1.25rem 0;
-    }
-    .feature-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .6rem;
-      margin-bottom: 1.75rem;
-      flex: 1;
-    }
-    .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: .65rem;
-      font-size: .82rem;
-      color: var(--text-2);
-      line-height: 1.4;
-    }
-    .check {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      background: var(--green-dim);
-      border: 1px solid rgba(34,197,94,.2);
-      color: var(--green);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .6rem;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: .55rem;
-      margin-top: auto;
-    }
-    .cta-btn {
-      display: block;
-      width: 100%;
-      padding: .8rem;
-      border-radius: var(--radius-sm);
-      border: none;
-      font-size: .85rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      transition: all .2s ease;
-      letter-spacing: .01em;
-    }
+    .price-monthly { font-size: 2.4rem; font-weight: 900; letter-spacing: -.04em; line-height: 1; color: var(--text); }
+    .price-monthly span { font-size: .85rem; font-weight: 400; color: var(--text-2); letter-spacing: 0; }
+    .price-save { display: inline-block; background: var(--green-dim); border: 1px solid rgba(34,197,94,.15); color: var(--green); font-size: .68rem; font-weight: 700; padding: .18rem .55rem; border-radius: 4px; margin-top: .5rem; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: .6rem; margin-bottom: 1.75rem; flex: 1; }
+    .feature-list li { display: flex; align-items: flex-start; gap: .65rem; font-size: .82rem; color: var(--text-2); line-height: 1.4; }
+    .check { width: 16px; height: 16px; border-radius: 4px; background: var(--green-dim); border: 1px solid rgba(34,197,94,.2); color: var(--green); display: inline-flex; align-items: center; justify-content: center; font-size: .6rem; flex-shrink: 0; margin-top: 1px; }
+    .btn-group { display: flex; flex-direction: column; gap: .55rem; margin-top: auto; }
+    .cta-btn { display: block; width: 100%; padding: .8rem; border-radius: var(--radius-sm); border: none; font-size: .85rem; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; transition: all .2s ease; letter-spacing: .01em; }
     .cta-primary { background: var(--accent); color: #fff; }
     .cta-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-    .cta-ghost {
-      background: transparent;
-      color: var(--text-2);
-      border: 1px solid var(--border-md);
-    }
-    .cta-ghost:hover {
-      color: var(--text);
-      border-color: rgba(255,255,255,.2);
-      transform: translateY(-1px);
-    }
-    .cta-pay {
-      background: var(--green-dim);
-      color: var(--green);
-      border: 1px solid rgba(34,197,94,.18);
-      font-size: .78rem;
-    }
-    .cta-pay:hover {
-      background: rgba(34,197,94,.12);
-      transform: translateY(-1px);
-    }
+    .cta-ghost { background: transparent; color: var(--text-2); border: 1px solid var(--border-md); }
+    .cta-ghost:hover { color: var(--text); border-color: rgba(255,255,255,.2); transform: translateY(-1px); }
+    .cta-pay { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,.18); font-size: .78rem; }
+    .cta-pay:hover { background: rgba(34,197,94,.12); transform: translateY(-1px); }
 
-    /* ─────────────────── GUARANTEE ─────────────────── */
-    .guarantee {
-      max-width: 640px;
-      margin: 3.5rem auto 0;
-      background: rgba(34,197,94,.04);
-      border: 1px solid rgba(34,197,94,.12);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem 2rem;
-      text-align: center;
-    }
+    .guarantee { max-width: 640px; margin: 3.5rem auto 0; background: rgba(34,197,94,.04); border: 1px solid rgba(34,197,94,.12); border-radius: var(--radius-lg); padding: 1.75rem 2rem; text-align: center; }
     .g-icon { font-size: 1.75rem; margin-bottom: .65rem; }
-    .guarantee h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: .4rem;
-      color: var(--green);
-    }
+    .guarantee h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; color: var(--green); }
     .guarantee p { font-size: .82rem; color: var(--text-2); line-height: 1.65; }
 
-    /* ─────────────────── ALA CARTE ─────────────────── */
-    .ala-wrap {
-      max-width: 820px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .ala-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--surface);
-      padding: 1.1rem 1.5rem;
-      gap: 1rem;
-      flex-wrap: wrap;
-      transition: background .2s;
-      border-bottom: 1px solid var(--border);
-    }
+    .ala-wrap { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .ala-row { display: flex; align-items: center; justify-content: space-between; background: var(--surface); padding: 1.1rem 1.5rem; gap: 1rem; flex-wrap: wrap; transition: background .2s; border-bottom: 1px solid var(--border); }
     .ala-row:last-child { border-bottom: none; }
     .ala-row:hover { background: var(--surface2); }
     .ala-left { display: flex; align-items: center; gap: .9rem; }
-    .ala-icon {
-      font-size: 1.2rem;
-      width: 40px;
-      height: 40px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+    .ala-icon { font-size: 1.2rem; width: 40px; height: 40px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .ala-name { font-size: .88rem; font-weight: 700; margin-bottom: .12rem; }
     .ala-desc { font-size: .75rem; color: var(--text-2); line-height: 1.4; }
-    .ala-prices {
-      display: flex;
-      gap: 1.75rem;
-      flex-shrink: 0;
-      text-align: right;
-    }
-    .ala-price-item .label {
-      font-size: .6rem;
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-weight: 700;
-    }
-    .ala-price-item .val {
-      font-size: .95rem;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -.02em;
-    }
+    .ala-prices { display: flex; gap: 1.75rem; flex-shrink: 0; text-align: right; }
+    .ala-price-item .label { font-size: .6rem; color: var(--text-3); text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+    .ala-price-item .val { font-size: .95rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; }
     .ala-price-item .val.green { color: var(--green); }
+    .ala-btn { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem 1.1rem; background: transparent; color: #C9A84C; border: 1px solid rgba(201,168,76,0.45); border-radius: var(--radius-sm); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: all .2s; }
+    .ala-btn:hover { background: linear-gradient(135deg,#C9A84C,#9E7A2B); color: #050505; border-color: transparent; box-shadow: 0 4px 16px rgba(201,168,76,.2); }
 
-    /* ─────────────────── WHO WE SERVE ─────────────────── */
-    #who {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .trades-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      margin-top: 2.5rem;
-    }
-    .trade-card {
-      background: var(--bg);
-      padding: 1.75rem 1rem;
-      text-align: center;
-      transition: background .2s;
-    }
+    #who { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .trades-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-top: 2.5rem; }
+    .trade-card { background: var(--bg); padding: 1.75rem 1rem; text-align: center; transition: background .2s; }
     .trade-card:hover { background: var(--surface2); }
     .trade-emoji { font-size: 1.75rem; margin-bottom: .6rem; }
-    .trade-name {
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: -.01em;
-    }
+    .trade-name { font-size: .78rem; font-weight: 700; letter-spacing: -.01em; }
 
-    /* ─────────────────── ABOUT ─────────────────── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .about-text p {
-      color: var(--text-2);
-      margin-bottom: 1rem;
-      font-size: .95rem;
-      line-height: 1.8;
-    }
-    .about-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 2.5rem;
-    }
-    .about-name {
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -.03em;
-      margin-bottom: .2rem;
-    }
-    .about-role {
-      color: var(--accent);
-      font-size: .78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: 1.75rem;
-    }
-    .about-facts {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .8rem;
-    }
-    .about-facts li {
-      display: flex;
-      align-items: flex-start;
-      gap: .75rem;
-      font-size: .82rem;
-      color: var(--text-2);
-      line-height: 1.5;
-    }
-    .about-facts li .fact-icon {
-      font-size: 1rem;
-      flex-shrink: 0;
-      margin-top: .05rem;
-    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-text p { color: var(--text-2); margin-bottom: 1rem; font-size: .95rem; line-height: 1.8; }
+    .about-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2.5rem; }
+    .about-name { font-size: 1.4rem; font-weight: 800; letter-spacing: -.03em; margin-bottom: .2rem; }
+    .about-role { color: var(--accent); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1.75rem; }
+    .about-facts { list-style: none; display: flex; flex-direction: column; gap: .8rem; }
+    .about-facts li { display: flex; align-items: flex-start; gap: .75rem; font-size: .82rem; color: var(--text-2); line-height: 1.5; }
+    .about-facts li .fact-icon { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
 
-    /* ─────────────────── FAQ ─────────────────── */
-    #faq {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      max-width: 680px;
-      margin: 0 auto;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
+    #faq { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .faq-list { display: flex; flex-direction: column; max-width: 680px; margin: 0 auto; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-item:last-child { border-bottom: none; }
-    .faq-q {
-      padding: 1.15rem 1.5rem;
-      font-weight: 600;
-      font-size: .88rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      user-select: none;
-      transition: color .2s, background .2s;
-      color: var(--text);
-      background: var(--bg);
-    }
+    .faq-q { padding: 1.15rem 1.5rem; font-weight: 600; font-size: .88rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; user-select: none; transition: color .2s, background .2s; color: var(--text); background: var(--bg); }
     .faq-q:hover { background: var(--surface2); color: var(--accent); }
-    .faq-icon {
-      color: var(--accent);
-      font-size: 1.2rem;
-      font-weight: 300;
-      transition: transform .25s ease;
-      flex-shrink: 0;
-      line-height: 1;
-    }
-    .faq-a {
-      padding: 0 1.5rem 1.15rem;
-      font-size: .82rem;
-      color: var(--text-2);
-      line-height: 1.75;
-      display: none;
-      background: var(--bg);
-    }
+    .faq-icon { color: var(--accent); font-size: 1.2rem; font-weight: 300; transition: transform .25s ease; flex-shrink: 0; line-height: 1; }
+    .faq-a { padding: 0 1.5rem 1.15rem; font-size: .82rem; color: var(--text-2); line-height: 1.75; display: none; background: var(--bg); }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
     .faq-item.open .faq-q { color: var(--accent); }
 
-    /* ─────────────────── CTA ─────────────────── */
-    #cta {
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-glow {
-      position: absolute;
-      bottom: -150px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      height: 400px;
-      background: radial-gradient(ellipse, rgba(249,115,22,.1) 0%, transparent 65%);
-      pointer-events: none;
-    }
+    #cta { text-align: center; position: relative; overflow: hidden; }
+    .cta-glow { position: absolute; bottom: -150px; left: 50%; transform: translateX(-50%); width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(201,168,76,.1) 0%, transparent 65%); pointer-events: none; }
     #cta h2 { margin-bottom: .9rem; }
-    #cta p {
-      color: var(--text-2);
-      font-size: 1rem;
-      max-width: 480px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
-    .cta-actions {
-      display: flex;
-      gap: .85rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .cta-note {
-      margin-top: 1.5rem;
-      font-size: .75rem;
-      color: var(--text-3);
-      letter-spacing: .01em;
-    }
+    #cta p { color: var(--text-2); font-size: 1rem; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .cta-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
+    .cta-note { margin-top: 1.5rem; font-size: .75rem; color: var(--text-3); letter-spacing: .01em; }
     .cta-note strong { color: var(--text-2); }
 
-    /* ─────────────────── FOOTER ─────────────────── */
-    footer {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 2.5rem;
-    }
-    .footer-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-    }
+    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 2.5rem 2.5rem; }
+    .footer-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; }
     .footer-logo { font-weight: 800; font-size: .9rem; letter-spacing: -.02em; }
     .footer-logo span { color: var(--accent); }
-    .footer-links {
-      display: flex;
-      gap: 1.75rem;
-      flex-wrap: wrap;
-    }
-    .footer-links a {
-      font-size: .75rem;
-      color: var(--text-3);
-      transition: color .2s;
-      letter-spacing: .01em;
-    }
+    .footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+    .footer-links a { font-size: .75rem; color: var(--text-3); transition: color .2s; letter-spacing: .01em; }
     .footer-links a:hover { color: var(--text-2); }
     .footer-copy { font-size: .7rem; color: var(--text-3); }
 
-    /* ─────────────────── RESPONSIVE ─────────────────── */
     @media (max-width: 960px) {
       .problem-grid, .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1013,7 +357,6 @@
       nav { padding: 0 1.25rem; }
     }
 
-    /* ─────────────────── POPUP ANIMATION ─────────────────── */
     @keyframes popIn {
       from { opacity: 0; transform: scale(.88) translateY(18px); }
       to   { opacity: 1; transform: scale(1)  translateY(0); }
@@ -1022,7 +365,6 @@
 </head>
 <body>
 
-<!-- ════════════════════ NAV ════════════════════ -->
 <nav id="main-nav">
   <div class="nav-logo">Contractor Growth<span> Co.</span></div>
   <ul class="nav-links">
@@ -1035,15 +377,11 @@
   <a href="https://contractorgrowthco.pro/landing-page" class="nav-cta btn-arrow">Free Audit </a>
 </nav>
 
-<!-- ════════════════════ HERO ════════════════════ -->
 <section id="hero">
   <div class="hero-dot-grid"></div>
   <div class="hero-glow"></div>
   <div class="container" style="position:relative;">
-    <div class="hero-badge reveal">
-      <span class="hero-badge-dot"></span>
-      For Contractors Across the US
-    </div>
+    <div class="hero-badge reveal"><span class="hero-badge-dot"></span>For Contractors Across the US</div>
     <h1 class="reveal reveal-delay-1">Websites That <em>Win You</em><br>More Jobs</h1>
     <p class="hero-sub reveal reveal-delay-2">We build lead-generating websites for plumbers, roofers, HVAC techs, electricians, and more &mdash; so you stop chasing referrals and start getting found.</p>
     <div class="hero-cta-group reveal reveal-delay-3">
@@ -1051,23 +389,13 @@
       <a href="#pricing" class="btn btn-ghost">See Pricing</a>
     </div>
     <div class="hero-stats reveal reveal-delay-4">
-      <div class="hero-stat">
-        <div class="stat-num"><span>24</span>/7</div>
-        <div class="stat-label">AI-powered follow-up</div>
-      </div>
-      <div class="hero-stat">
-        <div class="stat-num"><span data-count="30">0</span></div>
-        <div class="stat-label">Day satisfaction guarantee</div>
-      </div>
-      <div class="hero-stat">
-        <div class="stat-num"><span data-count="100">0</span>%</div>
-        <div class="stat-label">Done for you</div>
-      </div>
+      <div class="hero-stat"><div class="stat-num"><span>24</span>/7</div><div class="stat-label">AI-powered follow-up</div></div>
+      <div class="hero-stat"><div class="stat-num"><span data-count="30">0</span></div><div class="stat-label">Day satisfaction guarantee</div></div>
+      <div class="hero-stat"><div class="stat-num"><span data-count="100">0</span>%</div><div class="stat-label">Done for you</div></div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════ PROBLEM ════════════════════ -->
 <section id="problem">
   <div class="container">
     <div class="problem-grid">
@@ -1078,28 +406,15 @@
         <p class="reveal reveal-delay-2">Without a professional website that ranks on Google and converts visitors into calls, you're invisible to the customers who need you most.</p>
       </div>
       <ul class="pain-list">
-        <li class="pain-item reveal reveal-delay-1">
-          <span class="pain-icon">&#128201;</span>
-          <div class="pain-text"><strong>Inconsistent Work</strong><span>Feast or famine cycles with no predictable lead flow.</span></div>
-        </li>
-        <li class="pain-item reveal reveal-delay-2">
-          <span class="pain-icon">&#128269;</span>
-          <div class="pain-text"><strong>Invisible Online</strong><span>When homeowners search Google, your competitors show up &mdash; not you.</span></div>
-        </li>
-        <li class="pain-item reveal reveal-delay-3">
-          <span class="pain-icon">&#128245;</span>
-          <div class="pain-text"><strong>Missed Calls = Missed Revenue</strong><span>Every unanswered call is a job going to someone else.</span></div>
-        </li>
-        <li class="pain-item reveal reveal-delay-4">
-          <span class="pain-icon">&#8987;</span>
-          <div class="pain-text"><strong>No Time to Chase Leads</strong><span>You're busy on the job. You can't follow up with every inquiry manually.</span></div>
-        </li>
+        <li class="pain-item reveal reveal-delay-1"><span class="pain-icon">&#128201;</span><div class="pain-text"><strong>Inconsistent Work</strong><span>Feast or famine cycles with no predictable lead flow.</span></div></li>
+        <li class="pain-item reveal reveal-delay-2"><span class="pain-icon">&#128269;</span><div class="pain-text"><strong>Invisible Online</strong><span>When homeowners search Google, your competitors show up &mdash; not you.</span></div></li>
+        <li class="pain-item reveal reveal-delay-3"><span class="pain-icon">&#128245;</span><div class="pain-text"><strong>Missed Calls = Missed Revenue</strong><span>Every unanswered call is a job going to someone else.</span></div></li>
+        <li class="pain-item reveal reveal-delay-4"><span class="pain-icon">&#8987;</span><div class="pain-text"><strong>No Time to Chase Leads</strong><span>You're busy on the job. You can't follow up with every inquiry manually.</span></div></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════ SERVICES ════════════════════ -->
 <section id="services">
   <div class="container">
     <div class="section-header">
@@ -1118,7 +433,6 @@
   </div>
 </section>
 
-<!-- ════════════════════ PROCESS ════════════════════ -->
 <section id="process">
   <div class="container">
     <div class="section-header" style="text-align:center;">
@@ -1127,36 +441,15 @@
       <p class="section-sub reveal reveal-delay-2" style="margin:0 auto;">From discovery call to live website &mdash; faster than you'd expect.</p>
     </div>
     <div class="process-steps">
-      <div class="process-step reveal reveal-delay-1">
-        <div class="step-num">1</div>
-        <div class="step-title">Free Audit Call</div>
-        <div class="step-desc">We review your current online presence and show you exactly what's missing.</div>
-      </div>
-      <div class="process-step reveal reveal-delay-2">
-        <div class="step-num">2</div>
-        <div class="step-title">Pick Your Package</div>
-        <div class="step-desc">Choose the system that fits your business size and goals.</div>
-      </div>
-      <div class="process-step reveal reveal-delay-3">
-        <div class="step-num">3</div>
-        <div class="step-title">We Build Everything</div>
-        <div class="step-desc">Your website, automations, chatbot, and tracking &mdash; all done for you.</div>
-      </div>
-      <div class="process-step reveal reveal-delay-4">
-        <div class="step-num">4</div>
-        <div class="step-title">Go Live</div>
-        <div class="step-desc">Your system is live, tested, and ready to start bringing in leads.</div>
-      </div>
-      <div class="process-step reveal reveal-delay-5">
-        <div class="step-num">5</div>
-        <div class="step-title">Grow &amp; Scale</div>
-        <div class="step-desc">We handle ongoing maintenance so you can stay focused on the work.</div>
-      </div>
+      <div class="process-step reveal reveal-delay-1"><div class="step-num">1</div><div class="step-title">Free Audit Call</div><div class="step-desc">We review your current online presence and show you exactly what's missing.</div></div>
+      <div class="process-step reveal reveal-delay-2"><div class="step-num">2</div><div class="step-title">Pick Your Package</div><div class="step-desc">Choose the system that fits your business size and goals.</div></div>
+      <div class="process-step reveal reveal-delay-3"><div class="step-num">3</div><div class="step-title">We Build Everything</div><div class="step-desc">Your website, automations, chatbot, and tracking &mdash; all done for you.</div></div>
+      <div class="process-step reveal reveal-delay-4"><div class="step-num">4</div><div class="step-title">Go Live</div><div class="step-desc">Your system is live, tested, and ready to start bringing in leads.</div></div>
+      <div class="process-step reveal reveal-delay-5"><div class="step-num">5</div><div class="step-title">Grow &amp; Scale</div><div class="step-desc">We handle ongoing maintenance so you can stay focused on the work.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════ PRICING ════════════════════ -->
 <section id="pricing">
   <div class="container">
     <div class="pricing-header">
@@ -1166,7 +459,6 @@
     </div>
     <div class="pkg-label reveal">Choose Your Package</div>
     <div class="cards">
-      <!-- STARTER -->
       <div class="card reveal reveal-delay-1">
         <div class="card-tier">Starter</div>
         <div class="card-name">&#127959;&#65039; Get Found</div>
@@ -1189,7 +481,6 @@
           <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00" class="cta-btn cta-pay" target="_blank">&#128179; Pay Now &mdash; $1,297 + $297/mo</a>
         </div>
       </div>
-      <!-- GROWTH -->
       <div class="card featured reveal reveal-delay-2">
         <div class="badge-popular">&#9889; Most Popular</div>
         <div class="card-tier">Growth</div>
@@ -1213,7 +504,6 @@
           <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01" class="cta-btn cta-pay" target="_blank">&#128179; Pay Now &mdash; $1,797 + $497/mo</a>
         </div>
       </div>
-      <!-- PRO -->
       <div class="card reveal reveal-delay-3">
         <div class="card-tier">Pro</div>
         <div class="card-name">&#127942; Get Booked</div>
@@ -1236,32 +526,27 @@
         </div>
       </div>
     </div>
-
-    <!-- GUARANTEE -->
     <div class="guarantee reveal">
       <div class="g-icon">&#128737;&#65039;</div>
       <h3>30-Day Satisfaction Guarantee</h3>
       <p>If you're not completely happy with your system in the first 30 days, we'll make it right &mdash; no questions asked.</p>
     </div>
-
-    <!-- ALA CARTE -->
     <div style="margin-top:5rem;">
       <div class="eyebrow reveal" style="justify-content:center;margin-bottom:1.75rem;"><span class="eyebrow-num">ADD-ONS</span><span class="eyebrow-line"></span>&Agrave; La Carte Services</div>
       <div class="ala-wrap reveal">
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#127959;&#65039;</div><div><div class="ala-name">Website Design</div><div class="ala-desc">Custom contractor website &mdash; mobile-friendly, SEO-ready, built to convert</div></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$1,200</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#9742;&#65039;</div><div><div class="ala-name">Missed Call Text-Back</div><div class="ala-desc">Auto-texts anyone who calls and doesn't get an answer &mdash; never lose a lead again</div></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$197</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128236;</div><div><div class="ala-name">Follow-Up Sequences</div><div class="ala-desc">7&ndash;14 day SMS + email drip for every new lead until they book or say stop</div></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$397</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128172;</div><div><div class="ala-name">AI Website Chatbot</div><div class="ala-desc">24/7 chatbot that answers questions, captures leads, and books appointments</div></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$597</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$197</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#11088;</div><div><div class="ala-name">Review Automation</div><div class="ala-desc">Auto-requests Google reviews after every completed job &mdash; builds trust on autopilot</div></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$197</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128241;</div><div><div class="ala-name">Social Media Automation</div><div class="ala-desc">AI writes and schedules weekly posts so your clients stay active without lifting a finger</div></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$197</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#127897;&#65039;</div><div><div class="ala-name">Voice AI Agent</div><div class="ala-desc">AI answers calls, qualifies leads, and books appointments &mdash; even at 2am</div></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$797</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$297</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128202;</div><div><div class="ala-name">TrackPR Dashboard</div><div class="ala-desc">Custom dashboard showing leads, revenue, and site performance &mdash; all in one place</div></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$497</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
+        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#127959;&#65039;</div><div><div class="ala-name">Website Design</div><div class="ala-desc">Custom contractor website &mdash; mobile-friendly, SEO-ready, built to convert</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_WEBSITE_DESIGN" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$997</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
+        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#9742;&#65039;</div><div><div class="ala-name">Missed Call Text-Back</div><div class="ala-desc">Auto-texts anyone who calls and doesn't get an answer &mdash; never lose a lead again</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_MISSED_CALL" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$97</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
+        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128236;</div><div><div class="ala-name">Follow-Up Sequences</div><div class="ala-desc">7&ndash;14 day SMS + email drip for every new lead until they book or say stop</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_FOLLOW_UP" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
+        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128172;</div><div><div class="ala-name">AI Website Chatbot</div><div class="ala-desc">24/7 chatbot that answers questions, captures leads, and books appointments</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_CHATBOT" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$497</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
+        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#11088;</div><div><div class="ala-name">Review Automation</div><div class="ala-desc">Auto-requests Google reviews after every completed job &mdash; builds trust on autopilot</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_REVIEW_AUTOMATION" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$97</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
+        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128241;</div><div><div class="ala-name">Social Media Automation</div><div class="ala-desc">AI writes and schedules weekly posts so your clients stay active without lifting a finger</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_SOCIAL_MEDIA" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
+        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#127897;&#65039;</div><div><div class="ala-name">Voice AI Agent</div><div class="ala-desc">AI answers calls, qualifies leads, and books appointments &mdash; even at 2am</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_VOICE_AI" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$797</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$297</div></div></div></div>
+        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128202;</div><div><div class="ala-name">TrackPR Dashboard</div><div class="ala-desc">Custom dashboard showing leads, revenue, and site performance &mdash; all in one place</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_TRACKPR" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════ WHO WE SERVE ════════════════════ -->
 <section id="who">
   <div class="container">
     <div class="section-header" style="text-align:center;">
@@ -1282,7 +567,6 @@
   </div>
 </section>
 
-<!-- ════════════════════ ABOUT ════════════════════ -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
@@ -1308,7 +592,6 @@
   </div>
 </section>
 
-<!-- ════════════════════ FAQ ════════════════════ -->
 <section id="faq">
   <div class="container">
     <div class="section-header" style="text-align:center;margin-bottom:3rem;">
@@ -1327,7 +610,6 @@
   </div>
 </section>
 
-<!-- ════════════════════ FINAL CTA ════════════════════ -->
 <section id="cta">
   <div class="cta-glow"></div>
   <div class="container" style="max-width:640px;text-align:center;position:relative;">
@@ -1342,7 +624,6 @@
   </div>
 </section>
 
-<!-- ════════════════════ FOOTER ════════════════════ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Contractor Growth<span> Co.</span></div>
@@ -1359,9 +640,7 @@
   </div>
 </footer>
 
-<!-- ════════════════════ FAQ SCRIPT ════════════════════ -->
 <script>
-  // FAQ Accordion
   document.querySelectorAll('.faq-q').forEach(function(q) {
     q.addEventListener('click', function() {
       var item = q.parentElement;
@@ -1370,76 +649,52 @@
       if (!wasOpen) item.classList.add('open');
     });
   });
-
-  // Nav scroll effect
   var nav = document.getElementById('main-nav');
-  window.addEventListener('scroll', function() {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
-
-  // Scroll reveal (Intersection Observer)
+  window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
   var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
+    entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
-
-  // Counter animation
   function animateCount(el, target, duration) {
-    var start = 0;
-    var step = target / (duration / 16);
-    var timer = setInterval(function() {
-      start = Math.min(start + step, target);
-      el.textContent = Math.floor(start);
-      if (start >= target) clearInterval(timer);
-    }, 16);
+    var start = 0; var step = target / (duration / 16);
+    var timer = setInterval(function() { start = Math.min(start + step, target); el.textContent = Math.floor(start); if (start >= target) clearInterval(timer); }, 16);
   }
   var counted = false;
   var statsObserver = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting && !counted) {
-      counted = true;
-      document.querySelectorAll('[data-count]').forEach(function(el) {
-        animateCount(el, parseInt(el.dataset.count), 1200);
-      });
-    }
+    if (entries[0].isIntersecting && !counted) { counted = true; document.querySelectorAll('[data-count]').forEach(function(el) { animateCount(el, parseInt(el.dataset.count), 1200); }); }
   }, { threshold: 0.5 });
   var statsEl = document.querySelector('.hero-stats');
   if (statsEl) statsObserver.observe(statsEl);
 </script>
 
-<!-- ════════════════════ 25% OFF POPUP ════════════════════ -->
 <div id="deal-overlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.82);z-index:9999;overflow-y:auto;align-items:center;justify-content:center;padding:1rem;">
-  <div style="background:#0a0a0a;border:1px solid rgba(249,115,22,.35);border-radius:20px;padding:2.25rem 2rem;max-width:440px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 0 80px rgba(249,115,22,.12);animation:popIn .35s cubic-bezier(.34,1.56,.64,1);text-align:center;font-family:'Inter','Segoe UI',system-ui,sans-serif;margin:auto;">
+  <div style="background:#0a0a0a;border:1px solid rgba(201,168,76,.35);border-radius:20px;padding:2.25rem 2rem;max-width:440px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 0 80px rgba(201,168,76,.12);animation:popIn .35s cubic-bezier(.34,1.56,.64,1);text-align:center;font-family:'Inter','Segoe UI',system-ui,sans-serif;margin:auto;">
     <button onclick="closePopup()" aria-label="Close" style="position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;color:#555;font-size:1.4rem;line-height:1;transition:color .2s;" onmouseover="this.style.color='#f0f0f0'" onmouseout="this.style.color='#555'">&times;</button>
-    <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);color:#f97316;font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1.1rem;">&#127381; Limited-Time Deal</div>
-    <div style="font-size:3.5rem;font-weight:900;color:#f97316;line-height:1;letter-spacing:-.05em;margin-bottom:.2rem;">25% OFF</div>
+    <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);color:#C9A84C;font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1.1rem;">&#127381; Limited-Time Deal</div>
+    <div style="font-size:3.5rem;font-weight:900;color:#C9A84C;line-height:1;letter-spacing:-.05em;margin-bottom:.2rem;">25% OFF</div>
     <div style="font-size:1rem;font-weight:700;color:#f0f0f0;margin-bottom:.35rem;letter-spacing:-.02em;">Your Setup Fee &mdash; Today Only</div>
     <div style="font-size:.8rem;color:#a3a3a3;margin-bottom:1.4rem;line-height:1.6;">Discount applied automatically at checkout.<br>Just click your package below.</div>
     <div style="margin-bottom:1.4rem;">
       <div style="font-size:.62rem;color:#555;margin-bottom:.45rem;letter-spacing:.08em;text-transform:uppercase;">Offer expires in</div>
       <div style="display:flex;gap:.5rem;justify-content:center;">
         <div style="background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:.45rem .7rem;min-width:50px;"><div id="cd-min" style="font-size:1.35rem;font-weight:900;color:#f0f0f0;line-height:1;letter-spacing:-.03em;">15</div><div style="font-size:.55rem;color:#555;text-transform:uppercase;letter-spacing:.08em;">min</div></div>
-        <div style="font-size:1.35rem;font-weight:800;color:#f97316;align-self:center;">:</div>
+        <div style="font-size:1.35rem;font-weight:800;color:#C9A84C;align-self:center;">:</div>
         <div style="background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:.45rem .7rem;min-width:50px;"><div id="cd-sec" style="font-size:1.35rem;font-weight:900;color:#f0f0f0;line-height:1;letter-spacing:-.03em;">00</div><div style="font-size:.55rem;color:#555;text-transform:uppercase;letter-spacing:.08em;">sec</div></div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;">
-      <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(249,115,22,.3)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='#111'">
+      <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(201,168,76,.3)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='#111'">
         <div style="text-align:left;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f0;">&#127959;&#65039; Starter &mdash; Get Found</div><div style="font-size:.67rem;color:#555;margin-top:.1rem;"><s style="color:#777;">$1,297</s> + $297/mo</div></div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.1rem;font-weight:900;color:#f97316;letter-spacing:-.03em;">$973</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $324</div></div>
+        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.1rem;font-weight:900;color:#C9A84C;letter-spacing:-.03em;">$973</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $324</div></div>
       </a>
-      <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#161008;border:1px solid rgba(249,115,22,.3);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;position:relative;transition:background .2s;" onmouseover="this.style.background='#1e1608'" onmouseout="this.style.background='#161008'">
-        <div style="position:absolute;top:-10px;left:10px;background:#f97316;color:#fff;font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;">&#9889; Most Popular</div>
+      <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#161008;border:1px solid rgba(201,168,76,.3);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;position:relative;transition:background .2s;" onmouseover="this.style.background='#1e1608'" onmouseout="this.style.background='#161008'">
+        <div style="position:absolute;top:-10px;left:10px;background:#C9A84C;color:#fff;font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;">&#9889; Most Popular</div>
         <div style="text-align:left;margin-top:.2rem;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f0;">&#128640; Growth &mdash; Get Leads</div><div style="font-size:.67rem;color:#555;margin-top:.1rem;"><s style="color:#777;">$1,797</s> + $497/mo</div></div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;margin-top:.2rem;"><div style="font-size:1.1rem;font-weight:900;color:#f97316;letter-spacing:-.03em;">$1,348</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $449</div></div>
+        <div style="text-align:right;flex-shrink:0;margin-left:1rem;margin-top:.2rem;"><div style="font-size:1.1rem;font-weight:900;color:#C9A84C;letter-spacing:-.03em;">$1,348</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $449</div></div>
       </a>
-      <a href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(249,115,22,.3)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='#111'">
+      <a href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(201,168,76,.3)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='#111'">
         <div style="text-align:left;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f0;">&#127942; Pro &mdash; Get Booked</div><div style="font-size:.67rem;color:#555;margin-top:.1rem;"><s style="color:#777;">$2,497</s> + $797/mo</div></div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.1rem;font-weight:900;color:#f97316;letter-spacing:-.03em;">$1,873</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $624</div></div>
+        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.1rem;font-weight:900;color:#C9A84C;letter-spacing:-.03em;">$1,873</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $624</div></div>
       </a>
     </div>
     <div style="font-size:.68rem;color:#555;line-height:1.5;">Code <strong style="color:#a3a3a3;font-family:monospace;">SAVE25</strong> auto-applied &bull; Monthly fee unchanged</div>
@@ -1447,16 +702,13 @@
 </div>
 
 <script>
-  function closePopup() {
-    document.getElementById('deal-overlay').style.display = 'none';
-  }
+  function closePopup() { document.getElementById('deal-overlay').style.display = 'none'; }
   (function() {
     if (sessionStorage.getItem('dealSeen')) return;
     var overlay = document.getElementById('deal-overlay');
     var shown = false;
     function showPopup() {
-      if (shown) return;
-      shown = true;
+      if (shown) return; shown = true;
       sessionStorage.setItem('dealSeen', '1');
       overlay.style.display = 'flex';
       startCountdown(15 * 60);
@@ -1467,8 +719,7 @@
     overlay.addEventListener('click', function(e) { if (e.target === overlay) closePopup(); });
     function startCountdown(totalSecs) {
       var end = Date.now() + totalSecs * 1000;
-      var minEl = document.getElementById('cd-min');
-      var secEl = document.getElementById('cd-sec');
+      var minEl = document.getElementById('cd-min'); var secEl = document.getElementById('cd-sec');
       var iv = setInterval(function() {
         var rem = Math.max(0, Math.floor((end - Date.now()) / 1000));
         minEl.textContent = String(Math.floor(rem / 60)).padStart(2, '0');
