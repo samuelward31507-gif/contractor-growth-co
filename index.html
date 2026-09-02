@@ -11,15 +11,15 @@
 
     :root {
       --bg:         #050505;
-      --surface:    #090907;
-      --surface2:   #0f0f0c;
-      --surface3:   #161613;
-      --border:     rgba(201,168,76,0.09);
-      --border-md:  rgba(201,168,76,0.16);
-      --accent:     #C9A84C;
-      --accent2:    #B89535;
-      --accent-dim: rgba(201,168,76,0.07);
-      --accent-glow:rgba(201,168,76,0.12);
+      --surface:    #0a0a0a;
+      --surface2:   #111111;
+      --surface3:   #191919;
+      --border:     rgba(255,255,255,0.07);
+      --border-md:  rgba(255,255,255,0.11);
+      --accent:     #f97316;
+      --accent2:    #fb923c;
+      --accent-dim: rgba(249,115,22,0.08);
+      --accent-glow:rgba(249,115,22,0.14);
       --text:       #f0f0f0;
       --text-2:     #a3a3a3;
       --text-3:     #555;
@@ -40,7 +40,7 @@
       transform: translateX(-50%);
       width: 700px;
       height: 700px;
-      background: radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(249,115,22,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -72,77 +72,51 @@
     img { display: block; max-width: 100%; }
 
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      height: 68px;
-      padding: 0 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: 68px; padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
       transition: height .3s ease, background .3s ease, border-color .3s ease;
       border-bottom: 1px solid transparent;
     }
     nav.scrolled {
-      height: 56px;
-      background: rgba(5,5,5,0.96);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      height: 56px; background: rgba(5,5,5,0.96);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border-bottom-color: var(--border);
     }
     .nav-logo { font-size: 1rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text); }
-    .nav-logo span { color: #C9A84C; }
+    .nav-logo span { color: #f97316; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { font-size: .8rem; font-weight: 500; color: var(--text-2); letter-spacing: .01em; transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
-      background: linear-gradient(135deg, #C9A84C 0%, #9E7A2B 100%);
-      color: #050505;
-      padding: .55rem 1.25rem;
-      border-radius: var(--radius-sm);
-      font-size: .8rem;
-      font-weight: 800;
-      letter-spacing: .02em;
-      transition: all .2s;
+      background: #f97316; color: #fff;
+      padding: .55rem 1.25rem; border-radius: var(--radius-sm);
+      font-size: .8rem; font-weight: 700; letter-spacing: .01em; transition: background .2s, transform .15s;
     }
-    .nav-cta:hover { background: linear-gradient(135deg, #D4B45C 0%, #B08930 100%); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(201,168,76,.25); }
+    .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
 
     section { padding: 120px 2.5rem; }
     .container { max-width: 1080px; margin: 0 auto; }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin-bottom: 1.5rem;
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: .65rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--text-3); margin-bottom: 1.5rem;
     }
-    .eyebrow-num { font-size: .6rem; color: #C9A84C; letter-spacing: .14em; font-weight: 700; }
-    .eyebrow-line { width: 32px; height: 1px; background: linear-gradient(90deg, rgba(201,168,76,0.5), transparent); }
+    .eyebrow-num { font-size: .6rem; color: #f97316; letter-spacing: .14em; font-weight: 700; }
+    .eyebrow-line { width: 32px; height: 1px; background: var(--border-md); }
 
     h2 {
       font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700; line-height: 1.15; letter-spacing: -0.02em;
+      color: var(--text); font-family: 'Playfair Display', Georgia, serif;
     }
     h2 em { font-style: italic; color: var(--accent); }
     h3 { font-family: 'Playfair Display', Georgia, serif; letter-spacing: -.01em; }
 
     .section-sub {
-      color: var(--text-2);
-      font-size: .95rem;
-      line-height: 1.75;
-      max-width: 500px;
-      margin-top: 1rem;
-      font-weight: 300;
-      letter-spacing: .01em;
+      color: var(--text-2); font-size: .95rem; line-height: 1.75;
+      max-width: 500px; margin-top: 1rem; font-weight: 300; letter-spacing: .01em;
     }
 
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
@@ -157,26 +131,13 @@
     .section-divider { width: 100%; height: 1px; background: var(--border); }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .85rem 1.75rem;
-      border-radius: var(--radius-sm);
-      font-size: .9rem;
-      font-weight: 700;
-      letter-spacing: .01em;
-      cursor: pointer;
-      border: none;
-      transition: all .2s ease;
-      white-space: nowrap;
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .85rem 1.75rem; border-radius: var(--radius-sm);
+      font-size: .9rem; font-weight: 700; letter-spacing: .01em;
+      cursor: pointer; border: none; transition: all .2s ease; white-space: nowrap;
     }
-    .btn-primary {
-      background: linear-gradient(135deg, #C9A84C 0%, #9E7A2B 100%);
-      color: #050505;
-      font-weight: 800;
-      box-shadow: 0 0 0 0 rgba(201,168,76,0);
-    }
-    .btn-primary:hover { background: linear-gradient(135deg, #D4B45C 0%, #B08930 100%); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,.28); }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 0 0 0 rgba(249,115,22,0); }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(249,115,22,.25); }
     .btn-ghost { background: transparent; color: var(--text-2); border: 1px solid var(--border-md); }
     .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,.2); transform: translateY(-1px); }
     .btn-arrow::after { content: '→'; transition: transform .2s; }
@@ -191,9 +152,9 @@
       mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, black 10%, transparent 75%);
       pointer-events: none;
     }
-    .hero-glow { position: absolute; top: -160px; left: 50%; transform: translateX(-50%); width: 900px; height: 500px; background: radial-gradient(ellipse, rgba(201,168,76,.1) 0%, transparent 68%); pointer-events: none; }
-    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent-dim); border: 1px solid rgba(201,168,76,.18); color: var(--accent); font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .4rem 1rem; border-radius: 999px; margin-bottom: 2rem; }
-    .hero-badge-dot { width: 6px; height: 6px; background: linear-gradient(135deg,#C9A84C,#9E7A2B); border-radius: 50%; animation: pulse-dot 2s ease infinite; }
+    .hero-glow { position: absolute; top: -160px; left: 50%; transform: translateX(-50%); width: 900px; height: 500px; background: radial-gradient(ellipse, rgba(249,115,22,.1) 0%, transparent 68%); pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent-dim); border: 1px solid rgba(249,115,22,.18); color: var(--accent); font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: .4rem 1rem; border-radius: 999px; margin-bottom: 2rem; }
+    .hero-badge-dot { width: 6px; height: 6px; background: #f97316; border-radius: 50%; animation: pulse-dot 2s ease infinite; }
     @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(.7); } }
     h1 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; line-height: 1.06; letter-spacing: -0.04em; color: var(--text); margin-bottom: 1.5rem; position: relative; }
     h1 em { font-style: normal; color: var(--accent); }
@@ -211,7 +172,7 @@
     .problem-text p { color: var(--text-2); font-size: .95rem; line-height: 1.8; margin-bottom: .9rem; }
     .pain-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; margin-top: 1.75rem; }
     .pain-item { display: flex; align-items: flex-start; gap: 1rem; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.25rem; transition: border-color .25s, background .25s; }
-    .pain-item:hover { border-color: rgba(201,168,76,.25); background: rgba(201,168,76,.03); }
+    .pain-item:hover { border-color: rgba(249,115,22,.25); background: rgba(249,115,22,.03); }
     .pain-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
     .pain-text strong { display: block; font-size: .88rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
     .pain-text span { font-size: .82rem; color: var(--text-2); line-height: 1.55; }
@@ -221,7 +182,7 @@
     .service-card { background: var(--surface); padding: 2rem 1.75rem; transition: background .25s; position: relative; }
     .service-card::after { content: ''; position: absolute; bottom: 0; left: 1.75rem; right: 1.75rem; height: 1px; background: transparent; transition: background .25s; }
     .service-card:hover { background: var(--surface2); }
-    .service-card:hover::after { background: linear-gradient(135deg,#C9A84C,#9E7A2B); }
+    .service-card:hover::after { background: #f97316; }
     .service-icon { font-size: 1.5rem; margin-bottom: 1.1rem; }
     .service-num { position: absolute; top: 1.25rem; right: 1.5rem; font-size: .58rem; font-weight: 700; letter-spacing: .12em; color: var(--text-3); }
     .service-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: .5rem; letter-spacing: -.01em; }
@@ -238,15 +199,15 @@
 
     #pricing { padding-bottom: 80px; }
     .pricing-header { text-align: center; margin-bottom: 4rem; }
-    .pricing-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent-dim); border: 1px solid rgba(201,168,76,.15); color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; }
+    .pricing-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: var(--accent-dim); border: 1px solid rgba(249,115,22,.15); color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: .35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; }
     .pricing-header p { color: var(--text-2); font-size: .95rem; max-width: 460px; margin: .85rem auto 0; line-height: 1.7; }
     .pkg-label { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); text-align: center; margin-bottom: 1.75rem; }
     .cards { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; max-width: 1080px; margin: 0 auto; align-items: stretch; }
     .card { flex: 1; min-width: 280px; max-width: 330px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2rem; position: relative; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; display: flex; flex-direction: column; }
     .card:hover { transform: translateY(-5px); border-color: var(--border-md); box-shadow: 0 20px 60px rgba(0,0,0,.5); }
-    .card.featured { border-color: rgba(201,168,76,.35); background: linear-gradient(160deg, #161008 0%, var(--surface) 55%); }
-    .card.featured:hover { border-color: rgba(201,168,76,.6); box-shadow: 0 20px 60px rgba(201,168,76,.1); }
-    .badge-popular { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg,#C9A84C,#9E7A2B); color: #fff; font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: .28rem .9rem; border-radius: 999px; white-space: nowrap; }
+    .card.featured { border-color: rgba(249,115,22,.35); background: linear-gradient(160deg, #161008 0%, var(--surface) 55%); }
+    .card.featured:hover { border-color: rgba(249,115,22,.6); box-shadow: 0 20px 60px rgba(249,115,22,.1); }
+    .badge-popular { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: #f97316; color: #fff; font-size: .6rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: .28rem .9rem; border-radius: 999px; white-space: nowrap; }
     .card-tier { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
     .card-name { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .25rem; }
     .card-tagline { font-size: .78rem; color: var(--text-2); margin-bottom: 1.5rem; line-height: 1.5; }
@@ -286,8 +247,8 @@
     .ala-price-item .label { font-size: .6rem; color: var(--text-3); text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
     .ala-price-item .val { font-size: .95rem; font-weight: 800; color: var(--text); letter-spacing: -.02em; }
     .ala-price-item .val.green { color: var(--green); }
-    .ala-btn { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem 1.1rem; background: transparent; color: #C9A84C; border: 1px solid rgba(201,168,76,0.45); border-radius: var(--radius-sm); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: all .2s; }
-    .ala-btn:hover { background: linear-gradient(135deg,#C9A84C,#9E7A2B); color: #050505; border-color: transparent; box-shadow: 0 4px 16px rgba(201,168,76,.2); }
+    .ala-btn { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem 1.1rem; background: transparent; color: var(--accent); border: 1px solid var(--accent); border-radius: var(--radius-sm); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: all .2s; }
+    .ala-btn:hover { background: #f97316; color: #fff; border-color: transparent; box-shadow: 0 4px 16px rgba(249,115,22,.2); }
 
     #who { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .trades-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-top: 2.5rem; }
@@ -318,7 +279,7 @@
     .faq-item.open .faq-q { color: var(--accent); }
 
     #cta { text-align: center; position: relative; overflow: hidden; }
-    .cta-glow { position: absolute; bottom: -150px; left: 50%; transform: translateX(-50%); width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(201,168,76,.1) 0%, transparent 65%); pointer-events: none; }
+    .cta-glow { position: absolute; bottom: -150px; left: 50%; transform: translateX(-50%); width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(249,115,22,.1) 0%, transparent 65%); pointer-events: none; }
     #cta h2 { margin-bottom: .9rem; }
     #cta p { color: var(--text-2); font-size: 1rem; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; }
     .cta-actions { display: flex; gap: .85rem; justify-content: center; flex-wrap: wrap; }
@@ -536,8 +497,8 @@
       <div class="ala-wrap reveal">
         <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#127959;&#65039;</div><div><div class="ala-name">Website Design</div><div class="ala-desc">Custom contractor website &mdash; mobile-friendly, SEO-ready, built to convert</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_WEBSITE_DESIGN" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$997</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
         <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#9742;&#65039;</div><div><div class="ala-name">Missed Call Text-Back</div><div class="ala-desc">Auto-texts anyone who calls and doesn't get an answer &mdash; never lose a lead again</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_MISSED_CALL" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$97</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128236;</div><div><div class="ala-name">Follow-Up Sequences</div><div class="ala-desc">7&ndash;14 day SMS + email drip for every new lead until they book or say stop</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_FOLLOW_UP" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128172;</div><div><div class="ala-name">AI Website Chatbot</div><div class="ala-desc">24/7 chatbot that answers questions, captures leads, and books appointments</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_CHATBOT" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$497</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
+        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128236;</div><div><div class="ala-name">Follow-Up Sequences</div><div class="ala-desc">7&ndash;14 day SMS + email drip for every new lead until they book or say stop</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_FOLLOW_UP" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
+        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128172;</div><div><div class="ala-name">AI Website Chatbot</div><div class="ala-desc">24/7 chatbot that answers questions, captures leads, and books appointments</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_CHATBOT" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$497</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$197</div></div></div></div>
         <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#11088;</div><div><div class="ala-name">Review Automation</div><div class="ala-desc">Auto-requests Google reviews after every completed job &mdash; builds trust on autopilot</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_REVIEW_AUTOMATION" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$97</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
         <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128241;</div><div><div class="ala-name">Social Media Automation</div><div class="ala-desc">AI writes and schedules weekly posts so your clients stay active without lifting a finger</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_SOCIAL_MEDIA" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
         <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#127897;&#65039;</div><div><div class="ala-name">Voice AI Agent</div><div class="ala-desc">AI answers calls, qualifies leads, and books appointments &mdash; even at 2am</div><a class="ala-btn" href="https://buy.stripe.com/STRIPE_LINK_VOICE_AI" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$797</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$297</div></div></div></div>
@@ -628,11 +589,8 @@
   <div class="footer-inner">
     <div class="footer-logo">Contractor Growth<span> Co.</span></div>
     <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#who">Who We Serve</a>
-      <a href="#about">About</a>
-      <a href="#faq">FAQ</a>
+      <a href="#services">Services</a><a href="#pricing">Pricing</a>
+      <a href="#who">Who We Serve</a><a href="#about">About</a><a href="#faq">FAQ</a>
       <a href="https://contractorgrowthco.pro/privacy-policy-page">Privacy Policy</a>
       <a href="https://contractorgrowthco.pro/terms--conditions">Terms</a>
     </div>
@@ -668,33 +626,33 @@
 </script>
 
 <div id="deal-overlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.82);z-index:9999;overflow-y:auto;align-items:center;justify-content:center;padding:1rem;">
-  <div style="background:#0a0a0a;border:1px solid rgba(201,168,76,.35);border-radius:20px;padding:2.25rem 2rem;max-width:440px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 0 80px rgba(201,168,76,.12);animation:popIn .35s cubic-bezier(.34,1.56,.64,1);text-align:center;font-family:'Inter','Segoe UI',system-ui,sans-serif;margin:auto;">
+  <div style="background:#0a0a0a;border:1px solid rgba(249,115,22,.35);border-radius:20px;padding:2.25rem 2rem;max-width:440px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 0 80px rgba(249,115,22,.14);animation:popIn .35s cubic-bezier(.34,1.56,.64,1);text-align:center;font-family:'Inter','Segoe UI',system-ui,sans-serif;margin:auto;">
     <button onclick="closePopup()" aria-label="Close" style="position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;color:#555;font-size:1.4rem;line-height:1;transition:color .2s;" onmouseover="this.style.color='#f0f0f0'" onmouseout="this.style.color='#555'">&times;</button>
-    <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);color:#C9A84C;font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1.1rem;">&#127381; Limited-Time Deal</div>
-    <div style="font-size:3.5rem;font-weight:900;color:#C9A84C;line-height:1;letter-spacing:-.05em;margin-bottom:.2rem;">25% OFF</div>
+    <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,.2);color:#f97316;font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1.1rem;">&#127381; Limited-Time Deal</div>
+    <div style="font-size:3.5rem;font-weight:900;color:#f97316;line-height:1;letter-spacing:-.05em;margin-bottom:.2rem;">25% OFF</div>
     <div style="font-size:1rem;font-weight:700;color:#f0f0f0;margin-bottom:.35rem;letter-spacing:-.02em;">Your Setup Fee &mdash; Today Only</div>
     <div style="font-size:.8rem;color:#a3a3a3;margin-bottom:1.4rem;line-height:1.6;">Discount applied automatically at checkout.<br>Just click your package below.</div>
     <div style="margin-bottom:1.4rem;">
       <div style="font-size:.62rem;color:#555;margin-bottom:.45rem;letter-spacing:.08em;text-transform:uppercase;">Offer expires in</div>
       <div style="display:flex;gap:.5rem;justify-content:center;">
         <div style="background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:.45rem .7rem;min-width:50px;"><div id="cd-min" style="font-size:1.35rem;font-weight:900;color:#f0f0f0;line-height:1;letter-spacing:-.03em;">15</div><div style="font-size:.55rem;color:#555;text-transform:uppercase;letter-spacing:.08em;">min</div></div>
-        <div style="font-size:1.35rem;font-weight:800;color:#C9A84C;align-self:center;">:</div>
+        <div style="font-size:1.35rem;font-weight:800;color:#f97316;align-self:center;">:</div>
         <div style="background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:.45rem .7rem;min-width:50px;"><div id="cd-sec" style="font-size:1.35rem;font-weight:900;color:#f0f0f0;line-height:1;letter-spacing:-.03em;">00</div><div style="font-size:.55rem;color:#555;text-transform:uppercase;letter-spacing:.08em;">sec</div></div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;">
-      <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(201,168,76,.3)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='#111'">
+      <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(249,115,22,.3)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='#111'">
         <div style="text-align:left;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f0;">&#127959;&#65039; Starter &mdash; Get Found</div><div style="font-size:.67rem;color:#555;margin-top:.1rem;"><s style="color:#777;">$1,297</s> + $297/mo</div></div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.1rem;font-weight:900;color:#C9A84C;letter-spacing:-.03em;">$973</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $324</div></div>
+        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.1rem;font-weight:900;color:#f97316;letter-spacing:-.03em;">$973</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $324</div></div>
       </a>
-      <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#161008;border:1px solid rgba(201,168,76,.3);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;position:relative;transition:background .2s;" onmouseover="this.style.background='#1e1608'" onmouseout="this.style.background='#161008'">
-        <div style="position:absolute;top:-10px;left:10px;background:#C9A84C;color:#fff;font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;">&#9889; Most Popular</div>
+      <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#161008;border:1px solid rgba(249,115,22,.3);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;position:relative;transition:background .2s;" onmouseover="this.style.background='#1e1608'" onmouseout="this.style.background='#161008'">
+        <div style="position:absolute;top:-10px;left:10px;background:#f97316;color:#fff;font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;">&#9889; Most Popular</div>
         <div style="text-align:left;margin-top:.2rem;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f0;">&#128640; Growth &mdash; Get Leads</div><div style="font-size:.67rem;color:#555;margin-top:.1rem;"><s style="color:#777;">$1,797</s> + $497/mo</div></div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;margin-top:.2rem;"><div style="font-size:1.1rem;font-weight:900;color:#C9A84C;letter-spacing:-.03em;">$1,348</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $449</div></div>
+        <div style="text-align:right;flex-shrink:0;margin-left:1rem;margin-top:.2rem;"><div style="font-size:1.1rem;font-weight:900;color:#f97316;letter-spacing:-.03em;">$1,348</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $449</div></div>
       </a>
-      <a href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(201,168,76,.3)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='#111'">
+      <a href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(249,115,22,.3)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='#111'">
         <div style="text-align:left;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f0;">&#127942; Pro &mdash; Get Booked</div><div style="font-size:.67rem;color:#555;margin-top:.1rem;"><s style="color:#777;">$2,497</s> + $797/mo</div></div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.1rem;font-weight:900;color:#C9A84C;letter-spacing:-.03em;">$1,873</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $624</div></div>
+        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.1rem;font-weight:900;color:#f97316;letter-spacing:-.03em;">$1,873</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $624</div></div>
       </a>
     </div>
     <div style="font-size:.68rem;color:#555;line-height:1.5;">Code <strong style="color:#a3a3a3;font-family:monospace;">SAVE25</strong> auto-applied &bull; Monthly fee unchanged</div>
@@ -705,13 +663,11 @@
   function closePopup() { document.getElementById('deal-overlay').style.display = 'none'; }
   (function() {
     if (sessionStorage.getItem('dealSeen')) return;
-    var overlay = document.getElementById('deal-overlay');
-    var shown = false;
+    var overlay = document.getElementById('deal-overlay'); var shown = false;
     function showPopup() {
       if (shown) return; shown = true;
       sessionStorage.setItem('dealSeen', '1');
-      overlay.style.display = 'flex';
-      startCountdown(15 * 60);
+      overlay.style.display = 'flex'; startCountdown(15 * 60);
     }
     setTimeout(showPopup, 7000);
     document.addEventListener('mouseleave', function(e) { if (e.clientY <= 0) showPopup(); });
