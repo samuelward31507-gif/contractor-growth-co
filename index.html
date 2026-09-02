@@ -645,6 +645,175 @@
     });
   });
 </script>
+<!-- ── 40% OFF POPUP ── -->
+<div id="deal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:1rem;">
+  <div id="deal-modal" style="
+    background:#13131a;
+    border:1px solid #f97316;
+    border-radius:20px;
+    padding:2.5rem 2rem;
+    max-width:480px;
+    width:100%;
+    position:relative;
+    box-shadow:0 0 60px rgba(249,115,22,.25);
+    animation:popIn .35s cubic-bezier(.34,1.56,.64,1);
+    text-align:center;
+    font-family:'Inter','Segoe UI',system-ui,sans-serif;
+  ">
 
+    <!-- Close -->
+    <button onclick="closePopup()" style="
+      position:absolute;top:1rem;right:1rem;
+      background:none;border:none;cursor:pointer;
+      color:#6b7280;font-size:1.4rem;line-height:1;
+      transition:color .2s;
+    " onmouseover="this.style.color='#f0f0f5'" onmouseout="this.style.color='#6b7280'">&times;</button>
+
+    <!-- Badge -->
+    <div style="
+      display:inline-block;
+      background:rgba(249,115,22,.15);
+      border:1px solid rgba(249,115,22,.4);
+      color:#f97316;
+      font-size:.7rem;font-weight:800;
+      letter-spacing:.1em;text-transform:uppercase;
+      padding:.35rem 1rem;border-radius:999px;
+      margin-bottom:1.25rem;
+    ">&#127381; Limited-Time Offer</div>
+
+    <!-- Headline -->
+    <div style="font-size:3rem;font-weight:900;color:#f97316;line-height:1;margin-bottom:.25rem;">40% OFF</div>
+    <div style="font-size:1.1rem;font-weight:700;color:#f0f0f5;margin-bottom:.25rem;">Your Setup Fee &mdash; Today Only</div>
+    <div style="font-size:.875rem;color:#6b7280;margin-bottom:1.75rem;line-height:1.5;">Get your contractor website &amp; automation system built<br>for a fraction of the normal cost.</div>
+
+    <!-- Savings Table -->
+    <div style="background:#1c1c26;border:1px solid #2a2a3d;border-radius:14px;padding:1.25rem;margin-bottom:1.75rem;text-align:left;">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6b7280;margin-bottom:.9rem;">Package Savings</div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid #2a2a3d;">
+        <div>
+          <div style="font-size:.82rem;font-weight:600;color:#f0f0f5;">&#127959;&#65039; Starter</div>
+          <div style="font-size:.72rem;color:#6b7280;">Was $1,297 setup</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:1.1rem;font-weight:800;color:#f97316;">$778</div>
+          <div style="font-size:.7rem;color:#22c55e;">Save $519</div>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid #2a2a3d;position:relative;">
+        <div style="position:absolute;top:-10px;left:8px;background:#f97316;color:#fff;font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;">Most Popular</div>
+        <div style="margin-top:.35rem;">
+          <div style="font-size:.82rem;font-weight:600;color:#f0f0f5;">&#128640; Growth</div>
+          <div style="font-size:.72rem;color:#6b7280;">Was $1,797 setup</div>
+        </div>
+        <div style="text-align:right;margin-top:.35rem;">
+          <div style="font-size:1.1rem;font-weight:800;color:#f97316;">$1,078</div>
+          <div style="font-size:.7rem;color:#22c55e;">Save $719</div>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;">
+        <div>
+          <div style="font-size:.82rem;font-weight:600;color:#f0f0f5;">&#127942; Pro</div>
+          <div style="font-size:.72rem;color:#6b7280;">Was $2,497 setup</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:1.1rem;font-weight:800;color:#f97316;">$1,498</div>
+          <div style="font-size:.7rem;color:#22c55e;">Save $999</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Countdown -->
+    <div style="margin-bottom:1.5rem;">
+      <div style="font-size:.75rem;color:#6b7280;margin-bottom:.5rem;">Offer expires in</div>
+      <div style="display:flex;gap:.5rem;justify-content:center;">
+        <div style="background:#1c1c26;border:1px solid #2a2a3d;border-radius:8px;padding:.5rem .75rem;min-width:52px;">
+          <div id="cd-min" style="font-size:1.4rem;font-weight:800;color:#f0f0f5;line-height:1;">15</div>
+          <div style="font-size:.6rem;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;">min</div>
+        </div>
+        <div style="font-size:1.4rem;font-weight:800;color:#f97316;align-self:center;">:</div>
+        <div style="background:#1c1c26;border:1px solid #2a2a3d;border-radius:8px;padding:.5rem .75rem;min-width:52px;">
+          <div id="cd-sec" style="font-size:1.4rem;font-weight:800;color:#f0f0f5;line-height:1;">00</div>
+          <div style="font-size:.6rem;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;">sec</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <a href="https://contractorgrowthco.pro/landing-page" onclick="closePopup()" style="
+      display:block;width:100%;
+      background:#f97316;color:#fff;
+      padding:1rem;border-radius:12px;
+      font-size:1rem;font-weight:800;
+      text-decoration:none;text-align:center;
+      box-shadow:0 0 28px rgba(249,115,22,.4);
+      transition:background .2s,transform .15s;
+      margin-bottom:.75rem;
+    " onmouseover="this.style.background='#fb923c';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#f97316';this.style.transform='none'">
+      Claim My 40% Off &rarr;
+    </a>
+    <div style="font-size:.75rem;color:#6b7280;">No credit card required &bull; Free audit call included</div>
+  </div>
+</div>
+
+<style>
+  @keyframes popIn {
+    from { opacity:0; transform:scale(.88) translateY(16px); }
+    to   { opacity:1; transform:scale(1)  translateY(0); }
+  }
+  #deal-overlay.active { display:flex !important; }
+</style>
+
+<script>
+  (function(){
+    // Don't show if already seen this session
+    if (sessionStorage.getItem('dealSeen')) return;
+
+    var overlay = document.getElementById('deal-overlay');
+    var shown   = false;
+
+    function showPopup() {
+      if (shown) return;
+      shown = true;
+      sessionStorage.setItem('dealSeen', '1');
+      overlay.style.display = 'flex';
+      startCountdown(15 * 60);
+    }
+
+    // Trigger 1: show after 7 seconds
+    var timer = setTimeout(showPopup, 7000);
+
+    // Trigger 2: exit intent (mouse leaves top of page)
+    document.addEventListener('mouseleave', function(e){
+      if (e.clientY <= 0) showPopup();
+    });
+
+    // Countdown timer
+    function startCountdown(totalSecs) {
+      var end = Date.now() + totalSecs * 1000;
+      var minEl = document.getElementById('cd-min');
+      var secEl = document.getElementById('cd-sec');
+      var iv = setInterval(function(){
+        var remaining = Math.max(0, Math.floor((end - Date.now()) / 1000));
+        var m = Math.floor(remaining / 60);
+        var s = remaining % 60;
+        minEl.textContent = String(m).padStart(2,'0');
+        secEl.textContent = String(s).padStart(2,'0');
+        if (remaining === 0) clearInterval(iv);
+      }, 1000);
+    }
+
+    // Close on overlay click
+    overlay.addEventListener('click', function(e){
+      if (e.target === overlay) closePopup();
+    });
+  })();
+
+  function closePopup() {
+    document.getElementById('deal-overlay').style.display = 'none';
+  }
+</script>
 </body>
 </html>
