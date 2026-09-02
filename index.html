@@ -8,191 +8,74 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #0a0a0f;
-      --surface: #13131a;
-      --surface2: #1c1c26;
-      --border: #2a2a3d;
-      --accent: #f97316;
-      --accent2: #fb923c;
-      --text: #f0f0f5;
-      --muted: #6b7280;
-      --green: #22c55e;
-      --gold: #eab308;
+      --bg: #0a0a0f; --surface: #13131a; --surface2: #1c1c26;
+      --border: #2a2a3d; --accent: #f97316; --accent2: #fb923c;
+      --text: #f0f0f5; --muted: #6b7280; --green: #22c55e; --gold: #eab308;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    body { background: var(--bg); color: var(--text); font-family: 'Inter','Segoe UI',system-ui,-apple-system,sans-serif; min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(10,10,15,0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,15,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
     .nav-logo { font-size: 1.05rem; font-weight: 800; letter-spacing: -0.02em; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 1.75rem; list-style: none; }
     .nav-links a { font-size: .875rem; font-weight: 500; color: var(--muted); transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      background: var(--accent); color: #fff;
-      padding: .5rem 1.2rem; border-radius: 8px;
-      font-size: .875rem; font-weight: 700;
-      transition: background .2s, transform .1s;
-    }
+    .nav-cta { background: var(--accent); color: #fff; padding: .5rem 1.2rem; border-radius: 8px; font-size: .875rem; font-weight: 700; transition: background .2s, transform .1s; }
     .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
-
-    /* SHARED */
     section { padding: 90px 2rem; }
     .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: .72rem; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: .9rem;
-    }
+    .section-label { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .9rem; }
     .section-header { text-align: center; margin-bottom: 3.5rem; }
     .section-header p { color: var(--muted); font-size: 1.05rem; max-width: 520px; margin: .75rem auto 0; }
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 800; line-height: 1.15; letter-spacing: -0.025em;
-    }
+    h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.025em; }
     h2 span { color: var(--accent); }
-
-    .btn-primary {
-      display: inline-block; background: var(--accent); color: #fff;
-      padding: .9rem 2rem; border-radius: 10px;
-      font-size: 1rem; font-weight: 700;
-      box-shadow: 0 0 24px rgba(249,115,22,.3);
-      transition: background .2s, transform .15s, box-shadow .2s;
-    }
+    .btn-primary { display: inline-block; background: var(--accent); color: #fff; padding: .9rem 2rem; border-radius: 10px; font-size: 1rem; font-weight: 700; box-shadow: 0 0 24px rgba(249,115,22,.3); transition: background .2s, transform .15s, box-shadow .2s; }
     .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 0 36px rgba(249,115,22,.5); }
-
-    .btn-secondary {
-      display: inline-block; background: var(--surface2); color: var(--text);
-      padding: .9rem 2rem; border-radius: 10px;
-      font-size: 1rem; font-weight: 600;
-      border: 1px solid var(--border);
-      transition: border-color .2s, transform .15s;
-    }
+    .btn-secondary { display: inline-block; background: var(--surface2); color: var(--text); padding: .9rem 2rem; border-radius: 10px; font-size: 1rem; font-weight: 600; border: 1px solid var(--border); transition: border-color .2s, transform .15s; }
     .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
-
-    /* HERO */
-    #hero {
-      padding-top: 150px;
-      text-align: center;
-      background: radial-gradient(ellipse 80% 55% at 50% -5%, rgba(249,115,22,.13) 0%, transparent 70%);
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(249,115,22,.1); border: 1px solid rgba(249,115,22,.3);
-      color: var(--accent); font-size: .78rem; font-weight: 700;
-      padding: .35rem 1rem; border-radius: 999px;
-      margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: .06em;
-    }
-    h1 {
-      font-size: clamp(2.6rem, 6vw, 4.5rem);
-      font-weight: 900; line-height: 1.08; letter-spacing: -0.03em;
-      margin-bottom: 1.4rem;
-    }
+    #hero { padding-top: 150px; text-align: center; background: radial-gradient(ellipse 80% 55% at 50% -5%, rgba(249,115,22,.13) 0%, transparent 70%); }
+    .hero-badge { display: inline-flex; align-items: center; gap: .5rem; background: rgba(249,115,22,.1); border: 1px solid rgba(249,115,22,.3); color: var(--accent); font-size: .78rem; font-weight: 700; padding: .35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: .06em; }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); font-weight: 900; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 1.4rem; }
     h1 span { color: var(--accent); }
     .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.65; }
     .hero-cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .hero-stats {
-      display: flex; justify-content: center; gap: 3.5rem; margin-top: 4rem; flex-wrap: wrap;
-      padding-top: 3rem; border-top: 1px solid var(--border);
-    }
+    .hero-stats { display: flex; justify-content: center; gap: 3.5rem; margin-top: 4rem; flex-wrap: wrap; padding-top: 3rem; border-top: 1px solid var(--border); }
     .stat { text-align: center; }
     .stat-num { font-size: 2.1rem; font-weight: 900; color: var(--accent); letter-spacing: -0.03em; }
     .stat-label { font-size: .82rem; color: var(--muted); margin-top: .25rem; }
-
-    /* PROBLEM */
     #problem { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .problem-text p { color: var(--muted); font-size: 1rem; margin-bottom: 1rem; line-height: 1.7; }
     .pain-list { list-style: none; display: flex; flex-direction: column; gap: .9rem; margin-top: 1.5rem; }
-    .pain-item {
-      display: flex; align-items: flex-start; gap: .8rem;
-      background: var(--surface2); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1rem 1.25rem;
-      transition: border-color .2s;
-    }
+    .pain-item { display: flex; align-items: flex-start; gap: .8rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; transition: border-color .2s; }
     .pain-item:hover { border-color: rgba(249,115,22,.4); }
     .pain-icon { font-size: 1.3rem; flex-shrink: 0; }
     .pain-text { font-size: .9rem; color: var(--muted); }
     .pain-text strong { color: var(--text); display: block; margin-bottom: .15rem; font-size: .95rem; }
-
-    /* SERVICES */
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    .service-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 14px; padding: 1.75rem;
-      transition: border-color .2s, transform .2s;
-    }
+    .service-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; transition: border-color .2s, transform .2s; }
     .service-card:hover { border-color: var(--accent); transform: translateY(-4px); }
     .service-icon { font-size: 2rem; margin-bottom: .9rem; }
     .service-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .45rem; }
     .service-card p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
-
-    /* PROCESS */
     #process { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
     .process-step { text-align: center; }
-    .step-num {
-      width: 48px; height: 48px; border-radius: 50%;
-      background: rgba(249,115,22,.1); border: 2px solid var(--accent);
-      color: var(--accent); font-weight: 800; font-size: 1.1rem;
-      display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
-    }
+    .step-num { width: 48px; height: 48px; border-radius: 50%; background: rgba(249,115,22,.1); border: 2px solid var(--accent); color: var(--accent); font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
     .step-title { font-size: .88rem; font-weight: 700; margin-bottom: .3rem; }
     .step-desc { font-size: .78rem; color: var(--muted); line-height: 1.5; }
-
-    /* PRICING */
     #pricing { padding-bottom: 60px; }
-    .eyebrow {
-      display: inline-block; background: var(--accent2); color: #fff;
-      font-size: .72rem; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; padding: .35rem 1rem; border-radius: 999px; margin-bottom: 1.25rem;
-    }
+    .eyebrow { display: inline-block; background: var(--accent2); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: .35rem 1rem; border-radius: 999px; margin-bottom: 1.25rem; }
     .pricing-header { text-align: center; padding-bottom: 3rem; }
     .pricing-header h2 { margin-bottom: .75rem; }
     .pricing-header p { color: var(--muted); font-size: 1.05rem; max-width: 520px; margin: 0 auto; line-height: 1.6; }
-
     .cards { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
-    .card {
-      flex: 1; min-width: 280px; max-width: 340px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 20px; padding: 2rem; position: relative;
-      transition: transform .2s, border-color .2s;
-      display: flex; flex-direction: column;
-    }
+    .card { flex: 1; min-width: 280px; max-width: 340px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; position: relative; transition: transform .2s, border-color .2s; display: flex; flex-direction: column; }
     .card:hover { transform: translateY(-4px); border-color: var(--accent); }
     .card.featured { border-color: var(--accent); background: linear-gradient(160deg, #1e1a14 0%, var(--surface) 100%); }
-    .badge-popular {
-      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-      background: var(--accent); color: #fff;
-      font-size: .72rem; font-weight: 800; letter-spacing: 1px;
-      text-transform: uppercase; padding: .3rem .9rem; border-radius: 999px; white-space: nowrap;
-    }
+    .badge-popular { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: .72rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding: .3rem .9rem; border-radius: 999px; white-space: nowrap; }
     .card-tier { font-size: .72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
     .card-name { font-size: 1.3rem; font-weight: 800; margin-bottom: .25rem; }
     .card-tagline { font-size: .85rem; color: var(--muted); margin-bottom: 1.5rem; }
@@ -201,77 +84,39 @@
     .price-setup strong { color: var(--text); }
     .price-monthly { font-size: 2.5rem; font-weight: 800; line-height: 1; color: var(--text); }
     .price-monthly span { font-size: .95rem; font-weight: 400; color: var(--muted); }
-    .price-save {
-      display: inline-block; background: rgba(34,197,94,.12); color: var(--green);
-      font-size: .75rem; font-weight: 700; padding: .2rem .6rem;
-      border-radius: 999px; margin-top: .4rem;
-    }
+    .price-save { display: inline-block; background: rgba(34,197,94,.12); color: var(--green); font-size: .75rem; font-weight: 700; padding: .2rem .6rem; border-radius: 999px; margin-top: .4rem; }
     .divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
     .feature-list { list-style: none; display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.75rem; flex: 1; }
     .feature-list li { display: flex; align-items: flex-start; gap: .6rem; font-size: .88rem; color: var(--text); line-height: 1.4; }
-    .feature-list li .check {
-      width: 18px; height: 18px; border-radius: 50%;
-      background: rgba(34,197,94,.15); color: var(--green);
-      display: flex; align-items: center; justify-content: center;
-      font-size: .7rem; flex-shrink: 0; margin-top: 1px;
-    }
+    .feature-list li .check { width: 18px; height: 18px; border-radius: 50%; background: rgba(34,197,94,.15); color: var(--green); display: flex; align-items: center; justify-content: center; font-size: .7rem; flex-shrink: 0; margin-top: 1px; }
     .btn-group { display: flex; flex-direction: column; gap: .6rem; margin-top: auto; }
-    .cta-btn {
-      display: block; width: 100%; padding: .85rem; border-radius: 12px; border: none;
-      font-size: .95rem; font-weight: 700; cursor: pointer; text-align: center;
-      text-decoration: none; transition: opacity .15s, background .15s;
-    }
+    .cta-btn { display: block; width: 100%; padding: .85rem; border-radius: 12px; border: none; font-size: .95rem; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; transition: opacity .15s, background .15s; }
     .cta-btn:hover { opacity: .87; }
     .cta-primary { background: var(--accent); color: #fff; }
-    .cta-ghost   { background: transparent; color: var(--text); border: 1px solid var(--border); }
-    .cta-pay     { background: rgba(34,197,94,.15); color: var(--green); border: 1px solid rgba(34,197,94,.3); font-size: .88rem; }
+    .cta-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .cta-pay { background: rgba(34,197,94,.15); color: var(--green); border: 1px solid rgba(34,197,94,.3); font-size: .88rem; }
     .cta-pay:hover { background: rgba(34,197,94,.25); opacity: 1; }
-
-    /* ALA CARTE */
     .ala-wrap { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
-    .ala-row {
-      display: flex; align-items: center; justify-content: space-between;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 14px; padding: 1.25rem 1.5rem;
-      gap: 1rem; flex-wrap: wrap; transition: border-color .2s;
-    }
+    .ala-row { display: flex; align-items: center; justify-content: space-between; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem 1.5rem; gap: 1rem; flex-wrap: wrap; transition: border-color .2s; }
     .ala-row:hover { border-color: var(--accent); }
     .ala-left { display: flex; align-items: center; gap: 1rem; }
-    .ala-icon {
-      font-size: 1.5rem; width: 46px; height: 46px;
-      background: var(--surface2); border-radius: 12px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
+    .ala-icon { font-size: 1.5rem; width: 46px; height: 46px; background: var(--surface2); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .ala-name { font-size: .95rem; font-weight: 700; margin-bottom: .15rem; }
     .ala-desc { font-size: .8rem; color: var(--muted); }
     .ala-prices { display: flex; gap: 1.5rem; flex-shrink: 0; text-align: right; }
     .ala-price-item .label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
-    .ala-price-item .val   { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .ala-price-item .val { font-size: 1rem; font-weight: 700; color: var(--text); }
     .ala-price-item .val.green { color: var(--green); }
-
-    /* GUARANTEE */
-    .guarantee {
-      max-width: 660px; margin: 3rem auto 0;
-      background: rgba(34,197,94,.05); border: 1px solid rgba(34,197,94,.2);
-      border-radius: 16px; padding: 1.75rem 2rem; text-align: center;
-    }
+    .guarantee { max-width: 660px; margin: 3rem auto 0; background: rgba(34,197,94,.05); border: 1px solid rgba(34,197,94,.2); border-radius: 16px; padding: 1.75rem 2rem; text-align: center; }
     .guarantee .g-icon { font-size: 2rem; margin-bottom: .75rem; }
     .guarantee h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .4rem; color: var(--green); }
-    .guarantee p  { font-size: .875rem; color: var(--muted); line-height: 1.6; }
-
-    /* WHO WE SERVE */
+    .guarantee p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
     #who { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .trades-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
-    .trade-card {
-      background: var(--surface2); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1.5rem 1rem; text-align: center;
-      transition: border-color .2s, transform .2s;
-    }
+    .trade-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 1rem; text-align: center; transition: border-color .2s, transform .2s; }
     .trade-card:hover { border-color: var(--accent); transform: translateY(-3px); }
     .trade-emoji { font-size: 2rem; margin-bottom: .5rem; }
     .trade-name { font-size: .88rem; font-weight: 600; }
-
-    /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 1rem; line-height: 1.7; }
     .about-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
@@ -280,46 +125,28 @@
     .about-facts { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
     .about-facts li { display: flex; align-items: center; gap: .75rem; font-size: .875rem; color: var(--muted); }
     .about-facts li span:first-child { font-size: 1.1rem; }
-
-    /* FAQ */
     #faq { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .faq-list { display: flex; flex-direction: column; gap: .9rem; max-width: 720px; margin: 0 auto; }
     .faq-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-    .faq-q {
-      padding: 1.2rem 1.5rem; font-weight: 600; font-size: .93rem;
-      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-      user-select: none; transition: color .2s;
-    }
+    .faq-q { padding: 1.2rem 1.5rem; font-weight: 600; font-size: .93rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: color .2s; }
     .faq-q:hover { color: var(--accent); }
     .faq-icon { color: var(--accent); font-size: 1.3rem; font-weight: 300; transition: transform .2s; flex-shrink: 0; }
     .faq-a { padding: 0 1.5rem 1.2rem; font-size: .875rem; color: var(--muted); line-height: 1.7; display: none; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
-
-    /* FINAL CTA */
-    #cta {
-      text-align: center;
-      background: radial-gradient(ellipse 80% 55% at 50% 100%, rgba(249,115,22,.12) 0%, transparent 70%);
-    }
+    #cta { text-align: center; background: radial-gradient(ellipse 80% 55% at 50% 100%, rgba(249,115,22,.12) 0%, transparent 70%); }
     #cta h2 { margin-bottom: 1rem; }
     #cta p { color: var(--muted); font-size: 1.1rem; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.6; }
     .cta-phone { margin-top: 1.5rem; font-size: .875rem; color: var(--muted); }
     .cta-phone strong { color: var(--text); }
-
-    /* FOOTER */
     footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2.5rem 2rem; }
-    .footer-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-weight: 800; font-size: 1rem; }
     .footer-logo span { color: var(--accent); }
     .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     .footer-links a { font-size: .82rem; color: var(--muted); transition: color .2s; }
     .footer-links a:hover { color: var(--text); }
     .footer-copy { font-size: .78rem; color: var(--muted); }
-
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       .problem-grid, .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .services-grid, .trades-grid { grid-template-columns: repeat(2, 1fr); }
@@ -337,11 +164,15 @@
       .footer-inner { flex-direction: column; text-align: center; }
       .footer-links { justify-content: center; }
     }
+    /* FIX 1: @keyframes in <head> — animation always available */
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.88) translateY(16px); }
+      to   { opacity: 1; transform: scale(1)  translateY(0); }
+    }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Contractor Growth<span> Co.</span></div>
   <ul class="nav-links">
@@ -354,7 +185,6 @@
   <a href="https://contractorgrowthco.pro/landing-page" class="nav-cta">Get a Free Audit &rarr;</a>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="container">
     <div class="hero-badge">&#127959;&#65039; For Contractors Across the US</div>
@@ -372,7 +202,6 @@
   </div>
 </section>
 
-<!-- PROBLEM -->
 <section id="problem">
   <div class="container">
     <div class="problem-grid">
@@ -392,7 +221,6 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="container">
     <div class="section-header">
@@ -411,7 +239,6 @@
   </div>
 </section>
 
-<!-- PROCESS -->
 <section id="process">
   <div class="container">
     <div class="section-header">
@@ -429,7 +256,6 @@
   </div>
 </section>
 
-<!-- PRICING -->
 <section id="pricing">
   <div class="container">
     <div class="pricing-header">
@@ -439,8 +265,6 @@
     </div>
     <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:2rem;">Choose Your Package</div>
     <div class="cards">
-
-      <!-- STARTER -->
       <div class="card">
         <div class="card-tier">Starter</div>
         <div class="card-name">&#127959;&#65039; Get Found</div>
@@ -463,8 +287,6 @@
           <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00" class="cta-btn cta-pay" target="_blank">&#128179; Pay Now &mdash; $1,297 + $297/mo</a>
         </div>
       </div>
-
-      <!-- GROWTH -->
       <div class="card featured">
         <div class="badge-popular">&#9889; Most Popular</div>
         <div class="card-tier">Growth</div>
@@ -488,8 +310,6 @@
           <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01" class="cta-btn cta-pay" target="_blank">&#128179; Pay Now &mdash; $1,797 + $497/mo</a>
         </div>
       </div>
-
-      <!-- PRO -->
       <div class="card">
         <div class="card-tier">Pro</div>
         <div class="card-name">&#127942; Get Booked</div>
@@ -511,17 +331,12 @@
           <a href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02" class="cta-btn cta-pay" target="_blank">&#128179; Pay Now &mdash; $2,497 + $797/mo</a>
         </div>
       </div>
-
     </div>
-
-    <!-- GUARANTEE -->
     <div class="guarantee">
       <div class="g-icon">&#128737;&#65039;</div>
       <h3>30-Day Satisfaction Guarantee</h3>
       <p>If you're not completely happy with your system in the first 30 days, we'll make it right &mdash; no questions asked.</p>
     </div>
-
-    <!-- ALA CARTE -->
     <div style="margin-top:5rem;">
       <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:2rem;">&Agrave; La Carte &mdash; Add Individual Services</div>
       <div class="ala-wrap">
@@ -538,7 +353,6 @@
   </div>
 </section>
 
-<!-- WHO WE SERVE -->
 <section id="who">
   <div class="container">
     <div class="section-header">
@@ -559,7 +373,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
@@ -585,7 +398,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section id="faq">
   <div class="container">
     <div class="section-header">
@@ -604,7 +416,6 @@
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section id="cta">
   <div class="container" style="max-width:680px;text-align:center;">
     <div class="section-label" style="text-align:center;">Get Started</div>
@@ -618,7 +429,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Contractor Growth<span> Co.</span></div>
@@ -636,134 +446,61 @@
 </footer>
 
 <script>
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => {
-      const item = q.parentElement;
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = q.parentElement;
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
       if (!wasOpen) item.classList.add('open');
     });
   });
 </script>
-  <!-- ── 25% OFF POPUP ── -->
-<div id="deal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:999;backdrop-filter:blur(5px);align-items:center;justify-content:center;padding:1rem;">
-  <div style="
-    background:#13131a;
-    border:1px solid #f97316;
-    border-radius:20px;
-    padding:2.25rem 2rem;
-    max-width:460px;
-    width:100%;
-    position:relative;
-    box-shadow:0 0 60px rgba(249,115,22,.25);
-    animation:popIn .35s cubic-bezier(.34,1.56,.64,1);
-    text-align:center;
-    font-family:'Inter','Segoe UI',system-ui,sans-serif;
-  ">
 
-    <!-- Close -->
-    <button onclick="closePopup()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;color:#6b7280;font-size:1.5rem;line-height:1;transition:color .2s;" onmouseover="this.style.color='#f0f0f5'" onmouseout="this.style.color='#6b7280'">&times;</button>
-
-    <!-- Badge -->
+<!-- FIX 2+3: overlay gets overflow-y:auto; modal gets max-height:90vh + overflow-y:auto -->
+<div id="deal-overlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.78);z-index:9999;overflow-y:auto;align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:#13131a;border:1px solid #f97316;border-radius:20px;padding:2.25rem 2rem;max-width:460px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 0 60px rgba(249,115,22,.25);animation:popIn .35s cubic-bezier(.34,1.56,.64,1);text-align:center;font-family:'Inter','Segoe UI',system-ui,sans-serif;margin:auto;">
+    <button onclick="closePopup()" aria-label="Close" style="position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;color:#6b7280;font-size:1.5rem;line-height:1;transition:color .2s;" onmouseover="this.style.color='#f0f0f5'" onmouseout="this.style.color='#6b7280'">&times;</button>
     <div style="display:inline-block;background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.4);color:#f97316;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1.1rem;">&#127381; Limited-Time Deal</div>
-
-    <!-- Headline -->
     <div style="font-size:3.25rem;font-weight:900;color:#f97316;line-height:1;margin-bottom:.2rem;">25% OFF</div>
     <div style="font-size:1.05rem;font-weight:700;color:#f0f0f5;margin-bottom:.35rem;">Your Setup Fee &mdash; Today Only</div>
     <div style="font-size:.85rem;color:#6b7280;margin-bottom:1.5rem;line-height:1.55;">Discount applied automatically at checkout.<br>No code needed &mdash; just click your package below.</div>
-
-    <!-- Countdown -->
     <div style="margin-bottom:1.4rem;">
       <div style="font-size:.7rem;color:#6b7280;margin-bottom:.45rem;">Offer expires in</div>
       <div style="display:flex;gap:.5rem;justify-content:center;">
-        <div style="background:#1c1c26;border:1px solid #2a2a3d;border-radius:8px;padding:.45rem .7rem;min-width:50px;">
-          <div id="cd-min" style="font-size:1.35rem;font-weight:800;color:#f0f0f5;line-height:1;">15</div>
-          <div style="font-size:.58rem;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;">min</div>
-        </div>
+        <div style="background:#1c1c26;border:1px solid #2a2a3d;border-radius:8px;padding:.45rem .7rem;min-width:50px;"><div id="cd-min" style="font-size:1.35rem;font-weight:800;color:#f0f0f5;line-height:1;">15</div><div style="font-size:.58rem;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;">min</div></div>
         <div style="font-size:1.35rem;font-weight:800;color:#f97316;align-self:center;">:</div>
-        <div style="background:#1c1c26;border:1px solid #2a2a3d;border-radius:8px;padding:.45rem .7rem;min-width:50px;">
-          <div id="cd-sec" style="font-size:1.35rem;font-weight:800;color:#f0f0f5;line-height:1;">00</div>
-          <div style="font-size:.58rem;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;">sec</div>
-        </div>
+        <div style="background:#1c1c26;border:1px solid #2a2a3d;border-radius:8px;padding:.45rem .7rem;min-width:50px;"><div id="cd-sec" style="font-size:1.35rem;font-weight:800;color:#f0f0f5;line-height:1;">00</div><div style="font-size:.58rem;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;">sec</div></div>
       </div>
     </div>
-
-    <!-- Tier Buttons -->
     <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:1rem;">
-
-      <!-- STARTER -->
-      <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="
-        display:flex;align-items:center;justify-content:space-between;
-        background:#1c1c26;border:1px solid #2a2a3d;
-        border-radius:12px;padding:.9rem 1.1rem;
-        text-decoration:none;transition:border-color .2s,background .2s;
-      " onmouseover="this.style.borderColor='#f97316';this.style.background='#222230'" onmouseout="this.style.borderColor='#2a2a3d';this.style.background='#1c1c26'">
-        <div style="text-align:left;">
-          <div style="font-size:.78rem;font-weight:700;color:#f0f0f5;">&#127959;&#65039; Starter &mdash; Get Found</div>
-          <div style="font-size:.68rem;color:#6b7280;"><s>$1,297</s> setup + $297/mo</div>
-        </div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;">
-          <div style="font-size:1.15rem;font-weight:900;color:#f97316;">$973</div>
-          <div style="font-size:.65rem;color:#22c55e;font-weight:700;">Save $324</div>
-        </div>
+      <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#1c1c26;border:1px solid #2a2a3d;border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='#f97316';this.style.background='#222230'" onmouseout="this.style.borderColor='#2a2a3d';this.style.background='#1c1c26'">
+        <div style="text-align:left;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f5;">&#127959;&#65039; Starter &mdash; Get Found</div><div style="font-size:.68rem;color:#6b7280;"><s>$1,297</s> setup + $297/mo</div></div>
+        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.15rem;font-weight:900;color:#f97316;">$973</div><div style="font-size:.65rem;color:#22c55e;font-weight:700;">Save $324</div></div>
       </a>
-
-      <!-- GROWTH -->
-      <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="
-        display:flex;align-items:center;justify-content:space-between;
-        background:linear-gradient(135deg,#1e1a14,#1c1c26);border:1px solid #f97316;
-        border-radius:12px;padding:.9rem 1.1rem;
-        text-decoration:none;transition:border-color .2s,background .2s;
-        position:relative;
-      " onmouseover="this.style.background='linear-gradient(135deg,#2a2010,#222230)'" onmouseout="this.style.background='linear-gradient(135deg,#1e1a14,#1c1c26)'">
+      <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#1e1a14;border:2px solid #f97316;border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;position:relative;transition:background .2s;" onmouseover="this.style.background='#2a2010'" onmouseout="this.style.background='#1e1a14'">
         <div style="position:absolute;top:-10px;left:10px;background:#f97316;color:#fff;font-size:.58rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;">&#9889; Most Popular</div>
-        <div style="text-align:left;margin-top:.2rem;">
-          <div style="font-size:.78rem;font-weight:700;color:#f0f0f5;">&#128640; Growth &mdash; Get Leads</div>
-          <div style="font-size:.68rem;color:#6b7280;"><s>$1,797</s> setup + $497/mo</div>
-        </div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;margin-top:.2rem;">
-          <div style="font-size:1.15rem;font-weight:900;color:#f97316;">$1,348</div>
-          <div style="font-size:.65rem;color:#22c55e;font-weight:700;">Save $449</div>
-        </div>
+        <div style="text-align:left;margin-top:.25rem;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f5;">&#128640; Growth &mdash; Get Leads</div><div style="font-size:.68rem;color:#6b7280;"><s>$1,797</s> setup + $497/mo</div></div>
+        <div style="text-align:right;flex-shrink:0;margin-left:1rem;margin-top:.25rem;"><div style="font-size:1.15rem;font-weight:900;color:#f97316;">$1,348</div><div style="font-size:.65rem;color:#22c55e;font-weight:700;">Save $449</div></div>
       </a>
-
-      <!-- PRO -->
-      <a href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="
-        display:flex;align-items:center;justify-content:space-between;
-        background:#1c1c26;border:1px solid #2a2a3d;
-        border-radius:12px;padding:.9rem 1.1rem;
-        text-decoration:none;transition:border-color .2s,background .2s;
-      " onmouseover="this.style.borderColor='#f97316';this.style.background='#222230'" onmouseout="this.style.borderColor='#2a2a3d';this.style.background='#1c1c26'">
-        <div style="text-align:left;">
-          <div style="font-size:.78rem;font-weight:700;color:#f0f0f5;">&#127942; Pro &mdash; Get Booked</div>
-          <div style="font-size:.68rem;color:#6b7280;"><s>$2,497</s> setup + $797/mo</div>
-        </div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;">
-          <div style="font-size:1.15rem;font-weight:900;color:#f97316;">$1,873</div>
-          <div style="font-size:.65rem;color:#22c55e;font-weight:700;">Save $624</div>
-        </div>
+      <a href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#1c1c26;border:1px solid #2a2a3d;border-radius:12px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='#f97316';this.style.background='#222230'" onmouseout="this.style.borderColor='#2a2a3d';this.style.background='#1c1c26'">
+        <div style="text-align:left;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f5;">&#127942; Pro &mdash; Get Booked</div><div style="font-size:.68rem;color:#6b7280;"><s>$2,497</s> setup + $797/mo</div></div>
+        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.15rem;font-weight:900;color:#f97316;">$1,873</div><div style="font-size:.65rem;color:#22c55e;font-weight:700;">Save $624</div></div>
       </a>
-
     </div>
-
     <div style="font-size:.72rem;color:#6b7280;line-height:1.5;">Discount auto-applied via promo code <strong style="color:#f0f0f5;">SAVE25</strong> &bull; Monthly fee unchanged</div>
   </div>
 </div>
 
-<style>
-  @keyframes popIn {
-    from { opacity:0; transform:scale(.88) translateY(16px); }
-    to   { opacity:1; transform:scale(1)  translateY(0); }
-  }
-</style>
-
 <script>
-  (function(){
-    if (sessionStorage.getItem('dealSeen')) return;
+  /* FIX 4+5: closePopup defined FIRST (global), Escape key added */
+  function closePopup() {
+    document.getElementById('deal-overlay').style.display = 'none';
+  }
 
+  (function() {
+    if (sessionStorage.getItem('dealSeen')) return;
     var overlay = document.getElementById('deal-overlay');
     var shown = false;
-
     function showPopup() {
       if (shown) return;
       shown = true;
@@ -771,20 +508,10 @@
       overlay.style.display = 'flex';
       startCountdown(15 * 60);
     }
-
-    // Show after 7 seconds
     setTimeout(showPopup, 7000);
-
-    // Exit intent
-    document.addEventListener('mouseleave', function(e) {
-      if (e.clientY <= 0) showPopup();
-    });
-
-    // Click outside to close
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closePopup();
-    });
-
+    document.addEventListener('mouseleave', function(e) { if (e.clientY <= 0) showPopup(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) closePopup(); });
     function startCountdown(totalSecs) {
       var end = Date.now() + totalSecs * 1000;
       var minEl = document.getElementById('cd-min');
@@ -797,10 +524,7 @@
       }, 1000);
     }
   })();
-
-  function closePopup() {
-    document.getElementById('deal-overlay').style.display = 'none';
-  }
 </script>
+
 </body>
 </html>
