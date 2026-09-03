@@ -3,551 +3,502 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contractor Growth Co. — Websites That Win Contractors More Jobs</title>
+  <meta name="description" content="Contractor Growth Co. builds and manages websites, AI, follow-up automation, and business analytics that help contractors turn more leads into booked jobs." />
+  <title>Contractor Growth Co. — Turn More Leads Into Booked Jobs</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #050505; --surface: #0a0a0a; --surface2: #111111; --surface3: #191919;
-      --border: rgba(255,255,255,0.07); --border-md: rgba(255,255,255,0.11);
-      --accent: #f97316; --accent2: #fb923c;
-      --accent-dim: rgba(249,115,22,0.08); --accent-glow: rgba(249,115,22,0.14);
-      --text: #f0f0f0; --text-2: #a3a3a3; --text-3: #555;
-      --green: #22c55e; --green-dim: rgba(34,197,94,0.08);
-      --radius-sm: 6px; --radius: 10px; --radius-lg: 16px; --radius-xl: 22px;
+    :root{
+      --bg:#050505; --surface:#0a0a0a; --surface-2:#111; --surface-3:#181818;
+      --text:#f4f4f5; --muted:#a1a1aa; --dim:#62626b;
+      --orange:#f97316; --orange-2:#fb923c; --orange-soft:rgba(249,115,22,.10);
+      --green:#22c55e; --border:rgba(255,255,255,.08); --border-strong:rgba(255,255,255,.14);
+      --radius:14px; --radius-lg:22px; --max:1160px;
     }
-    #hero::before { content:''; position:absolute; top:-20%; left:50%; transform:translateX(-50%); width:700px; height:700px; background:radial-gradient(ellipse at center,rgba(249,115,22,0.06) 0%,transparent 70%); pointer-events:none; }
-    body::before { content:''; position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:.028; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size:180px 180px; }
-    html { scroll-behavior: smooth; }
-    body { background:var(--bg); color:var(--text); font-family:'Inter',system-ui,-apple-system,sans-serif; min-height:100vh; overflow-x:hidden; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-    a { color:inherit; text-decoration:none; }
-    h1 { font-family:'Playfair Display',Georgia,serif; }
-    img { display:block; max-width:100%; }
-    nav { position:fixed; top:0; left:0; right:0; z-index:1000; height:68px; padding:0 2.5rem; display:flex; align-items:center; justify-content:space-between; transition:height .3s ease,background .3s ease,border-color .3s ease; border-bottom:1px solid transparent; }
-    nav.scrolled { height:56px; background:rgba(5,5,5,0.96); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border-bottom-color:var(--border); }
-    .nav-logo { font-size:1rem; font-weight:800; letter-spacing:-0.03em; color:var(--text); }
-    .nav-logo span { color:#f97316; }
-    .nav-links { display:flex; gap:2rem; list-style:none; }
-    .nav-links a { font-size:.8rem; font-weight:500; color:var(--text-2); letter-spacing:.01em; transition:color .2s; }
-    .nav-links a:hover { color:var(--text); }
-    .nav-cta { background:#f97316; color:#050505; padding:.55rem 1.25rem; border-radius:var(--radius-sm); font-size:.8rem; font-weight:800; letter-spacing:.02em; transition:all .2s; }
-    .nav-cta:hover { background:#fb923c; transform:translateY(-1px); box-shadow:0 4px 20px rgba(249,115,22,.25); }
-    section { padding:120px 2.5rem; }
-    .container { max-width:1080px; margin:0 auto; }
-    .eyebrow { display:inline-flex; align-items:center; gap:.6rem; font-size:.65rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); margin-bottom:1.5rem; }
-    .eyebrow-num { font-size:.6rem; color:#f97316; letter-spacing:.14em; font-weight:700; }
-    .eyebrow-line { width:32px; height:1px; background:var(--border-md); }
-    h2 { font-size:clamp(1.75rem,3.5vw,2.75rem); font-weight:700; line-height:1.15; letter-spacing:-0.02em; color:var(--text); font-family:'Playfair Display',Georgia,serif; }
-    h2 em { font-style:italic; color:var(--accent); }
-    h3 { font-family:'Playfair Display',Georgia,serif; letter-spacing:-.01em; }
-    .section-sub { color:var(--text-2); font-size:.95rem; line-height:1.75; max-width:500px; margin-top:1rem; font-weight:300; letter-spacing:.01em; }
-    .reveal { opacity:0; transform:translateY(20px); transition:opacity .6s ease,transform .6s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-    .reveal-delay-1 { transition-delay:.1s; } .reveal-delay-2 { transition-delay:.2s; } .reveal-delay-3 { transition-delay:.3s; } .reveal-delay-4 { transition-delay:.4s; } .reveal-delay-5 { transition-delay:.5s; }
-    @media (prefers-reduced-motion:reduce) { .reveal { opacity:1; transform:none; transition:none; } }
-    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.85rem 1.75rem; border-radius:var(--radius-sm); font-size:.9rem; font-weight:700; letter-spacing:.01em; cursor:pointer; border:none; transition:all .2s ease; white-space:nowrap; }
-    .btn-primary { background:#f97316; color:#050505; font-weight:800; }
-    .btn-primary:hover { background:#fb923c; transform:translateY(-2px); box-shadow:0 8px 32px rgba(249,115,22,.28); }
-    .btn-ghost { background:transparent; color:var(--text-2); border:1px solid var(--border-md); }
-    .btn-ghost:hover { color:var(--text); border-color:rgba(255,255,255,.2); transform:translateY(-1px); }
-    .btn-arrow::after { content:'→'; transition:transform .2s; }
-    .btn-arrow:hover::after { transform:translateX(3px); }
-    #hero { position:relative; padding-top:180px; padding-bottom:130px; text-align:center; overflow:hidden; }
-    .hero-dot-grid { position:absolute; inset:0; background-image:radial-gradient(circle,rgba(255,255,255,0.045) 1px,transparent 1px); background-size:28px 28px; -webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 50%,black 10%,transparent 75%); mask-image:radial-gradient(ellipse 85% 75% at 50% 50%,black 10%,transparent 75%); pointer-events:none; }
-    .hero-glow { position:absolute; top:-160px; left:50%; transform:translateX(-50%); width:900px; height:500px; background:radial-gradient(ellipse,rgba(249,115,22,.1) 0%,transparent 68%); pointer-events:none; }
-    .hero-badge { display:inline-flex; align-items:center; gap:.5rem; background:var(--accent-dim); border:1px solid rgba(249,115,22,.18); color:var(--accent); font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.4rem 1rem; border-radius:999px; margin-bottom:2rem; }
-    .hero-badge-dot { width:6px; height:6px; background:#f97316; border-radius:50%; animation:pulse-dot 2s ease infinite; }
-    @keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(.7); } }
-    h1 { font-size:clamp(2.8rem,6vw,5rem); font-weight:900; line-height:1.06; letter-spacing:-0.04em; color:var(--text); margin-bottom:1.5rem; position:relative; }
-    h1 em { font-style:normal; color:var(--accent); }
-    .hero-sub { font-size:1.05rem; color:var(--text-2); max-width:540px; margin:0 auto 2.5rem; line-height:1.7; font-weight:400; }
-    .hero-cta-group { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; }
-    .hero-stats { display:flex; justify-content:center; gap:0; margin-top:5rem; padding-top:3rem; border-top:1px solid var(--border); flex-wrap:wrap; }
-    .hero-stat { flex:1; min-width:140px; max-width:220px; padding:0 2.5rem; text-align:center; position:relative; }
-    .hero-stat + .hero-stat::before { content:''; position:absolute; left:0; top:10%; height:80%; width:1px; background:var(--border); }
-    .stat-num { font-size:2.2rem; font-weight:900; color:var(--text); letter-spacing:-0.04em; line-height:1; }
-    .stat-num span { color:var(--accent); }
-    .stat-label { font-size:.72rem; color:var(--text-3); text-transform:uppercase; letter-spacing:.1em; margin-top:.5rem; font-weight:600; }
-    #problem { background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .problem-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-    .problem-text p { color:var(--text-2); font-size:.95rem; line-height:1.8; margin-bottom:.9rem; }
-    .pain-list { list-style:none; display:flex; flex-direction:column; gap:.75rem; margin-top:1.75rem; }
-    .pain-item { display:flex; align-items:flex-start; gap:1rem; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:1.1rem 1.25rem; transition:border-color .25s,background .25s; }
-    .pain-item:hover { border-color:rgba(249,115,22,.25); background:rgba(249,115,22,.03); }
-    .pain-icon { font-size:1.1rem; flex-shrink:0; margin-top:.1rem; }
-    .pain-text strong { display:block; font-size:.88rem; font-weight:700; color:var(--text); margin-bottom:.2rem; }
-    .pain-text span { font-size:.82rem; color:var(--text-2); line-height:1.55; }
-    #services .section-header { margin-bottom:3.5rem; }
-    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
-    .service-card { background:var(--surface); padding:2rem 1.75rem; transition:background .25s; position:relative; }
-    .service-card::after { content:''; position:absolute; bottom:0; left:1.75rem; right:1.75rem; height:1px; background:transparent; transition:background .25s; }
-    .service-card:hover { background:var(--surface2); }
-    .service-card:hover::after { background:#f97316; }
-    .service-icon { font-size:1.5rem; margin-bottom:1.1rem; }
-    .service-num { position:absolute; top:1.25rem; right:1.5rem; font-size:.58rem; font-weight:700; letter-spacing:.12em; color:var(--text-3); }
-    .service-card h3 { font-size:.95rem; font-weight:700; margin-bottom:.5rem; letter-spacing:-.01em; }
-    .service-card p { font-size:.82rem; color:var(--text-2); line-height:1.65; }
-    #process { background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .process-steps { display:grid; grid-template-columns:repeat(5,1fr); gap:1.5rem; position:relative; margin-top:3rem; }
-    .process-steps::before { content:''; position:absolute; top:23px; left:calc(10% + 12px); right:calc(10% + 12px); height:1px; background:repeating-linear-gradient(90deg,var(--border-md) 0,var(--border-md) 6px,transparent 6px,transparent 14px); }
-    .process-step { text-align:center; position:relative; }
-    .step-num { width:46px; height:46px; border-radius:50%; background:var(--bg); border:1px solid var(--border-md); color:var(--accent); font-weight:800; font-size:.85rem; display:flex; align-items:center; justify-content:center; margin:0 auto 1.1rem; position:relative; z-index:1; transition:border-color .25s,background .25s; }
-    .process-step:hover .step-num { border-color:var(--accent); background:var(--accent-dim); }
-    .step-title { font-size:.82rem; font-weight:700; margin-bottom:.35rem; letter-spacing:-.01em; }
-    .step-desc { font-size:.75rem; color:var(--text-2); line-height:1.55; }
-    #pricing { padding-bottom:80px; }
-    .pricing-header { text-align:center; margin-bottom:4rem; }
-    .pricing-eyebrow { display:inline-flex; align-items:center; gap:.5rem; background:var(--accent-dim); border:1px solid rgba(249,115,22,.15); color:var(--accent); font-size:.65rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; padding:.35rem 1rem; border-radius:999px; margin-bottom:1.5rem; }
-    .pricing-header p { color:var(--text-2); font-size:.95rem; max-width:460px; margin:.85rem auto 0; line-height:1.7; }
-    .pkg-label { font-size:.62rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); text-align:center; margin-bottom:1.75rem; }
-    .cards { display:flex; gap:1.25rem; justify-content:center; flex-wrap:wrap; max-width:1080px; margin:0 auto; align-items:stretch; }
-    .card { flex:1; min-width:280px; max-width:330px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-xl); padding:2rem; position:relative; transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; display:flex; flex-direction:column; }
-    .card:hover { transform:translateY(-5px); border-color:var(--border-md); box-shadow:0 20px 60px rgba(0,0,0,.5); }
-    .card.featured { border-color:rgba(249,115,22,.35); background:linear-gradient(160deg,#161008 0%,var(--surface) 55%); }
-    .card.featured:hover { border-color:rgba(249,115,22,.6); box-shadow:0 20px 60px rgba(249,115,22,.1); }
-    .badge-popular { position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:#f97316; color:#fff; font-size:.6rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:.28rem .9rem; border-radius:999px; white-space:nowrap; }
-    .card-tier { font-size:.62rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:.5rem; }
-    .card-name { font-size:1.25rem; font-weight:800; letter-spacing:-.02em; margin-bottom:.25rem; }
-    .card-tagline { font-size:.78rem; color:var(--text-2); margin-bottom:1.5rem; line-height:1.5; }
-    .price-block { margin-bottom:1.5rem; }
-    .price-setup { font-size:.75rem; color:var(--text-2); margin-bottom:.2rem; }
-    .price-setup strong { color:var(--text); font-weight:700; }
-    .price-monthly { font-size:2.4rem; font-weight:900; letter-spacing:-.04em; line-height:1; color:var(--text); }
-    .price-monthly span { font-size:.85rem; font-weight:400; color:var(--text-2); letter-spacing:0; }
-    .price-save { display:inline-block; background:var(--green-dim); border:1px solid rgba(34,197,94,.15); color:var(--green); font-size:.68rem; font-weight:700; padding:.18rem .55rem; border-radius:4px; margin-top:.5rem; }
-    .divider { border:none; border-top:1px solid var(--border); margin:1.25rem 0; }
-    .feature-list { list-style:none; display:flex; flex-direction:column; gap:.6rem; margin-bottom:1.75rem; flex:1; }
-    .feature-list li { display:flex; align-items:flex-start; gap:.65rem; font-size:.82rem; color:var(--text-2); line-height:1.4; }
-    .check { width:16px; height:16px; border-radius:4px; background:var(--green-dim); border:1px solid rgba(34,197,94,.2); color:var(--green); display:inline-flex; align-items:center; justify-content:center; font-size:.6rem; flex-shrink:0; margin-top:1px; }
-    .btn-group { display:flex; flex-direction:column; gap:.55rem; margin-top:auto; }
-    .cta-btn { display:block; width:100%; padding:.8rem; border-radius:var(--radius-sm); border:none; font-size:.85rem; font-weight:700; cursor:pointer; text-align:center; text-decoration:none; transition:all .2s ease; letter-spacing:.01em; }
-    .cta-primary { background:var(--accent); color:#fff; }
-    .cta-primary:hover { background:var(--accent2); transform:translateY(-1px); }
-    .cta-ghost { background:transparent; color:var(--text-2); border:1px solid var(--border-md); }
-    .cta-ghost:hover { color:var(--text); border-color:rgba(255,255,255,.2); transform:translateY(-1px); }
-    .cta-pay { background:var(--green-dim); color:var(--green); border:1px solid rgba(34,197,94,.18); font-size:.78rem; }
-    .cta-pay:hover { background:rgba(34,197,94,.12); transform:translateY(-1px); }
-    .guarantee { max-width:640px; margin:3.5rem auto 0; background:rgba(34,197,94,.04); border:1px solid rgba(34,197,94,.12); border-radius:var(--radius-lg); padding:1.75rem 2rem; text-align:center; }
-    .g-icon { font-size:1.75rem; margin-bottom:.65rem; }
-    .guarantee h3 { font-size:1rem; font-weight:700; margin-bottom:.4rem; color:var(--green); }
-    .guarantee p { font-size:.82rem; color:var(--text-2); line-height:1.65; }
-    .ala-wrap { max-width:820px; margin:0 auto; display:flex; flex-direction:column; border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
-    .ala-row { display:flex; align-items:center; justify-content:space-between; background:var(--surface); padding:1.1rem 1.5rem; gap:1rem; flex-wrap:wrap; transition:background .2s; border-bottom:1px solid var(--border); }
-    .ala-row:last-child { border-bottom:none; }
-    .ala-row:hover { background:var(--surface2); }
-    .ala-left { display:flex; align-items:center; gap:.9rem; }
-    .ala-icon { font-size:1.2rem; width:40px; height:40px; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .ala-name { font-size:.88rem; font-weight:700; margin-bottom:.12rem; }
-    .ala-desc { font-size:.75rem; color:var(--text-2); line-height:1.4; }
-    .ala-prices { display:flex; gap:1.75rem; flex-shrink:0; text-align:right; }
-    .ala-price-item .label { font-size:.6rem; color:var(--text-3); text-transform:uppercase; letter-spacing:.08em; font-weight:700; }
-    .ala-price-item .val { font-size:.95rem; font-weight:800; color:var(--text); letter-spacing:-.02em; }
-    .ala-price-item .val.green { color:var(--green); }
-    .ala-btn { display:inline-flex; align-items:center; gap:.35rem; padding:.45rem 1.1rem; background:transparent; color:var(--accent); border:1px solid var(--accent); border-radius:var(--radius-sm); font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; white-space:nowrap; flex-shrink:0; transition:all .2s; }
-    .ala-btn:hover { background:#f97316; color:#fff; border-color:transparent; box-shadow:0 4px 16px rgba(249,115,22,.2); }
-    #who { background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .trades-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; margin-top:2.5rem; }
-    .trade-card { background:var(--bg); padding:1.75rem 1rem; text-align:center; transition:background .2s; }
-    .trade-card:hover { background:var(--surface2); }
-    .trade-emoji { font-size:1.75rem; margin-bottom:.6rem; }
-    .trade-name { font-size:.78rem; font-weight:700; letter-spacing:-.01em; }
-    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-    .about-text p { color:var(--text-2); margin-bottom:1rem; font-size:.95rem; line-height:1.8; }
-    .about-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-xl); padding:2.5rem; }
-    .about-name { font-size:1.4rem; font-weight:800; letter-spacing:-.03em; margin-bottom:.2rem; }
-    .about-role { color:var(--accent); font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; margin-bottom:1.75rem; }
-    .about-facts { list-style:none; display:flex; flex-direction:column; gap:.8rem; }
-    .about-facts li { display:flex; align-items:flex-start; gap:.75rem; font-size:.82rem; color:var(--text-2); line-height:1.5; }
-    .about-facts li .fact-icon { font-size:1rem; flex-shrink:0; margin-top:.05rem; }
-    #faq { background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .faq-list { display:flex; flex-direction:column; max-width:680px; margin:0 auto; border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; }
-    .faq-item { border-bottom:1px solid var(--border); }
-    .faq-item:last-child { border-bottom:none; }
-    .faq-q { padding:1.15rem 1.5rem; font-weight:600; font-size:.88rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; user-select:none; transition:color .2s,background .2s; color:var(--text); background:var(--bg); }
-    .faq-q:hover { background:var(--surface2); color:var(--accent); }
-    .faq-icon { color:var(--accent); font-size:1.2rem; font-weight:300; transition:transform .25s ease; flex-shrink:0; line-height:1; }
-    .faq-a { padding:0 1.5rem 1.15rem; font-size:.82rem; color:var(--text-2); line-height:1.75; display:none; background:var(--bg); }
-    .faq-item.open .faq-a { display:block; }
-    .faq-item.open .faq-icon { transform:rotate(45deg); }
-    .faq-item.open .faq-q { color:var(--accent); }
-    #cta { text-align:center; position:relative; overflow:hidden; }
-    .cta-glow { position:absolute; bottom:-150px; left:50%; transform:translateX(-50%); width:700px; height:400px; background:radial-gradient(ellipse,rgba(249,115,22,.1) 0%,transparent 65%); pointer-events:none; }
-    #cta h2 { margin-bottom:.9rem; }
-    #cta p { color:var(--text-2); font-size:1rem; max-width:480px; margin:0 auto 2.5rem; line-height:1.7; }
-    .cta-actions { display:flex; gap:.85rem; justify-content:center; flex-wrap:wrap; }
-    .cta-note { margin-top:1.5rem; font-size:.75rem; color:var(--text-3); letter-spacing:.01em; }
-    .cta-note strong { color:var(--text-2); }
-    footer { background:var(--bg); border-top:1px solid var(--border); padding:2.5rem 2.5rem; }
-    .footer-inner { max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.25rem; }
-    .footer-logo { font-weight:800; font-size:.9rem; letter-spacing:-.02em; }
-    .footer-logo span { color:var(--accent); }
-    .footer-links { display:flex; gap:1.75rem; flex-wrap:wrap; }
-    .footer-links a { font-size:.75rem; color:var(--text-3); transition:color .2s; letter-spacing:.01em; }
-    .footer-links a:hover { color:var(--text-2); }
-    .footer-copy { font-size:.7rem; color:var(--text-3); }
-    @media (max-width:960px) { .problem-grid,.about-grid { grid-template-columns:1fr; gap:3rem; } .services-grid { grid-template-columns:repeat(2,1fr); } .trades-grid { grid-template-columns:repeat(2,1fr); } .process-steps { grid-template-columns:repeat(2,1fr); gap:2rem; } .process-steps::before { display:none; } nav .nav-links { display:none; } }
-    @media (max-width:640px) { section { padding:80px 1.25rem; } .services-grid { grid-template-columns:1fr; } .trades-grid { grid-template-columns:repeat(2,1fr); } .process-steps { grid-template-columns:1fr; } .ala-prices { gap:1rem; } .price-monthly { font-size:2rem; } .hero-stats { gap:0; } .hero-stat { padding:0 1.25rem; } .footer-inner { flex-direction:column; text-align:center; } .footer-links { justify-content:center; } .cards { gap:1rem; } nav { padding:0 1.25rem; } }
-    @keyframes popIn { from { opacity:0; transform:scale(.88) translateY(18px); } to { opacity:1; transform:scale(1) translateY(0); } }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--bg); color:var(--text); font-family:Inter,system-ui,sans-serif;
+      overflow-x:hidden; -webkit-font-smoothing:antialiased;
+    }
+    body:before{
+      content:""; position:fixed; inset:0; pointer-events:none; z-index:999;
+      opacity:.025;
+      background-image:radial-gradient(rgba(255,255,255,.9) .6px,transparent .6px);
+      background-size:5px 5px;
+    }
+    a{text-decoration:none;color:inherit}
+    section{padding:110px 24px}
+    .container{max-width:var(--max);margin:auto}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;color:var(--orange);
+      font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px
+    }
+    .eyebrow:before{content:"";width:28px;height:1px;background:var(--orange)}
+    h1,h2,h3{font-family:"Playfair Display",Georgia,serif}
+    h2{font-size:clamp(2.2rem,4vw,4rem);line-height:1.05;letter-spacing:-.035em}
+    h2 em{color:var(--orange);font-style:italic}
+    .section-copy{max-width:650px;color:var(--muted);font-size:1rem;line-height:1.8;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:15px 23px;border-radius:8px;font-size:.9rem;font-weight:800;
+      transition:.22s ease;border:1px solid transparent
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--orange);color:#090909}
+    .btn-primary:hover{background:var(--orange-2);box-shadow:0 14px 45px rgba(249,115,22,.22)}
+    .btn-secondary{border-color:var(--border-strong);color:var(--text);background:rgba(255,255,255,.02)}
+    .btn-secondary:hover{border-color:rgba(255,255,255,.3)}
+    .btn-arrow:after{content:"→";transition:.2s}
+    .btn-arrow:hover:after{transform:translateX(4px)}
+
+    nav{
+      position:fixed;top:0;left:0;right:0;height:74px;z-index:1000;
+      display:flex;align-items:center;justify-content:space-between;padding:0 32px;
+      transition:.25s;border-bottom:1px solid transparent
+    }
+    nav.scrolled{height:60px;background:rgba(5,5,5,.94);backdrop-filter:blur(18px);border-color:var(--border)}
+    .logo{font-weight:900;letter-spacing:-.04em;font-size:1.05rem}
+    .logo span{color:var(--orange)}
+    .nav-links{display:flex;gap:28px;list-style:none;color:var(--muted);font-size:.8rem;font-weight:600}
+    .nav-links a:hover{color:var(--text)}
+    .nav-mobile{display:none}
+
+    #hero{
+      min-height:900px;padding-top:185px;padding-bottom:90px;text-align:center;
+      position:relative;display:flex;align-items:center;overflow:hidden
+    }
+    .hero-grid{
+      position:absolute;inset:0;pointer-events:none;opacity:.55;
+      background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+      background-size:48px 48px;
+      mask-image:radial-gradient(ellipse at center,black 5%,transparent 72%)
+    }
+    .hero-glow{position:absolute;width:900px;height:650px;left:50%;top:-100px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(249,115,22,.15),transparent 68%);pointer-events:none}
+    .hero-badge{display:inline-flex;gap:9px;align-items:center;border:1px solid rgba(249,115,22,.22);background:var(--orange-soft);padding:9px 14px;border-radius:999px;color:var(--orange);font-size:.68rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+    .pulse{width:7px;height:7px;background:var(--orange);border-radius:50%;box-shadow:0 0 0 0 rgba(249,115,22,.6);animation:pulse 2s infinite}
+    @keyframes pulse{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+    h1{font-size:clamp(3.2rem,7vw,6.5rem);line-height:.98;letter-spacing:-.06em;max-width:1000px;margin:24px auto}
+    h1 em{color:var(--orange);font-style:normal}
+    .hero-sub{max-width:720px;margin:0 auto;color:var(--muted);font-size:1.08rem;line-height:1.8}
+    .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .hero-trust{display:flex;justify-content:center;gap:0;max-width:850px;margin:75px auto 0;border-top:1px solid var(--border);padding-top:32px}
+    .trust-item{flex:1;padding:0 28px;border-right:1px solid var(--border)}
+    .trust-item:last-child{border:0}
+    .trust-number{font-size:1.65rem;font-weight:900;letter-spacing:-.04em}
+    .trust-number span{color:var(--orange)}
+    .trust-label{margin-top:7px;color:var(--dim);font-size:.66rem;text-transform:uppercase;letter-spacing:.11em;font-weight:700}
+
+    #problem{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .problem-copy p{color:var(--muted);line-height:1.85;margin-top:18px}
+    .pain-list{display:grid;gap:10px}
+    .pain{
+      display:flex;gap:17px;padding:20px;background:var(--bg);border:1px solid var(--border);
+      border-radius:var(--radius);transition:.2s
+    }
+    .pain:hover{border-color:rgba(249,115,22,.32);transform:translateX(4px)}
+    .pain-icon{font-size:1.2rem}
+    .pain strong{display:block;font-size:.9rem;margin-bottom:5px}
+    .pain span{color:var(--muted);font-size:.82rem;line-height:1.55}
+
+    .section-head{margin-bottom:46px}
+    .system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+    .system-card{background:var(--surface);padding:32px 28px;min-height:230px;position:relative;transition:.22s}
+    .system-card:hover{background:var(--surface-2)}
+    .system-card:hover:after{background:var(--orange)}
+    .system-card:after{content:"";position:absolute;bottom:0;left:28px;right:28px;height:2px;background:transparent;transition:.22s}
+    .system-num{position:absolute;right:24px;top:22px;color:var(--dim);font-size:.65rem;font-weight:800;letter-spacing:.12em}
+    .system-icon{font-size:1.5rem;margin-bottom:22px}
+    .system-card h3{font-family:Inter,sans-serif;font-size:.95rem;margin-bottom:10px}
+    .system-card p{color:var(--muted);font-size:.82rem;line-height:1.7}
+
+    #packages{background:var(--surface);border-top:1px solid var(--border)}
+    .pricing-head{text-align:center;margin-bottom:52px}
+    .pricing-head .section-copy{margin:18px auto}
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+    .plan{
+      position:relative;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);
+      padding:34px 30px;display:flex;flex-direction:column
+    }
+    .plan.featured{border-color:rgba(249,115,22,.5);background:linear-gradient(155deg,rgba(249,115,22,.09),#090909 45%)}
+    .popular{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#0a0a0a;border-radius:999px;padding:6px 14px;font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+    .plan-tier{color:var(--orange);font-size:.68rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .plan h3{font-family:Inter,sans-serif;font-size:1.45rem;margin:10px 0 7px}
+    .plan-desc{color:var(--muted);font-size:.8rem;line-height:1.65;min-height:55px}
+    .price{margin:26px 0}
+    .setup{color:var(--muted);font-size:.78rem;margin-bottom:6px}
+    .monthly{font-size:2.65rem;font-weight:900;letter-spacing:-.06em}
+    .monthly small{font-size:.8rem;color:var(--muted);font-weight:500;letter-spacing:0}
+    .features{list-style:none;border-top:1px solid var(--border);padding-top:20px;margin-bottom:28px;display:grid;gap:11px;flex:1}
+    .features li{display:flex;gap:10px;color:var(--muted);font-size:.8rem;line-height:1.45}
+    .check{color:var(--green);font-weight:900}
+
+    #trackpr{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .track-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+    .metric-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+    .metric{border:1px solid var(--border);background:var(--surface);padding:17px;border-radius:12px}
+    .metric strong{display:block;font-size:.85rem;margin-bottom:5px}
+    .metric span{font-size:.75rem;color:var(--muted);line-height:1.5}
+    .dashboard{background:linear-gradient(145deg,#111,#080808);border:1px solid var(--border-strong);border-radius:22px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+    .dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .dash-brand{font-weight:900}.dash-brand span{color:var(--orange)}
+    .dash-status{color:var(--green);font-size:.68rem;font-weight:800}
+    .dash-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .dash-card{background:#0a0a0a;border:1px solid var(--border);border-radius:12px;padding:17px}
+    .dash-label{color:var(--dim);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+    .dash-value{font-size:1.55rem;font-weight:900;margin-top:9px}
+    .dash-change{font-size:.68rem;color:var(--green);margin-top:6px}
+    .chart{height:135px;margin-top:10px;border-radius:12px;background:linear-gradient(180deg,rgba(249,115,22,.14),transparent),repeating-linear-gradient(0deg,transparent,transparent 33px,rgba(255,255,255,.05) 34px)}
+    .chart svg{width:100%;height:100%}
+
+    #ai{background:var(--surface)}
+    .workflow{margin-top:45px;display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+    .flow{border:1px solid var(--border);background:var(--bg);border-radius:14px;padding:22px 17px;min-height:205px}
+    .flow-num{color:var(--orange);font-size:.65rem;font-weight:900;letter-spacing:.13em}
+    .flow h3{font-family:Inter,sans-serif;font-size:.85rem;margin:18px 0 8px}
+    .flow p{color:var(--muted);font-size:.73rem;line-height:1.65}
+    .flow-arrow{display:none}
+
+    .industries{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:40px}
+    .industry{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:24px 10px;text-align:center;transition:.2s}
+    .industry:hover{border-color:rgba(249,115,22,.35);background:var(--surface-2)}
+    .industry div:first-child{font-size:1.6rem;margin-bottom:10px}
+    .industry strong{font-size:.75rem}
+
+    #faq{background:var(--surface);border-top:1px solid var(--border)}
+    .faq{max-width:800px;margin:40px auto 0;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .faq-item{border-bottom:1px solid var(--border);background:var(--bg)}
+    .faq-item:last-child{border:0}
+    .faq-q{width:100%;padding:20px 22px;background:none;border:0;color:var(--text);font:700 .88rem Inter,sans-serif;text-align:left;display:flex;justify-content:space-between;gap:20px;cursor:pointer}
+    .faq-q span{color:var(--orange);font-size:1.2rem}
+    .faq-a{display:none;padding:0 22px 20px;color:var(--muted);font-size:.83rem;line-height:1.75}
+    .faq-item.open .faq-a{display:block}
+    .faq-item.open .faq-q span{transform:rotate(45deg)}
+
+    #final{text-align:center;position:relative;overflow:hidden}
+    #final:before{content:"";position:absolute;width:800px;height:500px;left:50%;bottom:-250px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(249,115,22,.15),transparent 68%)}
+    .final-inner{position:relative;max-width:800px;margin:auto}
+    .final-inner p{max-width:600px;margin:20px auto 30px;color:var(--muted);line-height:1.8}
+    .final-list{display:flex;justify-content:center;gap:12px 28px;flex-wrap:wrap;margin:28px 0;color:var(--muted);font-size:.8rem}
+    .final-list span:before{content:"✓";color:var(--green);font-weight:900;margin-right:7px}
+
+    footer{border-top:1px solid var(--border);padding:30px 24px}
+    .footer{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap;color:var(--dim);font-size:.72rem}
+    .footer-copy{color:var(--dim);font-size:.7rem}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:.65s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:1000px){
+      .nav-links{display:none}.nav-mobile{display:block}
+      .two-col,.track-grid{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr;max-width:500px;margin:auto}
+      .workflow{grid-template-columns:repeat(3,1fr)}
+      .industries{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:760px){
+      section{padding:80px 18px}nav{padding:0 18px}
+      #hero{min-height:auto;padding-top:145px;padding-bottom:70px}
+      h1{font-size:clamp(3rem,14vw,4.6rem)}
+      .hero-trust{margin-top:50px;padding-top:22px}
+      .trust-item{padding:0 10px}.trust-number{font-size:1.25rem}.trust-label{font-size:.55rem}
+      .system-grid{grid-template-columns:1fr}
+      .workflow{grid-template-columns:1fr 1fr}
+      .industries{grid-template-columns:repeat(2,1fr)}
+      .metric-list{grid-template-columns:1fr}
+      .two-col{gap:40px}
+    }
+    @media(max-width:480px){
+      .workflow{grid-template-columns:1fr}.hero-actions,.hero-actions .btn{width:100%}
+      .hero-actions{flex-direction:column}.btn{width:100%}.footer{justify-content:center;text-align:center}.footer-links{justify-content:center}
+    }
   </style>
 </head>
 <body>
 
-<nav id="main-nav">
-  <div class="nav-logo">Contractor Growth<span> Co.</span></div>
+<nav id="nav">
+  <a href="#hero" class="logo">Contractor Growth<span> Co.</span></a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li><li><a href="#pricing">Pricing</a></li>
-    <li><a href="#who">Who We Serve</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQ</a></li>
+    <li><a href="#system">Growth System</a></li>
+    <li><a href="#packages">Pricing</a></li>
+    <li><a href="#trackpr">TrackPR</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
-  <a href="https://contractorgrowthco.pro/landing-page" class="nav-cta btn-arrow">Free Audit </a>
+  <a class="btn btn-primary nav-mobile" href="https://contractorgrowthco.pro/landing-page">Get Started</a>
+  <a class="btn btn-primary" href="https://contractorgrowthco.pro/landing-page">Get Started</a>
 </nav>
 
 <section id="hero">
-  <div class="hero-dot-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="container" style="position:relative;">
-    <div class="hero-badge reveal"><span class="hero-badge-dot"></span>For Contractors Across the US</div>
-    <h1 class="reveal reveal-delay-1">Websites That <em>Win You</em><br>More Jobs</h1>
-    <p class="hero-sub reveal reveal-delay-2">We build lead-generating websites for plumbers, roofers, HVAC techs, electricians, and more &mdash; so you stop chasing referrals and start getting found.</p>
-    <div class="hero-cta-group reveal reveal-delay-3">
-      <a href="https://contractorgrowthco.pro/landing-page" class="btn btn-primary btn-arrow">Get Your Free Website Audit </a>
-      <a href="#pricing" class="btn btn-ghost">See Pricing</a>
+  <div class="hero-grid"></div><div class="hero-glow"></div>
+  <div class="container reveal" style="position:relative">
+    <div class="hero-badge"><span class="pulse"></span> Built for Contractors & Service Businesses</div>
+    <h1>Turn More Contractor Leads<br>Into <em>Booked Jobs.</em></h1>
+    <p class="hero-sub">Your website, AI, automated follow-up, and business analytics — all working together inside one managed growth system.</p>
+    <p class="hero-sub" style="font-size:.95rem;margin-top:12px">We build it. Manage it. And keep it working. No complicated software. No learning new systems.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-arrow" href="https://contractorgrowthco.pro/landing-page">Get Your Growth System</a>
+      <a class="btn btn-secondary" href="#packages">See Pricing</a>
     </div>
-    <div class="hero-stats reveal reveal-delay-4">
-      <div class="hero-stat"><div class="stat-num"><span>24</span>/7</div><div class="stat-label">AI-powered follow-up</div></div>
-      <div class="hero-stat"><div class="stat-num"><span data-count="30">0</span></div><div class="stat-label">Day satisfaction guarantee</div></div>
-      <div class="hero-stat"><div class="stat-num"><span data-count="100">0</span>%</div><div class="stat-label">Done for you</div></div>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="trust-number">100<span>%</span></div><div class="trust-label">Done For You</div></div>
+      <div class="trust-item"><div class="trust-number">1</div><div class="trust-label">Connected Growth System</div></div>
+      <div class="trust-item"><div class="trust-number">24<span>/7</span></div><div class="trust-label">Automation Working</div></div>
     </div>
   </div>
 </section>
 
 <section id="problem">
-  <div class="container">
-    <div class="problem-grid">
-      <div class="problem-text">
-        <div class="eyebrow reveal"><span class="eyebrow-num">01</span><span class="eyebrow-line"></span>The Problem</div>
-        <h2 class="reveal reveal-delay-1">Referrals Are Great &mdash;<br><em>Until They Dry Up</em></h2>
-        <p class="reveal reveal-delay-2">Most contractors build their whole business on word-of-mouth. It works &mdash; until it doesn't. One slow season, one big client moves away, and the pipeline goes quiet.</p>
-        <p class="reveal reveal-delay-2">Without a professional website that ranks on Google and converts visitors into calls, you're invisible to the customers who need you most.</p>
-      </div>
-      <ul class="pain-list">
-        <li class="pain-item reveal reveal-delay-1"><span class="pain-icon">&#128201;</span><div class="pain-text"><strong>Inconsistent Work</strong><span>Feast or famine cycles with no predictable lead flow.</span></div></li>
-        <li class="pain-item reveal reveal-delay-2"><span class="pain-icon">&#128269;</span><div class="pain-text"><strong>Invisible Online</strong><span>When homeowners search Google, your competitors show up &mdash; not you.</span></div></li>
-        <li class="pain-item reveal reveal-delay-3"><span class="pain-icon">&#128245;</span><div class="pain-text"><strong>Missed Calls = Missed Revenue</strong><span>Every unanswered call is a job going to someone else.</span></div></li>
-        <li class="pain-item reveal reveal-delay-4"><span class="pain-icon">&#8987;</span><div class="pain-text"><strong>No Time to Chase Leads</strong><span>You're busy on the job. You can't follow up with every inquiry manually.</span></div></li>
-      </ul>
+  <div class="container two-col">
+    <div class="problem-copy reveal">
+      <div class="eyebrow">The Real Problem</div>
+      <h2>You're Probably Losing More Leads <em>Than You Realize.</em></h2>
+      <p>Most contractors don't have a lead problem. They have a lead management problem.</p>
+      <p>Getting the inquiry is only the first step. What happens next determines whether that opportunity becomes revenue — or calls another contractor.</p>
+    </div>
+    <div class="pain-list reveal">
+      <div class="pain"><div class="pain-icon">📞</div><div><strong>Calls & inquiries get missed</strong><span>Potential customers don't always wait for a response.</span></div></div>
+      <div class="pain"><div class="pain-icon">📋</div><div><strong>Estimates don't get followed up with</strong><span>Opportunities go cold simply because nobody followed up.</span></div></div>
+      <div class="pain"><div class="pain-icon">⚡</div><div><strong>Response times are too slow</strong><span>Your team is busy doing the actual work.</span></div></div>
+      <div class="pain"><div class="pain-icon">📊</div><div><strong>Revenue sources aren't clear</strong><span>You don't know which marketing is actually producing jobs.</span></div></div>
     </div>
   </div>
 </section>
 
-<section id="services">
+<section id="system">
   <div class="container">
-    <div class="section-header">
-      <div class="eyebrow reveal"><span class="eyebrow-num">02</span><span class="eyebrow-line"></span>What We Do</div>
-      <h2 class="reveal reveal-delay-1">Everything You Need to<br><em>Get Found &amp; Get Booked</em></h2>
-      <p class="section-sub reveal reveal-delay-2">A complete done-for-you system that works while you're on the job.</p>
+    <div class="section-head reveal">
+      <div class="eyebrow">One Connected System</div>
+      <h2>Everything Working Together.<br><em>Not Another Tool to Manage.</em></h2>
+      <p class="section-copy">Contractor Growth Co. connects the important parts of your customer journey so opportunities move through a clear system instead of falling through the cracks.</p>
     </div>
-    <div class="services-grid reveal">
-      <div class="service-card"><span class="service-num">01</span><div class="service-icon">&#127760;</div><h3>Custom Contractor Website</h3><p>Mobile-friendly, SEO-ready websites built specifically for your trade. Not templates &mdash; built for your business and designed to rank.</p></div>
-      <div class="service-card"><span class="service-num">02</span><div class="service-icon">&#128241;</div><h3>Missed Call Text-Back</h3><p>When you miss a call, we automatically text back within seconds to keep the lead warm until you can call them back.</p></div>
-      <div class="service-card"><span class="service-num">03</span><div class="service-icon">&#129302;</div><h3>AI Follow-Up Sequences</h3><p>Automated 7-day SMS and email follow-up that nurtures every lead until they're ready to book &mdash; without you lifting a finger.</p></div>
-      <div class="service-card"><span class="service-num">04</span><div class="service-icon">&#128172;</div><h3>AI Website Chatbot</h3><p>A 24/7 AI assistant on your website that answers questions, captures leads, and books appointments while you sleep.</p></div>
-      <div class="service-card"><span class="service-num">05</span><div class="service-icon">&#11088;</div><h3>Review Automation</h3><p>Automatically request Google reviews from happy customers after every completed job &mdash; build your reputation on autopilot.</p></div>
-      <div class="service-card"><span class="service-num">06</span><div class="service-icon">&#128202;</div><h3>TrackPR Dashboard</h3><p>Track leads, jobs, expenses, and monthly P&amp;L in one simple dashboard. Know exactly where your business stands at all times.</p></div>
+    <div class="system-grid reveal">
+      <article class="system-card"><span class="system-num">01</span><div class="system-icon">🎯</div><h3>ATTRACT</h3><p>Get a professional contractor website designed to turn visitors into real inquiries.</p></article>
+      <article class="system-card"><span class="system-num">02</span><div class="system-icon">📥</div><h3>CAPTURE</h3><p>Every inquiry is captured and organized automatically from your website and connected sources.</p></article>
+      <article class="system-card"><span class="system-num">03</span><div class="system-icon">🤖</div><h3>QUALIFY</h3><p>AI analyzes incoming opportunities and helps identify service type, urgency, and potential value.</p></article>
+      <article class="system-card"><span class="system-num">04</span><div class="system-icon">🔁</div><h3>FOLLOW UP</h3><p>Automated follow-up helps keep opportunities moving without relying on your team to remember every task.</p></article>
+      <article class="system-card"><span class="system-num">05</span><div class="system-icon">📈</div><h3>TRACK</h3><p>Track leads, estimates, jobs, revenue, close rate, and performance in one place.</p></article>
+      <article class="system-card"><span class="system-num">06</span><div class="system-icon">🚀</div><h3>GROW</h3><p>Use real business data to make smarter decisions and identify where your next revenue opportunities are coming from.</p></article>
     </div>
   </div>
 </section>
 
-<section id="process">
+<section id="packages">
   <div class="container">
-    <div class="section-header" style="text-align:center;">
-      <div class="eyebrow reveal" style="justify-content:center;"><span class="eyebrow-num">03</span><span class="eyebrow-line"></span>How It Works</div>
-      <h2 class="reveal reveal-delay-1">Up and Running in <em>5 Simple Steps</em></h2>
-      <p class="section-sub reveal reveal-delay-2" style="margin:0 auto;">From discovery call to live website &mdash; faster than you'd expect.</p>
+    <div class="pricing-head reveal">
+      <div class="eyebrow" style="justify-content:center">Choose Your Growth System</div>
+      <h2>Simple Pricing. <em>Real Infrastructure.</em></h2>
+      <p class="section-copy">Start with what your business needs today and add more automation as you grow.</p>
     </div>
-    <div class="process-steps">
-      <div class="process-step reveal reveal-delay-1"><div class="step-num">1</div><div class="step-title">Free Audit Call</div><div class="step-desc">We review your current online presence and show you exactly what's missing.</div></div>
-      <div class="process-step reveal reveal-delay-2"><div class="step-num">2</div><div class="step-title">Pick Your Package</div><div class="step-desc">Choose the system that fits your business size and goals.</div></div>
-      <div class="process-step reveal reveal-delay-3"><div class="step-num">3</div><div class="step-title">We Build Everything</div><div class="step-desc">Your website, automations, chatbot, and tracking &mdash; all done for you.</div></div>
-      <div class="process-step reveal reveal-delay-4"><div class="step-num">4</div><div class="step-title">Go Live</div><div class="step-desc">Your system is live, tested, and ready to start bringing in leads.</div></div>
-      <div class="process-step reveal reveal-delay-5"><div class="step-num">5</div><div class="step-title">Grow &amp; Scale</div><div class="step-desc">We handle ongoing maintenance so you can stay focused on the work.</div></div>
-    </div>
-  </div>
-</section>
 
-<section id="pricing">
-  <div class="container">
-    <div class="pricing-header">
-      <div class="pricing-eyebrow reveal">&#9679; Contractor Growth Co.</div>
-      <h2 class="reveal reveal-delay-1">Simple, Transparent <em>Pricing</em></h2>
-      <p class="reveal reveal-delay-2">Done-for-you systems that keep your phone ringing and your calendar full &mdash; on autopilot.</p>
-    </div>
-    <div class="pkg-label reveal">Choose Your Package</div>
-    <div class="cards">
-      <div class="card reveal reveal-delay-1">
-        <div class="card-tier">Starter</div>
-        <div class="card-name">&#127959;&#65039; Get Found</div>
-        <div class="card-tagline">Perfect for contractors just getting started online</div>
-        <div class="price-block">
-          <div class="price-setup">One-time setup: <strong>$1,297</strong></div>
-          <div class="price-monthly">$297 <span>/ mo</span></div>
-          <div class="price-save">Save $100 vs. &agrave; la carte</div>
-        </div>
-        <hr class="divider" />
-        <ul class="feature-list">
-          <li><span class="check">&#10003;</span> Custom Contractor Website</li>
-          <li><span class="check">&#10003;</span> Mobile-Friendly &amp; SEO-Ready</li>
-          <li><span class="check">&#10003;</span> Missed Call Text-Back</li>
-          <li><span class="check">&#10003;</span> Monthly Maintenance &amp; Hosting</li>
-          <li><span class="check">&#10003;</span> Dedicated Support</li>
+    <div class="pricing">
+      <article class="plan reveal">
+        <div class="plan-tier">Foundation</div>
+        <h3>Your Digital Foundation</h3>
+        <p class="plan-desc">A professional online presence and a simple way to start tracking your business.</p>
+        <div class="price"><div class="setup">One-time setup: <strong>$997</strong></div><div class="monthly">$197 <small>/ month</small></div></div>
+        <ul class="features">
+          <li><span class="check">✓</span>Custom contractor website</li>
+          <li><span class="check">✓</span>Mobile-optimized design</li>
+          <li><span class="check">✓</span>Lead capture forms</li>
+          <li><span class="check">✓</span>Lead tracking</li>
+          <li><span class="check">✓</span>TrackPR business dashboard</li>
+          <li><span class="check">✓</span>Lead source tracking</li>
+          <li><span class="check">✓</span>Basic business analytics</li>
+          <li><span class="check">✓</span>Hosting & maintenance</li>
+          <li><span class="check">✓</span>Email lead notifications</li>
+          <li><span class="check">✓</span>Monthly performance report</li>
         </ul>
-        <div class="btn-group">
-          <a href="sms:+17196742436&body=GROW" class="cta-btn cta-ghost">Text GROW to (719) 674-2436 &rarr;</a>
-          <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00" class="cta-btn cta-pay" target="_blank">&#128179; Pay Now &mdash; $1,297 + $297/mo</a>
-        </div>
-      </div>
-      <div class="card featured reveal reveal-delay-2">
-        <div class="badge-popular">&#9889; Most Popular</div>
-        <div class="card-tier">Growth</div>
-        <div class="card-name">&#128640; Get Leads</div>
-        <div class="card-tagline">Full lead capture &amp; follow-up system on autopilot</div>
-        <div class="price-block">
-          <div class="price-setup">One-time setup: <strong>$1,797</strong></div>
-          <div class="price-monthly">$497 <span>/ mo</span></div>
-          <div class="price-save">Save $194 vs. &agrave; la carte</div>
-        </div>
-        <hr class="divider" />
-        <ul class="feature-list">
-          <li><span class="check">&#10003;</span> Everything in Starter</li>
-          <li><span class="check">&#10003;</span> 7-Day Automated Follow-Up Sequences</li>
-          <li><span class="check">&#10003;</span> SMS + Email Drip Campaigns</li>
-          <li><span class="check">&#10003;</span> Automated Review Request System</li>
-          <li><span class="check">&#10003;</span> AI Website Chatbot (24/7)</li>
+        <a class="btn btn-secondary" href="https://contractorgrowthco.pro/landing-page">Get Started</a>
+      </article>
+
+      <article class="plan featured reveal">
+        <div class="popular">Most Popular</div>
+        <div class="plan-tier">Growth</div>
+        <h3>Turn More Leads Into Jobs</h3>
+        <p class="plan-desc">Your website, AI, follow-up, booking, and analytics working together as one conversion system.</p>
+        <div class="price"><div class="setup">One-time setup: <strong>$1,497</strong></div><div class="monthly">$397 <small>/ month</small></div></div>
+        <ul class="features">
+          <li><span class="check">✓</span>Everything in Foundation</li>
+          <li><span class="check">✓</span>AI lead qualification</li>
+          <li><span class="check">✓</span>AI-powered lead scoring</li>
+          <li><span class="check">✓</span>Automatic lead categorization</li>
+          <li><span class="check">✓</span>Instant customer email response</li>
+          <li><span class="check">✓</span>Automated email follow-up</li>
+          <li><span class="check">✓</span>Appointment booking</li>
+          <li><span class="check">✓</span>High-value lead alerts</li>
+          <li><span class="check">✓</span>Lead pipeline management</li>
+          <li><span class="check">✓</span>Revenue & close-rate tracking</li>
+          <li><span class="check">✓</span>Custom n8n automations</li>
         </ul>
-        <div class="btn-group">
-          <a href="sms:+17196742436&body=GROW" class="cta-btn cta-primary">Text GROW to (719) 674-2436 &rarr;</a>
-          <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01" class="cta-btn cta-pay" target="_blank">&#128179; Pay Now &mdash; $1,797 + $497/mo</a>
-        </div>
-      </div>
-      <div class="card reveal reveal-delay-3">
-        <div class="card-tier">Pro</div>
-        <div class="card-name">&#127942; Get Booked</div>
-        <div class="card-tagline">Full AI-powered booking machine for serious contractors</div>
-        <div class="price-block">
-          <div class="price-setup">One-time setup: <strong>$2,497</strong></div>
-          <div class="price-monthly">$797 <span>/ mo</span></div>
-          <div class="price-save">Save $479/mo vs. &agrave; la carte</div>
-        </div>
-        <hr class="divider" />
-        <ul class="feature-list">
-          <li><span class="check">&#10003;</span> Everything in Growth</li>
-          <li><span class="check">&#10003;</span> Voice AI &mdash; Answers Calls &amp; Books Jobs</li>
-          <li><span class="check">&#10003;</span> TrackPR &mdash; Leads, Jobs, Expenses &amp; P&amp;L</li>
-          <li><span class="check">&#10003;</span> Priority Support &amp; Onboarding Call</li>
+        <a class="btn btn-primary btn-arrow" href="https://contractorgrowthco.pro/landing-page">Build My Growth System</a>
+      </article>
+
+      <article class="plan reveal">
+        <div class="plan-tier">Dominate</div>
+        <h3>Automate & Scale Smarter</h3>
+        <p class="plan-desc">Advanced automation, AI, and deeper business intelligence for established contractors.</p>
+        <div class="price"><div class="setup">One-time setup: <strong>$2,497</strong></div><div class="monthly">$697 <small>/ month</small></div></div>
+        <ul class="features">
+          <li><span class="check">✓</span>Everything in Growth</li>
+          <li><span class="check">✓</span>AI voice receptionist</li>
+          <li><span class="check">✓</span>AI appointment handling</li>
+          <li><span class="check">✓</span>Advanced lead qualification</li>
+          <li><span class="check">✓</span>Multiple lead source integrations</li>
+          <li><span class="check">✓</span>Automated estimate follow-up</li>
+          <li><span class="check">✓</span>Automated job follow-up</li>
+          <li><span class="check">✓</span>Review-request automation</li>
+          <li><span class="check">✓</span>Advanced TrackPR analytics</li>
+          <li><span class="check">✓</span>Custom AI workflows & integrations</li>
         </ul>
-        <div class="btn-group">
-          <a href="sms:+17196742436&body=GROW" class="cta-btn cta-ghost">Text GROW to (719) 674-2436 &rarr;</a>
-          <a href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02" class="cta-btn cta-pay" target="_blank">&#128179; Pay Now &mdash; $2,497 + $797/mo</a>
-        </div>
-      </div>
-    </div>
-    <div class="guarantee reveal">
-      <div class="g-icon">&#128737;&#65039;</div>
-      <h3>30-Day Satisfaction Guarantee</h3>
-      <p>If you're not completely happy with your system in the first 30 days, we'll make it right &mdash; no questions asked.</p>
-    </div>
-    <div style="margin-top:5rem;">
-      <div class="eyebrow reveal" style="justify-content:center;margin-bottom:1.75rem;"><span class="eyebrow-num">ADD-ONS</span><span class="eyebrow-line"></span>&Agrave; La Carte Services</div>
-      <div class="ala-wrap reveal">
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#127959;&#65039;</div><div><div class="ala-name">Website Design</div><div class="ala-desc">Custom contractor website &mdash; mobile-friendly, SEO-ready, built to convert</div><a class="ala-btn" href="https://buy.stripe.com/6oU8wPegP3ki89b1mR7EQ03" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$997</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#9742;&#65039;</div><div><div class="ala-name">Missed Call Text-Back</div><div class="ala-desc">Auto-texts anyone who calls and doesn't get an answer &mdash; never lose a lead again</div><a class="ala-btn" href="https://buy.stripe.com/fZu9ATegP3ki3SV5D77EQ04" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$97</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128236;</div><div><div class="ala-name">Follow-Up Sequences</div><div class="ala-desc">7&ndash;14 day SMS + email drip for every new lead until they book or say stop</div><a class="ala-btn" href="https://buy.stripe.com/4gM00ja0z1ca6135D77EQ05" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128172;</div><div><div class="ala-name">AI Website Chatbot</div><div class="ala-desc">24/7 chatbot that answers questions, captures leads, and books appointments</div><a class="ala-btn" href="https://buy.stripe.com/14AaEX6On1cabln5D77EQ06" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$497</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$197</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#11088;</div><div><div class="ala-name">Review Automation</div><div class="ala-desc">Auto-requests Google reviews after every completed job &mdash; builds trust on autopilot</div><a class="ala-btn" href="https://buy.stripe.com/00wcN57Sr2ge2OR5D77EQ07" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$97</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128241;</div><div><div class="ala-name">Social Media Automation</div><div class="ala-desc">AI writes and schedules weekly posts so your clients stay active without lifting a finger</div><a class="ala-btn" href="https://buy.stripe.com/aFa00jb4D4omahj0iN7EQ08" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$147</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#127897;&#65039;</div><div><div class="ala-name">Voice AI Agent</div><div class="ala-desc">AI answers calls, qualifies leads, and books appointments &mdash; even at 2am</div><a class="ala-btn" href="https://buy.stripe.com/aFa14na0z9IG0GJ6Hb7EQ09" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$797</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$297</div></div></div></div>
-        <div class="ala-row"><div class="ala-left"><div class="ala-icon">&#128202;</div><div><div class="ala-name">TrackPR Dashboard</div><div class="ala-desc">Custom dashboard showing leads, revenue, and site performance &mdash; all in one place</div><a class="ala-btn" href="https://buy.stripe.com/7sYcN51u36wubln6Hb7EQ0a" target="_blank" rel="noopener">Get Started &#8594;</a></div></div><div class="ala-prices"><div class="ala-price-item"><div class="label">Setup</div><div class="val">$297</div></div><div class="ala-price-item"><div class="label">Monthly</div><div class="val green">$97</div></div></div></div>
-      </div>
+        <a class="btn btn-secondary" href="https://contractorgrowthco.pro/landing-page">Book a Strategy Call</a>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="who">
-  <div class="container">
-    <div class="section-header" style="text-align:center;">
-      <div class="eyebrow reveal" style="justify-content:center;"><span class="eyebrow-num">04</span><span class="eyebrow-line"></span>Who We Serve</div>
-      <h2 class="reveal reveal-delay-1">Built for <em>Every Trade</em></h2>
-      <p class="section-sub reveal reveal-delay-2" style="margin:0 auto;">If you work with your hands and need more jobs, we built this for you.</p>
+<section id="trackpr">
+  <div class="container track-grid">
+    <div class="reveal">
+      <div class="eyebrow">What Is TrackPR?</div>
+      <h2>Your Business.<br>Your Numbers.<br><em>One Dashboard.</em></h2>
+      <p class="section-copy">TrackPR gives you a clear picture of what's actually happening inside your business — from the first lead through completed jobs and revenue.</p>
+      <p class="section-copy">Stop guessing which efforts are working. Start making decisions using your actual business data.</p>
+      <div class="metric-list">
+        <div class="metric"><strong>Leads</strong><span>See how many opportunities you're generating and where they come from.</span></div>
+        <div class="metric"><strong>Estimates</strong><span>Track opportunities issued and which ones turn into jobs.</span></div>
+        <div class="metric"><strong>Jobs</strong><span>Monitor completed work and overall performance.</span></div>
+        <div class="metric"><strong>Revenue</strong><span>See the money connected to your business activity.</span></div>
+        <div class="metric"><strong>Close Rate</strong><span>Understand how effectively opportunities become customers.</span></div>
+        <div class="metric"><strong>Lead Sources</strong><span>Identify which channels are actually producing revenue.</span></div>
+      </div>
     </div>
-    <div class="trades-grid reveal">
-      <div class="trade-card"><div class="trade-emoji">&#128295;</div><div class="trade-name">Plumbers</div></div>
-      <div class="trade-card"><div class="trade-emoji">&#127968;</div><div class="trade-name">Roofers</div></div>
-      <div class="trade-card"><div class="trade-emoji">&#10052;&#65039;</div><div class="trade-name">HVAC</div></div>
-      <div class="trade-card"><div class="trade-emoji">&#9889;</div><div class="trade-name">Electricians</div></div>
-      <div class="trade-card"><div class="trade-emoji">&#127807;</div><div class="trade-name">Landscapers</div></div>
-      <div class="trade-card"><div class="trade-emoji">&#127912;</div><div class="trade-name">Painters</div></div>
-      <div class="trade-card"><div class="trade-emoji">&#129695;</div><div class="trade-name">Window &amp; Door</div></div>
-      <div class="trade-card"><div class="trade-emoji">&#127959;&#65039;</div><div class="trade-name">General Contractors</div></div>
+
+    <div class="dashboard reveal">
+      <div class="dash-top"><div class="dash-brand">Track<span>PR</span></div><div class="dash-status">● LIVE BUSINESS DATA</div></div>
+      <div class="dash-stats">
+        <div class="dash-card"><div class="dash-label">New Leads</div><div class="dash-value">48</div><div class="dash-change">↗ Tracking activity</div></div>
+        <div class="dash-card"><div class="dash-label">Estimates</div><div class="dash-value">21</div><div class="dash-change">↗ In pipeline</div></div>
+        <div class="dash-card"><div class="dash-label">Jobs</div><div class="dash-value">14</div><div class="dash-change">↗ Completed / active</div></div>
+        <div class="dash-card"><div class="dash-label">Revenue</div><div class="dash-value">$—</div><div class="dash-change">Connected to your data</div></div>
+      </div>
+      <div class="dash-card" style="margin-top:10px"><div class="dash-label">Business Activity</div><div class="chart"><svg viewBox="0 0 500 140" preserveAspectRatio="none"><path d="M0 118 C45 100 55 112 92 86 S145 98 178 72 S230 85 270 49 S322 76 360 40 S425 56 500 13" fill="none" stroke="#f97316" stroke-width="3"/></svg></div></div>
     </div>
   </div>
 </section>
 
-<section id="about">
+<section id="ai">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="eyebrow reveal"><span class="eyebrow-num">05</span><span class="eyebrow-line"></span>About</div>
-        <h2 class="reveal reveal-delay-1">We're Contractors'<br><em>Growth Partner</em></h2>
-        <p class="reveal reveal-delay-2">Contractor Growth Co. was built with one mission &mdash; help hardworking tradespeople grow their business without becoming marketing experts.</p>
-        <p class="reveal reveal-delay-2">We've seen too many skilled contractors lose jobs to less-qualified competitors simply because they don't have a strong online presence. That changes here.</p>
-        <p class="reveal reveal-delay-3">We handle every piece of the digital side &mdash; website, automation, AI tools &mdash; so you can stay focused on what you do best: the work.</p>
-      </div>
-      <div class="about-card reveal reveal-delay-2">
-        <div class="about-name">Samuel Ward</div>
-        <div class="about-role">Founder, Contractor Growth Co.</div>
-        <ul class="about-facts">
-          <li><span class="fact-icon">&#128205;</span><span>Colorado Springs, CO &mdash; serving contractors nationwide</span></li>
-          <li><span class="fact-icon">&#128222;</span><span>Available Mon&ndash;Sat, 9am&ndash;6pm MT for discovery calls</span></li>
-          <li><span class="fact-icon">&#127919;</span><span>Focused exclusively on the trades industry</span></li>
-          <li><span class="fact-icon">&#129309;</span><span>You work directly with the owner &mdash; not an agency team</span></li>
-          <li><span class="fact-icon">&#128737;&#65039;</span><span>30-day satisfaction guarantee on every project</span></li>
-        </ul>
-      </div>
+    <div class="section-head reveal">
+      <div class="eyebrow">AI Working Behind The Scenes</div>
+      <h2>You Don't Need to Learn AI.<br><em>We Build It Into Your System.</em></h2>
+      <p class="section-copy">Your team stays focused on customers and jobs while the system handles repetitive work and keeps opportunities moving.</p>
+    </div>
+    <div class="workflow">
+      <div class="flow reveal"><div class="flow-num">01 — CAPTURE</div><h3>The Lead Enters</h3><p>A new inquiry comes in through your website or a connected lead source.</p></div>
+      <div class="flow reveal"><div class="flow-num">02 — ANALYZE</div><h3>AI Reviews It</h3><p>AI helps identify the service requested, urgency, and potential opportunity.</p></div>
+      <div class="flow reveal"><div class="flow-num">03 — PRIORITIZE</div><h3>Important Leads Stand Out</h3><p>Higher-value opportunities can be flagged for faster attention.</p></div>
+      <div class="flow reveal"><div class="flow-num">04 — NOTIFY</div><h3>Your Team Knows</h3><p>Important information is delivered without manually checking multiple platforms.</p></div>
+      <div class="flow reveal"><div class="flow-num">05 — FOLLOW UP</div><h3>Automation Continues</h3><p>Automated email follow-up helps keep the opportunity moving.</p></div>
+      <div class="flow reveal"><div class="flow-num">06 — TRACK</div><h3>TrackPR Records It</h3><p>Activity and results flow into your business data so you can see what is happening.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="industries">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center">
+      <div class="eyebrow" style="justify-content:center">Built For Contractors</div>
+      <h2>A Growth System Built Around<br><em>How Contractors Actually Work.</em></h2>
+      <p class="section-copy" style="margin-left:auto;margin-right:auto">If your business relies on leads, estimates, appointments, and completed jobs, we can build a system around it.</p>
+    </div>
+    <div class="industries reveal">
+      <div class="industry"><div>❄️</div><strong>HVAC</strong></div>
+      <div class="industry"><div>🏠</div><strong>Roofing</strong></div>
+      <div class="industry"><div>🔧</div><strong>Plumbing</strong></div>
+      <div class="industry"><div>⚡</div><strong>Electrical</strong></div>
+      <div class="industry"><div>🌿</div><strong>Landscaping</strong></div>
+      <div class="industry"><div>🏗️</div><strong>And More</strong></div>
     </div>
   </div>
 </section>
 
 <section id="faq">
   <div class="container">
-    <div class="section-header" style="text-align:center;margin-bottom:3rem;">
-      <div class="eyebrow reveal" style="justify-content:center;"><span class="eyebrow-num">06</span><span class="eyebrow-line"></span>FAQ</div>
-      <h2 class="reveal reveal-delay-1">Common <em>Questions</em></h2>
+    <div class="section-head reveal" style="text-align:center">
+      <div class="eyebrow" style="justify-content:center">Frequently Asked Questions</div>
+      <h2>Questions. <em>Answered.</em></h2>
     </div>
-    <div class="faq-list reveal reveal-delay-2">
-      <div class="faq-item"><div class="faq-q">How long does it take to get my website live? <span class="faq-icon">+</span></div><div class="faq-a">Most websites are designed, built, and live within 7&ndash;14 business days of your onboarding call. We move fast so you start getting leads sooner.</div></div>
-      <div class="faq-item"><div class="faq-q">Do I need to sign a long-term contract? <span class="faq-icon">+</span></div><div class="faq-a">No long-term contracts. Your monthly plan continues month-to-month. We earn your business every month by delivering results.</div></div>
-      <div class="faq-item"><div class="faq-q">What if I already have a website? <span class="faq-icon">+</span></div><div class="faq-a">We'll do a free audit of your current site. If it's worth keeping and improving, we can work with it. If a fresh build is the better move, we'll tell you exactly why.</div></div>
-      <div class="faq-item"><div class="faq-q">Will I need to learn complicated software? <span class="faq-icon">+</span></div><div class="faq-a">No. Everything is done for you. You get a simple mobile dashboard to see your leads and stats &mdash; no technical experience needed whatsoever.</div></div>
-      <div class="faq-item"><div class="faq-q">What does "done for you" actually mean? <span class="faq-icon">+</span></div><div class="faq-a">We build and set up everything &mdash; website, automations, chatbot, review requests, follow-up sequences. You don't touch a thing. Once it's live, we handle maintenance too.</div></div>
-      <div class="faq-item"><div class="faq-q">How does the 30-day guarantee work? <span class="faq-icon">+</span></div><div class="faq-a">Simple. If you're not happy with what we built in the first 30 days, tell us and we'll make it right. No hassle, no runaround.</div></div>
-      <div class="faq-item"><div class="faq-q">Can I upgrade my package later? <span class="faq-icon">+</span></div><div class="faq-a">Absolutely. You can upgrade from Starter to Growth or from Growth to Pro at any time. You'll only pay the difference in setup fees.</div></div>
+    <div class="faq reveal">
+      <div class="faq-item"><button class="faq-q">Do I need to know anything about AI?<span>+</span></button><div class="faq-a">No. We handle the technical setup and build AI into the system where it makes sense. You simply use the finished system.</div></div>
+      <div class="faq-item"><button class="faq-q">Do I need to replace my current website?<span>+</span></button><div class="faq-a">Not necessarily. We'll evaluate your current website and determine whether integrating with it or rebuilding it makes more sense.</div></div>
+      <div class="faq-item"><button class="faq-q">Do I need to use a complicated CRM?<span>+</span></button><div class="faq-a">No. TrackPR is designed to give you a simpler view of important business data without forcing you to learn a massive platform.</div></div>
+      <div class="faq-item"><button class="faq-q">Will I have to manage the automations?<span>+</span></button><div class="faq-a">No. We build and maintain the automations included with your system.</div></div>
+      <div class="faq-item"><button class="faq-q">Does this include SMS?<span>+</span></button><div class="faq-a">SMS can be available depending on your business and setup. Our core systems can operate using website forms, email, AI, and other integrations without requiring SMS.</div></div>
+      <div class="faq-item"><button class="faq-q">Can you connect my existing tools?<span>+</span></button><div class="faq-a">In many cases, yes. We'll evaluate your current tools and determine the best way to connect them to your system.</div></div>
+      <div class="faq-item"><button class="faq-q">Is there a long-term contract?<span>+</span></button><div class="faq-a">No long-term contract is required. Your monthly plan covers the ongoing software, automation management, maintenance, and support included with your package.</div></div>
+      <div class="faq-item"><button class="faq-q">Can I upgrade later?<span>+</span></button><div class="faq-a">Absolutely. You can start with Foundation and add more automation as your business grows.</div></div>
     </div>
   </div>
 </section>
 
-<section id="cta">
-  <div class="cta-glow"></div>
-  <div class="container" style="max-width:640px;text-align:center;position:relative;">
-    <div class="eyebrow reveal" style="justify-content:center;"><span class="eyebrow-num">07</span><span class="eyebrow-line"></span>Get Started</div>
-    <h2 class="reveal reveal-delay-1">Ready to Stop Relying<br>on <em>Referrals Alone?</em></h2>
-    <p class="reveal reveal-delay-2">Book a free 15-minute website audit. We'll show you exactly what's missing and how to fix it &mdash; no pressure, no pitch.</p>
-    <div class="cta-actions reveal reveal-delay-3">
-      <a href="https://contractorgrowthco.pro/landing-page" class="btn btn-primary btn-arrow">Book Your Free Audit </a>
-      <a href="sms:+17196742436&body=GROW" class="btn btn-ghost">Text GROW to (719) 674-2436</a>
+<section id="final">
+  <div class="container final-inner reveal">
+    <div class="eyebrow" style="justify-content:center">Your Next Step</div>
+    <h2>Your Business Deserves<br><em>More Than a Website.</em></h2>
+    <p>Your growth system should help you capture opportunities, respond faster, follow up consistently, track your numbers, and make smarter decisions about growth.</p>
+    <div class="final-list">
+      <span>Generate Leads</span><span>Respond Faster</span><span>Follow Up</span><span>Track Revenue</span><span>Grow Smarter</span>
     </div>
-    <div class="cta-note reveal reveal-delay-4">Prefer to call? <strong>(719) 759-8857</strong> &middot; Mon&ndash;Sat 9am&ndash;6pm MT</div>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-arrow" href="https://contractorgrowthco.pro/landing-page">Get Started</a>
+      <a class="btn btn-secondary" href="#packages">View Growth Systems</a>
+    </div>
+    <p style="font-size:.72rem;color:var(--dim);margin-top:22px">30-Day Satisfaction Guarantee • No long-term contract required</p>
   </div>
 </section>
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logo">Contractor Growth<span> Co.</span></div>
+  <div class="footer">
+    <div class="logo">Contractor Growth<span> Co.</span></div>
     <div class="footer-links">
-      <a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#who">Who We Serve</a>
-      <a href="#about">About</a><a href="#faq">FAQ</a>
+      <a href="#system">Growth System</a><a href="#packages">Pricing</a><a href="#trackpr">TrackPR</a>
+      <a href="#faq">FAQ</a>
       <a href="https://contractorgrowthco.pro/privacy-policy-page">Privacy Policy</a>
       <a href="https://contractorgrowthco.pro/terms--conditions">Terms</a>
     </div>
-    <div class="footer-copy">&copy; 2026 Contractor Growth Co.</div>
+    <div class="footer-copy">© 2026 Contractor Growth Co.</div>
   </div>
 </footer>
 
 <script>
-  document.querySelectorAll('.faq-q').forEach(function(q) {
-    q.addEventListener('click', function() {
-      var item = q.parentElement;
-      var wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-      if (!wasOpen) item.classList.add('open');
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), {passive:true});
+
+  document.querySelectorAll('.faq-q').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
     });
   });
-  var nav = document.getElementById('main-nav');
-  window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive:true });
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-  }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
-  function animateCount(el, target, duration) {
-    var start = 0; var step = target / (duration / 16);
-    var timer = setInterval(function() { start = Math.min(start + step, target); el.textContent = Math.floor(start); if (start >= target) clearInterval(timer); }, 16);
-  }
-  var counted = false;
-  var statsObserver = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting && !counted) { counted = true; document.querySelectorAll('[data-count]').forEach(function(el) { animateCount(el, parseInt(el.dataset.count), 1200); }); }
-  }, { threshold:0.5 });
-  var statsEl = document.querySelector('.hero-stats');
-  if (statsEl) statsObserver.observe(statsEl);
-</script>
 
-<div id="deal-overlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.82);z-index:9999;overflow-y:auto;align-items:center;justify-content:center;padding:1rem;">
-  <div style="background:#0a0a0a;border:1px solid rgba(249,115,22,.35);border-radius:20px;padding:2.25rem 2rem;max-width:440px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 0 80px rgba(249,115,22,.14);animation:popIn .35s cubic-bezier(.34,1.56,.64,1);text-align:center;font-family:'Inter','Segoe UI',system-ui,sans-serif;margin:auto;">
-    <button onclick="closePopup()" aria-label="Close" style="position:absolute;top:1rem;right:1rem;background:none;border:none;cursor:pointer;color:#555;font-size:1.4rem;line-height:1;transition:color .2s;" onmouseover="this.style.color='#f0f0f0'" onmouseout="this.style.color='#555'">&times;</button>
-    <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,.2);color:#f97316;font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:1.1rem;">&#127381; Limited-Time Deal</div>
-    <div style="font-size:3.5rem;font-weight:900;color:#f97316;line-height:1;letter-spacing:-.05em;margin-bottom:.2rem;">25% OFF</div>
-    <div style="font-size:1rem;font-weight:700;color:#f0f0f0;margin-bottom:.35rem;letter-spacing:-.02em;">Your Setup Fee &mdash; Today Only</div>
-    <div style="font-size:.8rem;color:#a3a3a3;margin-bottom:1.4rem;line-height:1.6;">Discount applied automatically at checkout.<br>Just click your package below.</div>
-    <div style="margin-bottom:1.4rem;">
-      <div style="font-size:.62rem;color:#555;margin-bottom:.45rem;letter-spacing:.08em;text-transform:uppercase;">Offer expires in</div>
-      <div style="display:flex;gap:.5rem;justify-content:center;">
-        <div style="background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:.45rem .7rem;min-width:50px;"><div id="cd-min" style="font-size:1.35rem;font-weight:900;color:#f0f0f0;line-height:1;letter-spacing:-.03em;">15</div><div style="font-size:.55rem;color:#555;text-transform:uppercase;letter-spacing:.08em;">min</div></div>
-        <div style="font-size:1.35rem;font-weight:800;color:#f97316;align-self:center;">:</div>
-        <div style="background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:.45rem .7rem;min-width:50px;"><div id="cd-sec" style="font-size:1.35rem;font-weight:900;color:#f0f0f0;line-height:1;letter-spacing:-.03em;">00</div><div style="font-size:.55rem;color:#555;text-transform:uppercase;letter-spacing:.08em;">sec</div></div>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;">
-      <a href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(249,115,22,.3)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='#111'">
-        <div style="text-align:left;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f0;">&#127959;&#65039; Starter &mdash; Get Found</div><div style="font-size:.67rem;color:#555;margin-top:.1rem;"><s style="color:#777;">$1,297</s> + $297/mo</div></div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.1rem;font-weight:900;color:#f97316;letter-spacing:-.03em;">$973</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $324</div></div>
-      </a>
-      <a href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#161008;border:1px solid rgba(249,115,22,.3);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;position:relative;transition:background .2s;" onmouseover="this.style.background='#1e1608'" onmouseout="this.style.background='#161008'">
-        <div style="position:absolute;top:-10px;left:10px;background:#f97316;color:#fff;font-size:.55rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:999px;">&#9889; Most Popular</div>
-        <div style="text-align:left;margin-top:.2rem;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f0;">&#128640; Growth &mdash; Get Leads</div><div style="font-size:.67rem;color:#555;margin-top:.1rem;"><s style="color:#777;">$1,797</s> + $497/mo</div></div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;margin-top:.2rem;"><div style="font-size:1.1rem;font-weight:900;color:#f97316;letter-spacing:-.03em;">$1,348</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $449</div></div>
-      </a>
-      <a href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02?prefilled_promo_code=SAVE25" target="_blank" onclick="closePopup()" style="display:flex;align-items:center;justify-content:space-between;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(249,115,22,.3)';this.style.background='#161616'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='#111'">
-        <div style="text-align:left;"><div style="font-size:.78rem;font-weight:700;color:#f0f0f0;">&#127942; Pro &mdash; Get Booked</div><div style="font-size:.67rem;color:#555;margin-top:.1rem;"><s style="color:#777;">$2,497</s> + $797/mo</div></div>
-        <div style="text-align:right;flex-shrink:0;margin-left:1rem;"><div style="font-size:1.1rem;font-weight:900;color:#f97316;letter-spacing:-.03em;">$1,873</div><div style="font-size:.6rem;color:#22c55e;font-weight:700;">Save $624</div></div>
-      </a>
-    </div>
-    <div style="font-size:.68rem;color:#555;line-height:1.5;">Code <strong style="color:#a3a3a3;font-family:monospace;">SAVE25</strong> auto-applied &bull; Monthly fee unchanged</div>
-  </div>
-</div>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.08, rootMargin:'0px 0px -30px 0px'});
 
-<script>
-  function closePopup() { document.getElementById('deal-overlay').style.display = 'none'; }
-  (function() {
-    if (sessionStorage.getItem('dealSeen')) return;
-    var overlay = document.getElementById('deal-overlay'); var shown = false;
-    function showPopup() {
-      if (shown) return; shown = true;
-      sessionStorage.setItem('dealSeen','1');
-      overlay.style.display = 'flex'; startCountdown(15 * 60);
-    }
-    setTimeout(showPopup, 7000);
-    document.addEventListener('mouseleave', function(e) { if (e.clientY <= 0) showPopup(); });
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePopup(); });
-    overlay.addEventListener('click', function(e) { if (e.target === overlay) closePopup(); });
-    function startCountdown(totalSecs) {
-      var end = Date.now() + totalSecs * 1000;
-      var minEl = document.getElementById('cd-min'); var secEl = document.getElementById('cd-sec');
-      var iv = setInterval(function() {
-        var rem = Math.max(0, Math.floor((end - Date.now()) / 1000));
-        minEl.textContent = String(Math.floor(rem / 60)).padStart(2,'0');
-        secEl.textContent = String(rem % 60).padStart(2,'0');
-        if (rem === 0) clearInterval(iv);
-      }, 1000);
-    }
-  })();
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
