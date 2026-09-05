@@ -1,627 +1,524 @@
-<!-- =========================================================
-     CGC WEBSITE PATCH — v1
-     Apply to the EXISTING Contractor Growth Co. website.
-     This patch is intentionally additive: it preserves the
-     existing website structure and only overrides/updates
-     targeted styling, copy, pricing, CTAs, and package messaging.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contractor Growth Co. builds and manages websites, AI, follow-up automation, and business analytics that help contractors turn more leads into booked jobs." />
+  <title>Contractor Growth Co. — Turn More Leads Into Booked Jobs</title>
 
-     INSERT THIS ENTIRE BLOCK immediately before </body>.
-========================================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
 
-<style id="cgc-patch-v1">
+  <style>
+    :root{
+      --bg:#eef0ee; --surface:#f7f8f7; --surface-2:#e7eae7; --surface-3:#dfe3df;
+      --text:#202520; --muted:#68716b; --dim:#8b938d;
+      --orange:#16a34a; --orange-2:#22c55e; --orange-soft:rgba(22,163,74,.10);
+      --green:#16a34a; --border:rgba(20,30,22,.10); --border-strong:rgba(20,30,22,.16);
+      --radius:14px; --radius-lg:22px; --max:1160px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--bg); color:var(--text); font-family:Inter,system-ui,sans-serif;
+      overflow-x:hidden; -webkit-font-smoothing:antialiased;
+    }
+    body:before{
+      content:""; position:fixed; inset:0; pointer-events:none; z-index:999;
+      opacity:.025;
+      background-image:radial-gradient(rgba(255,255,255,.9) .6px,transparent .6px);
+      background-size:5px 5px;
+    }
+    a{text-decoration:none;color:inherit}
+    section{padding:110px 24px}
+    .container{max-width:var(--max);margin:auto}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;color:var(--orange);
+      font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:18px
+    }
+    .eyebrow:before{content:"";width:28px;height:1px;background:var(--orange)}
+    h1,h2,h3{font-family:"Playfair Display",Georgia,serif}
+    h2{font-size:clamp(2.2rem,4vw,4rem);line-height:1.05;letter-spacing:-.035em}
+    h2 em{color:var(--orange);font-style:italic}
+    .section-copy{max-width:650px;color:var(--muted);font-size:1rem;line-height:1.8;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:15px 23px;border-radius:11px;font-size:.9rem;font-weight:800;
+      transition:.22s ease;border:1px solid transparent
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--orange);color:#ffffff}
+    .btn-primary:hover{background:var(--orange-2);box-shadow:0 14px 45px rgba(34,197,94,.22)}
+    .btn-secondary{border-color:var(--border-strong);color:var(--text);background:rgba(20,30,22,.025)}
+    .btn-secondary:hover{border-color:rgba(255,255,255,.3)}
+    .btn-arrow:after{content:"→";transition:.2s}
+    .btn-arrow:hover:after{transform:translateX(4px)}
 
-/* ---------- CGC GREEN / GREY / WHITE VISUAL SYSTEM ---------- */
+    nav{
+      position:fixed;top:0;left:0;right:0;height:74px;z-index:1000;
+      display:flex;align-items:center;justify-content:space-between;padding:0 32px;
+      transition:.25s;border-bottom:1px solid transparent
+    }
+    nav.scrolled{height:60px;background:rgba(247,248,247,.94);backdrop-filter:blur(18px);border-color:var(--border)}
+    .logo{font-weight:900;letter-spacing:-.04em;font-size:1.05rem}
+    .logo span{color:var(--orange)}
+    .nav-links{display:flex;gap:28px;list-style:none;color:var(--muted);font-size:.8rem;font-weight:600}
+    .nav-links a:hover{color:var(--text)}
+    .nav-mobile{display:none}
 
-:root{
-  --orange:#22c55e;
-  --orange-light:#4ade80;
-  --orange-dark:#16a34a;
-  --orange-soft:rgba(34,197,94,.10);
+    #hero{
+      min-height:900px;padding-top:185px;padding-bottom:90px;text-align:center;
+      position:relative;display:flex;align-items:center;overflow:hidden
+    }
+    .hero-grid{
+      position:absolute;inset:0;pointer-events:none;opacity:.55;
+      background-image:linear-gradient(rgba(20,30,22,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(20,30,22,.055) 1px,transparent 1px);
+      background-size:48px 48px;
+      mask-image:radial-gradient(ellipse at center,black 5%,transparent 72%)
+    }
+    .hero-glow{position:absolute;width:900px;height:650px;left:50%;top:-100px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(34,197,94,.09),transparent 68%);pointer-events:none}
+    .hero-badge{display:inline-flex;gap:9px;align-items:center;border:1px solid rgba(34,197,94,.22);background:var(--orange-soft);padding:9px 14px;border-radius:999px;color:var(--orange);font-size:.68rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+    .pulse{width:7px;height:7px;background:var(--orange);border-radius:50%;box-shadow:0 0 0 0 rgba(249,115,22,.6);animation:pulse 2s infinite}
+    @keyframes pulse{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+    h1{font-size:clamp(3.2rem,7vw,6.5rem);line-height:.98;letter-spacing:-.06em;max-width:1000px;margin:24px auto}
+    h1 em{color:var(--orange);font-style:normal}
+    .hero-sub{max-width:720px;margin:0 auto;color:var(--muted);font-size:1.08rem;line-height:1.8}
+    .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .hero-trust{display:flex;justify-content:center;gap:0;max-width:850px;margin:75px auto 0;border-top:1px solid var(--border);padding-top:32px}
+    .trust-item{flex:1;padding:0 28px;border-right:1px solid var(--border)}
+    .trust-item:last-child{border:0}
+    .trust-number{font-size:1.65rem;font-weight:900;letter-spacing:-.04em}
+    .trust-number span{color:var(--orange)}
+    .trust-label{margin-top:7px;color:var(--dim);font-size:.66rem;text-transform:uppercase;letter-spacing:.11em;font-weight:700}
 
-  --green:#22c55e;
+    #problem{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .problem-copy p{color:var(--muted);line-height:1.85;margin-top:18px}
+    .pain-list{display:grid;gap:10px}
+    .pain{
+      display:flex;gap:17px;padding:20px;background:var(--bg);border:1px solid var(--border);
+      border-radius:var(--radius);transition:.2s
+    }
+    .pain:hover{border-color:rgba(34,197,94,.32);transform:translateX(4px)}
+    .pain-icon{font-size:1.2rem}
+    .pain strong{display:block;font-size:.9rem;margin-bottom:5px}
+    .pain span{color:var(--muted);font-size:.82rem;line-height:1.55}
 
-  --bg:#070908;
-  --surface:#0c100d;
-  --surface-2:#121713;
-  --surface-3:#1a211c;
+    .section-head{margin-bottom:46px}
+    .system-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+    .system-card{background:var(--surface);padding:32px 28px;min-height:230px;position:relative;transition:.22s}
+    .system-card:hover{background:var(--surface-2)}
+    .system-card:hover:after{background:var(--orange)}
+    .system-card:after{content:"";position:absolute;bottom:0;left:28px;right:28px;height:2px;background:transparent;transition:.22s}
+    .system-num{position:absolute;right:24px;top:22px;color:var(--dim);font-size:.65rem;font-weight:800;letter-spacing:.12em}
+    .system-icon{font-size:1.5rem;margin-bottom:22px}
+    .system-card h3{font-family:Inter,sans-serif;font-size:.95rem;margin-bottom:10px}
+    .system-card p{color:var(--muted);font-size:.82rem;line-height:1.7}
 
-  --text:#f5f7f5;
-  --muted:#a5ada7;
-  --dim:#6f7771;
+    #packages{background:var(--surface);border-top:1px solid var(--border)}
+    .pricing-head{text-align:center;margin-bottom:52px}
+    .pricing-head .section-copy{margin:18px auto}
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+    .plan{
+      position:relative;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);
+      padding:34px 30px;display:flex;flex-direction:column
+    }
+    .plan.featured{border-color:rgba(34,197,94,.5);background:linear-gradient(155deg,rgba(22,163,74,.07),#f7f8f7 45%)}
+    .popular{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#ffffff;border-radius:999px;padding:6px 14px;font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+    .plan-tier{color:var(--orange);font-size:.68rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .plan h3{font-family:Inter,sans-serif;font-size:1.45rem;margin:10px 0 7px}
+    .plan-desc{color:var(--muted);font-size:.8rem;line-height:1.65;min-height:55px}
+    .price{margin:26px 0}
+    .setup{color:var(--muted);font-size:.78rem;margin-bottom:6px}
+    .monthly{font-size:2.65rem;font-weight:900;letter-spacing:-.06em}
+    .monthly small{font-size:.8rem;color:var(--muted);font-weight:500;letter-spacing:0}
+    .features{list-style:none;border-top:1px solid var(--border);padding-top:20px;margin-bottom:28px;display:grid;gap:11px;flex:1}
+    .features li{display:flex;gap:10px;color:var(--muted);font-size:.8rem;line-height:1.45}
+    .check{color:var(--green);font-weight:900}
 
-  --border:rgba(255,255,255,.085);
-  --border-strong:rgba(255,255,255,.17);
-}
+    #trackpr{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .track-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+    .metric-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+    .metric{border:1px solid var(--border);background:var(--surface);padding:17px;border-radius:12px}
+    .metric strong{display:block;font-size:.85rem;margin-bottom:5px}
+    .metric span{font-size:.75rem;color:var(--muted);line-height:1.5}
+    .dashboard{background:linear-gradient(145deg,#f8f9f8,#e8ebe8);border:1px solid var(--border-strong);border-radius:22px;padding:22px;box-shadow:0 20px 70px rgba(0,0,0,.12)}
+    .dash-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .dash-brand{font-weight:900}.dash-brand span{color:var(--orange)}
+    .dash-status{color:var(--green);font-size:.68rem;font-weight:800}
+    .dash-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .dash-card{background:#f7f8f7;border:1px solid var(--border);border-radius:12px;padding:17px}
+    .dash-label{color:var(--dim);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+    .dash-value{font-size:1.55rem;font-weight:900;margin-top:9px}
+    .dash-change{font-size:.68rem;color:var(--green);margin-top:6px}
+    .chart{height:135px;margin-top:10px;border-radius:12px;background:linear-gradient(180deg,rgba(22,163,74,.10),transparent),repeating-linear-gradient(0deg,transparent,transparent 33px,rgba(20,30,22,.065) 34px)}
+    .chart svg{width:100%;height:100%}
 
-/* Remove the old orange visual language everywhere by making
-   existing orange-driven components inherit the new green vars. */
+    #ai{background:var(--surface)}
+    .workflow{margin-top:45px;display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+    .flow{border:1px solid var(--border);background:var(--bg);border-radius:14px;padding:22px 17px;min-height:205px}
+    .flow-num{color:var(--orange);font-size:.65rem;font-weight:900;letter-spacing:.13em}
+    .flow h3{font-family:Inter,sans-serif;font-size:.85rem;margin:18px 0 8px}
+    .flow p{color:var(--muted);font-size:.73rem;line-height:1.65}
+    .flow-arrow{display:none}
 
-.hero-glow,
-.final-glow{
-  background:radial-gradient(
-    ellipse,
-    rgba(34,197,94,.13),
-    transparent 68%
-  ) !important;
-}
+    .industries{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:40px}
+    .industry{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:24px 10px;text-align:center;transition:.2s}
+    .industry:hover{border-color:rgba(34,197,94,.35);background:var(--surface-2)}
+    .industry div:first-child{font-size:1.6rem;margin-bottom:10px}
+    .industry strong{font-size:.75rem}
 
-.hero-badge{
-  border-color:rgba(34,197,94,.28) !important;
-  background:rgba(34,197,94,.07) !important;
-}
+    #faq{background:var(--surface);border-top:1px solid var(--border)}
+    .faq{max-width:800px;margin:40px auto 0;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .faq-item{border-bottom:1px solid var(--border);background:var(--bg)}
+    .faq-item:last-child{border:0}
+    .faq-q{width:100%;padding:20px 22px;background:none;border:0;color:var(--text);font:700 .88rem Inter,sans-serif;text-align:left;display:flex;justify-content:space-between;gap:20px;cursor:pointer}
+    .faq-q span{color:var(--orange);font-size:1.2rem}
+    .faq-a{display:none;padding:0 22px 20px;color:var(--muted);font-size:.83rem;line-height:1.75}
+    .faq-item.open .faq-a{display:block}
+    .faq-item.open .faq-q span{transform:rotate(45deg)}
 
-.pulse-dot{
-  background:var(--green) !important;
-}
+    #final{text-align:center;position:relative;overflow:hidden}
+    #final:before{content:"";position:absolute;width:800px;height:500px;left:50%;bottom:-250px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(34,197,94,.09),transparent 68%)}
+    .final-inner{position:relative;max-width:800px;margin:auto}
+    .final-inner p{max-width:600px;margin:20px auto 30px;color:var(--muted);line-height:1.8}
+    .final-list{display:flex;justify-content:center;gap:12px 28px;flex-wrap:wrap;margin:28px 0;color:var(--muted);font-size:.8rem}
+    .final-list span:before{content:"✓";color:var(--green);font-weight:900;margin-right:7px}
 
-.btn-primary{
-  color:#071009 !important;
-  background:var(--green) !important;
-  box-shadow:0 15px 40px rgba(34,197,94,.13) !important;
-}
+    footer{border-top:1px solid var(--border);padding:30px 24px}
+    .footer{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap;color:var(--dim);font-size:.72rem}
+    .footer-copy{color:var(--dim);font-size:.7rem}
 
-.btn-primary:hover{
-  background:var(--orange-light) !important;
-  box-shadow:0 20px 55px rgba(34,197,94,.20) !important;
-}
+    .reveal{opacity:0;transform:translateY(18px);transition:.65s ease}
+    .reveal.visible{opacity:1;transform:none}
 
-.pricing-card.featured{
-  background:linear-gradient(
-    150deg,
-    rgba(34,197,94,.09),
-    #090b09 45%
-  ) !important;
-  border-color:rgba(34,197,94,.42) !important;
-  box-shadow:0 25px 80px rgba(34,197,94,.06) !important;
-}
+    @media(max-width:1000px){
+      .nav-links{display:none}.nav-mobile{display:block}
+      .two-col,.track-grid{grid-template-columns:1fr}
+      .pricing{grid-template-columns:1fr;max-width:500px;margin:auto}
+      .workflow{grid-template-columns:repeat(3,1fr)}
+      .industries{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:760px){
+      section{padding:80px 18px}nav{padding:0 18px}
+      #hero{min-height:auto;padding-top:145px;padding-bottom:70px}
+      h1{font-size:clamp(3rem,14vw,4.6rem)}
+      .hero-trust{margin-top:50px;padding-top:22px}
+      .trust-item{padding:0 10px}.trust-number{font-size:1.25rem}.trust-label{font-size:.55rem}
+      .system-grid{grid-template-columns:1fr}
+      .workflow{grid-template-columns:1fr 1fr}
+      .industries{grid-template-columns:repeat(2,1fr)}
+      .metric-list{grid-template-columns:1fr}
+      .two-col{gap:40px}
+    }
+    @media(max-width:480px){
+      .workflow{grid-template-columns:1fr}.hero-actions,.hero-actions .btn{width:100%}
+      .hero-actions{flex-direction:column}.btn{width:100%}.footer{justify-content:center;text-align:center}.footer-links{justify-content:center}
+    }
 
-.popular{
-  background:var(--green) !important;
-}
+    .package-outcome{
+      margin-top:8px;color:var(--green);font-size:.68rem;font-weight:900;
+      letter-spacing:.11em;text-transform:uppercase;
+    }
+    .managed-note{
+      max-width:760px;margin:24px auto 0;padding:14px 18px;
+      border:1px solid var(--border);border-radius:12px;
+      background:rgba(20,30,22,.055);color:var(--muted);
+      font-size:.74rem;line-height:1.65;text-align:center;
+    }
+    .managed-note strong{color:var(--text)}
+  </style>
+</head>
+<body>
 
-.system-card:hover::after{
-  background:var(--green) !important;
-}
+<nav id="nav">
+  <a href="#hero" class="logo">Contractor Growth<span> Co.</span></a>
+  <ul class="nav-links">
+    <li><a href="#system">Growth System</a></li>
+    <li><a href="#packages">Pricing</a></li>
+    <li><a href="#trackpr">TrackPR</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a class="btn btn-primary nav-mobile" href="#packages">Get Started</a>
+  <a class="btn btn-primary" href="#packages">Get Started</a>
+</nav>
 
-.pain-card:hover,
-.industry:hover{
-  border-color:rgba(34,197,94,.32) !important;
-}
+<section id="hero">
+  <div class="hero-grid"></div><div class="hero-glow"></div>
+  <div class="container reveal" style="position:relative">
+    <div class="hero-badge"><span class="pulse"></span> Built for Contractors & Service Businesses</div>
+    <h1>Turn More Contractor Leads<br>Into <em>More Booked Jobs.</em></h1>
+    <p class="hero-sub">Your website, lead capture, AI, automated follow-up, and business intelligence — all working together inside one managed growth system.</p>
+    <p class="hero-sub" style="font-size:.95rem;margin-top:12px">We build it. Manage it. And keep it working. No complicated software. No learning new systems.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-arrow" href="#packages">Get Your Growth System</a>
+      <a class="btn btn-secondary" href="#packages">See Pricing</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="trust-number">100<span>%</span></div><div class="trust-label">Done For You</div></div>
+      <div class="trust-item"><div class="trust-number">1</div><div class="trust-label">Connected Growth System</div></div>
+      <div class="trust-item"><div class="trust-number">24<span>/7</span></div><div class="trust-label">Automation Working</div></div>
+    </div>
+  </div>
+</section>
 
-.pain-icon{
-  background:rgba(34,197,94,.08) !important;
-  color:var(--green) !important;
-}
+<section id="problem">
+  <div class="container two-col">
+    <div class="problem-copy reveal">
+      <div class="eyebrow">The Real Problem</div>
+      <h2>You're Probably Losing More Leads <em>Than You Realize.</em></h2>
+      <p>Most contractors don't have a lead problem. They have a lead management problem.</p>
+      <p>Getting the inquiry is only the first step. What happens next determines whether that opportunity becomes revenue — or calls another contractor.</p>
+    </div>
+    <div class="pain-list reveal">
+      <div class="pain"><div class="pain-icon">📞</div><div><strong>Calls & inquiries get missed</strong><span>Potential customers don't always wait for a response.</span></div></div>
+      <div class="pain"><div class="pain-icon">📋</div><div><strong>Estimates don't get followed up with</strong><span>Opportunities go cold simply because nobody followed up.</span></div></div>
+      <div class="pain"><div class="pain-icon">⚡</div><div><strong>Response times are too slow</strong><span>Your team is busy doing the actual work.</span></div></div>
+      <div class="pain"><div class="pain-icon">📊</div><div><strong>Revenue sources aren't clear</strong><span>You don't know which marketing is actually producing jobs.</span></div></div>
+    </div>
+  </div>
+</section>
 
-.chart .fill{
-  fill:rgba(34,197,94,.14) !important;
-}
+<section id="system">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">One Connected System</div>
+      <h2>Your Growth System.<br><em>Connected.</em></h2>
+      <p class="section-copy">Contractor Growth Co. connects the important parts of your customer journey so opportunities move through a clear system instead of falling through the cracks — and we manage the technology behind it.</p>
+    </div>
+    <div class="system-grid reveal">
+      <article class="system-card"><span class="system-num">01</span><div class="system-icon">🎯</div><h3>ATTRACT</h3><p>Get a professional contractor website designed to turn visitors into real inquiries.</p></article>
+      <article class="system-card"><span class="system-num">02</span><div class="system-icon">📥</div><h3>CAPTURE</h3><p>Every inquiry is captured and organized automatically from your website and connected sources.</p></article>
+      <article class="system-card"><span class="system-num">03</span><div class="system-icon">🤖</div><h3>QUALIFY</h3><p>AI analyzes incoming opportunities and helps identify service type, urgency, and potential value.</p></article>
+      <article class="system-card"><span class="system-num">04</span><div class="system-icon">🔁</div><h3>FOLLOW UP</h3><p>Automated follow-up helps keep opportunities moving without relying on your team to remember every task.</p></article>
+      <article class="system-card"><span class="system-num">05</span><div class="system-icon">📈</div><h3>TRACK</h3><p>Track leads, estimates, jobs, revenue, close rate, and performance in one place.</p></article>
+      <article class="system-card"><span class="system-num">06</span><div class="system-icon">🚀</div><h3>GROW</h3><p>Use real business data to make smarter decisions and identify where your next revenue opportunities are coming from.</p></article>
+    </div>
+  </div>
+</section>
 
-.chart .line{
-  stroke:var(--green) !important;
-}
+<section id="packages">
+  <div class="container">
+    <div class="pricing-head reveal">
+      <div class="eyebrow" style="justify-content:center">Choose Your Growth System</div>
+      <h2>Choose the Growth System Built for Your Stage.</h2>
+      <p class="section-copy">Start with what your business needs today and move into more advanced automation, AI, and intelligence as your business grows.</p>
+      <div class="managed-note"><strong>This is a managed growth system — not another piece of software.</strong> We build it, manage it, maintain it, and keep improving it so your team can stay focused on running the business.</div>
+    </div>
 
-.track-logo span,
-.logo span,
-h1 span,
-h2 em,
-.eyebrow,
-.tier,
-.system-icon,
-.workflow-card span{
-  color:var(--green) !important;
-}
+    <div class="pricing">
+      <article class="plan reveal">
+        <div class="plan-tier">Foundation</div><div class="package-outcome">CAPTURE EVERY OPPORTUNITY</div>
+        <h3>Capture Every Opportunity</h3>
+        <p class="plan-desc">The essential growth infrastructure for contractors who want to capture every opportunity, respond faster, and stop losing leads.</p>
+        <div class="price"><div class="setup">One-time setup: <strong>$1,497</strong></div><div class="monthly">$397 <small>/ month</small></div></div>
+        <ul class="features">
+          <li><span class="check">✓</span>Conversion-focused website</li>
+          <li><span class="check">✓</span>Lead capture system</li>
+          <li><span class="check">✓</span>Basic speed-to-lead follow-up</li>
+          <li><span class="check">✓</span>Missed-opportunity follow-up</li>
+          <li><span class="check">✓</span>Lead notifications</li>
+          <li><span class="check">✓</span>Basic TrackPR reporting</li>
+          <li><span class="check">✓</span>Website maintenance</li>
+          <li><span class="check">✓</span>Ongoing management &amp; support</li>
+        </ul>
+        <a class="btn btn-secondary" href="https://buy.stripe.com/28EeVd7SrbQOdtv1mR7EQ00">Get Started</a>
+      </article>
 
-.fine-print::after{
-  content:"";
-}
+      <article class="plan featured reveal">
+        <div class="popular">Most Popular</div>
+        <div class="plan-tier">Growth</div><div class="package-outcome">CONVERT MORE LEADS</div>
+        <h3>Convert More Leads</h3>
+        <p class="plan-desc">The complete lead-conversion system for contractors ready to automate follow-up, qualification, appointments, and business visibility.</p>
+        <div class="price"><div class="setup">One-time setup: <strong>$1,997</strong></div><div class="monthly">$697 <small>/ month</small></div></div>
+        <ul class="features">
+          <li><span class="check">✓</span>Everything in Foundation</li>
+          <li><span class="check">✓</span>Advanced speed-to-lead follow-up</li>
+          <li><span class="check">✓</span>AI-assisted lead qualification</li>
+          <li><span class="check">✓</span>Conversation intelligence</li>
+          <li><span class="check">✓</span>Appointment confirmations &amp; reminders</li>
+          <li><span class="check">✓</span>Accepted estimate → job workflow</li>
+          <li><span class="check">✓</span>Lead reactivation</li>
+          <li><span class="check">✓</span>Human hot-lead alerts</li>
+          <li><span class="check">✓</span>Daily contractor briefing</li>
+          <li><span class="check">✓</span>AI business insights</li>
+          <li><span class="check">✓</span>Enhanced TrackPR analytics</li>
+          <li><span class="check">✓</span>Ongoing optimization</li>
+        </ul>
+        <a class="btn btn-primary btn-arrow" href="https://buy.stripe.com/cNi00jb4D6wu4WZ6Hb7EQ01">Build My Growth System</a>
+      </article>
 
-/* ---------- PREMIUM UX POLISH ---------- */
+      <article class="plan reveal">
+        <div class="plan-tier">Dominate</div><div class="package-outcome">AUTOMATE THE CUSTOMER LIFECYCLE</div>
+        <h3>Automate the Customer Lifecycle</h3>
+        <p class="plan-desc">The advanced customer lifecycle system for established contractors ready to automate more of the journey from first contact through repeat business.</p>
+        <div class="price"><div class="setup">One-time setup: <strong>$2,997</strong></div><div class="monthly">$997 <small>/ month</small></div></div>
+        <ul class="features">
+          <li><span class="check">✓</span>Everything in Growth</li>
+          <li><span class="check">✓</span>AI voice receptionist</li>
+          <li><span class="check">✓</span>Advanced AI customer communication</li>
+          <li><span class="check">✓</span>Automated estimate follow-up</li>
+          <li><span class="check">✓</span>Post-job customer growth engine</li>
+          <li><span class="check">✓</span>Review &amp; referral automation</li>
+          <li><span class="check">✓</span>Past-customer win-back campaigns</li>
+          <li><span class="check">✓</span>Payment &amp; revenue synchronization</li>
+          <li><span class="check">✓</span>Multi-source attribution</li>
+          <li><span class="check">✓</span>Advanced TrackPR revenue intelligence</li>
+          <li><span class="check">✓</span>Custom integrations &amp; AI workflows</li>
+        </ul>
+        <a class="btn btn-secondary" href="https://buy.stripe.com/6oUbJ10pZdYWcpr9Tn7EQ02">Buy Dominate</a>
+      </article>
+    </div>
+    <p style="text-align:center;color:var(--dim);font-size:.72rem;margin-top:24px">
+      No long-term contract required. Usage-based SMS, voice, or third-party costs may apply where applicable.
+    </p>
+  </div>
+</section>
 
-.btn{
-  border-radius:11px;
-  letter-spacing:-.01em;
-}
+<section id="trackpr">
+  <div class="container track-grid">
+    <div class="reveal">
+      <div class="eyebrow">What Is TrackPR?</div>
+      <h2>Know What Is Happening.<br><em>Across Your Business.</em></h2>
+      <p class="section-copy">TrackPR gives you a clear picture of what's actually happening inside your business — from the first lead through completed jobs and revenue.</p>
+      <p class="section-copy">Stop guessing which efforts are working. Start making decisions using your actual business data.</p>
+      <div class="metric-list">
+        <div class="metric"><strong>Leads</strong><span>See how many opportunities you're generating and where they come from.</span></div>
+        <div class="metric"><strong>Estimates</strong><span>Track opportunities issued and which ones turn into jobs.</span></div>
+        <div class="metric"><strong>Jobs</strong><span>Monitor completed work and overall performance.</span></div>
+        <div class="metric"><strong>Revenue</strong><span>See the money connected to your business activity.</span></div>
+        <div class="metric"><strong>Close Rate</strong><span>Understand how effectively opportunities become customers.</span></div>
+        <div class="metric"><strong>Lead Sources</strong><span>Identify which channels are actually producing revenue.</span></div>
+      </div>
+    </div>
 
-.pricing-card,
-.dashboard,
-.system-grid,
-.workflow-grid{
-  box-shadow:0 20px 70px rgba(0,0,0,.18);
-}
+    <div class="dashboard reveal">
+      <div class="dash-top"><div class="dash-brand">Track<span>PR</span></div><div class="dash-status">● LIVE BUSINESS DATA</div></div>
+      <div class="dash-stats">
+        <div class="dash-card"><div class="dash-label">New Leads</div><div class="dash-value">48</div><div class="dash-change">↗ Tracking activity</div></div>
+        <div class="dash-card"><div class="dash-label">Estimates</div><div class="dash-value">21</div><div class="dash-change">↗ In pipeline</div></div>
+        <div class="dash-card"><div class="dash-label">Jobs</div><div class="dash-value">14</div><div class="dash-change">↗ Completed / active</div></div>
+        <div class="dash-card"><div class="dash-label">Revenue</div><div class="dash-value">$—</div><div class="dash-change">Connected to your data</div></div>
+      </div>
+      <div class="dash-card" style="margin-top:10px"><div class="dash-label">Business Activity</div><div class="chart"><svg viewBox="0 0 500 140" preserveAspectRatio="none"><path d="M0 118 C45 100 55 112 92 86 S145 98 178 72 S230 85 270 49 S322 76 360 40 S425 56 500 13" fill="none" stroke="#22c55e" stroke-width="3"/></svg></div></div>
+    </div>
+  </div>
+</section>
 
-.pricing-card:hover{
-  box-shadow:0 28px 90px rgba(0,0,0,.28);
-}
+<section id="ai">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">AI Working Behind The Scenes</div>
+      <h2>You Don't Need to Learn AI.<br><em>We Build It Into Your System.</em></h2>
+      <p class="section-copy">Your team stays focused on customers and jobs while the system handles repetitive work, keeps opportunities moving, and surfaces what needs attention.</p>
+    </div>
+    <div class="workflow">
+      <div class="flow reveal"><div class="flow-num">01 — CAPTURE</div><h3>The Lead Enters</h3><p>A new inquiry comes in through your website or a connected lead source.</p></div>
+      <div class="flow reveal"><div class="flow-num">02 — ANALYZE</div><h3>AI Reviews It</h3><p>AI helps identify the service requested, urgency, and potential opportunity.</p></div>
+      <div class="flow reveal"><div class="flow-num">03 — PRIORITIZE</div><h3>Important Leads Stand Out</h3><p>Higher-value opportunities can be flagged for faster attention.</p></div>
+      <div class="flow reveal"><div class="flow-num">04 — NOTIFY</div><h3>Your Team Knows</h3><p>Important information is delivered without manually checking multiple platforms.</p></div>
+      <div class="flow reveal"><div class="flow-num">05 — FOLLOW UP</div><h3>Automation Continues</h3><p>Automated email follow-up helps keep the opportunity moving.</p></div>
+      <div class="flow reveal"><div class="flow-num">06 — TRACK</div><h3>TrackPR Records It</h3><p>Activity and results flow into your business data so you can see what is happening.</p></div>
+    </div>
+  </div>
+</section>
 
-.system-card,
-.workflow-card,
-.metric-card,
-.industry,
-.pain-card{
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease;
-}
+<section id="industries">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center">
+      <div class="eyebrow" style="justify-content:center">Built For Contractors</div>
+      <h2>A Growth System Built Around<br><em>How Contractors Actually Work.</em></h2>
+      <p class="section-copy" style="margin-left:auto;margin-right:auto">If your business relies on leads, estimates, appointments, and completed jobs, we can build a system around it.</p>
+    </div>
+    <div class="industries reveal">
+      <div class="industry"><div>❄️</div><strong>HVAC</strong></div>
+      <div class="industry"><div>🏠</div><strong>Roofing</strong></div>
+      <div class="industry"><div>🔧</div><strong>Plumbing</strong></div>
+      <div class="industry"><div>⚡</div><strong>Electrical</strong></div>
+      <div class="industry"><div>🌿</div><strong>Landscaping</strong></div>
+      <div class="industry"><div>🏗️</div><strong>And More</strong></div>
+    </div>
+  </div>
+</section>
 
-/* ---------- TRUST / GUARANTEE STRIP ---------- */
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal" style="text-align:center">
+      <div class="eyebrow" style="justify-content:center">Frequently Asked Questions</div>
+      <h2>Questions. <em>Answered.</em></h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item"><button class="faq-q">Do I need to know anything about AI?<span>+</span></button><div class="faq-a">No. You don't need to learn AI or become an automation expert. We build and manage the technology behind the system so your team can use the finished experience.</div></div>
+      <div class="faq-item"><button class="faq-q">Do I need to replace my current website?<span>+</span></button><div class="faq-a">Not necessarily. We'll evaluate your current website and determine whether integrating with it or rebuilding it makes more sense.</div></div>
+      <div class="faq-item"><button class="faq-q">Do I need to use a complicated CRM?<span>+</span></button><div class="faq-a">No. TrackPR is designed to give you a clear view of the business without forcing your team to learn a massive CRM just to understand what is happening.</div></div>
+      <div class="faq-item"><button class="faq-q">Will I have to manage the automations?<span>+</span></button><div class="faq-a">No. Your system is managed for you. We build, monitor, maintain, and optimize the automations included with your package.</div></div>
+      <div class="faq-item"><button class="faq-q">Does this include SMS?<span>+</span></button><div class="faq-a">SMS can be available depending on your business and setup. Our core systems can operate using website forms, email, AI, and other integrations without requiring SMS.</div></div>
+      <div class="faq-item"><button class="faq-q">Can you connect my existing tools?<span>+</span></button><div class="faq-a">In many cases, yes. We'll evaluate your current tools and determine the best way to connect them to your system.</div></div>
+      <div class="faq-item"><button class="faq-q">Is there a long-term contract?<span>+</span></button><div class="faq-a">No long-term contract is required. Your monthly plan covers the ongoing software, automation management, maintenance, and support included with your package.</div></div>
+      <div class="faq-item"><button class="faq-q">Can I upgrade later?<span>+</span></button><div class="faq-a">Absolutely. Start with the level that fits your business today and move into more advanced automation, AI, integrations, and intelligence as your needs grow.</div></div>
+    </div>
+  </div>
+</section>
 
-.cgc-guarantee{
-  margin:28px auto 0;
-  max-width:760px;
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:9px 22px;
-  color:var(--muted);
-  font-size:.72rem;
-  font-weight:800;
-}
+<section id="final">
+  <div class="container final-inner reveal">
+    <div class="eyebrow" style="justify-content:center">Your Next Step</div>
+    <h2>Your Business Deserves<br><em>More Than a Website.</em></h2>
+    <p>Your growth system should help you capture opportunities, respond faster, follow up consistently, track your numbers, and make smarter decisions about growth.</p>
+    <div class="final-list">
+      <span>Generate Leads</span><span>Respond Faster</span><span>Follow Up</span><span>Track Revenue</span><span>Grow Smarter</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-arrow" href="#packages">Get Started</a>
+      <a class="btn btn-secondary" href="#packages">View Growth Systems</a>
+    </div>
+    <div class="final-list" style="margin-top:20px">
+      <span>30-Day Satisfaction Guarantee</span><span>No Long-Term Contract Required</span><span>Managed For You</span>
+    </div>
+    <p style="font-size:.72rem;color:var(--dim);margin-top:8px">SMS, voice, and third-party usage costs may apply where applicable.</p>
+  </div>
+</section>
 
-.cgc-guarantee span::before{
-  content:"✓";
-  margin-right:7px;
-  color:var(--green);
-}
+<footer>
+  <div class="footer">
+    <div class="logo">Contractor Growth<span> Co.</span></div>
+    <div class="footer-links">
+      <a href="#system">Growth System</a><a href="#packages">Pricing</a><a href="#trackpr">TrackPR</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://contractorgrowthco.pro/privacy-policy-page">Privacy Policy</a>
+      <a href="https://contractorgrowthco.pro/terms--conditions">Terms</a>
+    </div>
+    <div class="footer-copy">© 2026 Contractor Growth Co.</div>
+  </div>
+</footer>
 
-/* ---------- PACKAGE OUTCOME LABELS ---------- */
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), {passive:true});
 
-.cgc-package-outcome{
-  margin-top:8px;
-  color:var(--green);
-  font-size:.68rem;
-  font-weight:900;
-  letter-spacing:.11em;
-  text-transform:uppercase;
-}
+  document.querySelectorAll('.faq-q').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
 
-/* ---------- SUBTLE "MANAGED SYSTEM" CALLOUT ---------- */
-
-.cgc-managed-note{
-  margin:22px auto 0;
-  max-width:760px;
-  padding:14px 18px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:rgba(255,255,255,.018);
-  color:var(--muted);
-  font-size:.74rem;
-  line-height:1.65;
-}
-
-.cgc-managed-note strong{
-  color:var(--text);
-}
-
-/* ---------- MOBILE ---------- */
-
-@media(max-width:720px){
-  .cgc-guarantee{
-    gap:8px 14px;
-    font-size:.68rem;
-  }
-
-  .cgc-managed-note{
-    font-size:.70rem;
-  }
-}
-
-</style>
-
-<script id="cgc-patch-v1-script">
-(() => {
-  "use strict";
-
-  /* ---------------------------------------------------------
-     Small helpers
-  --------------------------------------------------------- */
-
-  const all = (selector) =>
-    Array.from(document.querySelectorAll(selector));
-
-  const findText = (text) =>
-    all("body *").find(el =>
-      el.children.length === 0 &&
-      el.textContent.trim() === text
-    );
-
-  const setExact = (oldText, newText) => {
-    const el = findText(oldText);
-    if (el) el.textContent = newText;
-  };
-
-  const replaceText = (oldText, newText) => {
-    all("body *").forEach(el => {
-      if (el.children.length === 0 && el.textContent.includes(oldText)) {
-        el.textContent = el.textContent.replace(oldText, newText);
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
-  };
+  }, {threshold:.08, rootMargin:'0px 0px -30px 0px'});
 
-  const setHrefContaining = (needle, href) => {
-    all(`a[href*="${needle}"]`).forEach(a => {
-      a.href = href;
-    });
-  };
-
-  /* ---------------------------------------------------------
-     1. POSITIONING / COPY
-  --------------------------------------------------------- */
-
-  setExact(
-    "Turn More Contractor Leads Into Booked Jobs.",
-    "Turn More Contractor Leads Into More Booked Jobs."
-  );
-
-  setExact(
-    "Everything your growth needs. Connected.",
-    "Your Growth System. Connected."
-  );
-
-  setExact(
-    "Choose the system built for your stage.",
-    "Choose the Growth System Built for Your Stage."
-  );
-
-  setExact(
-    "Your business. Your numbers. One dashboard.",
-    "Know What Is Happening Across Your Business."
-  );
-
-  setExact(
-    "Build the foundation.",
-    "Capture Every Opportunity."
-  );
-
-  setExact(
-    "Turn the system on.",
-    "Convert More Leads."
-  );
-
-  setExact(
-    "Build the advanced system.",
-    "Automate the Customer Lifecycle."
-  );
-
-  /* More outcome-focused package descriptions. */
-  const planDescriptions = all(".plan-description");
-
-  if (planDescriptions[0]) {
-    planDescriptions[0].textContent =
-      "The essential growth infrastructure for contractors who want to capture every opportunity, respond faster, and stop losing leads.";
-  }
-
-  if (planDescriptions[1]) {
-    planDescriptions[1].textContent =
-      "The complete lead-conversion system for contractors ready to automate follow-up, qualification, appointments, and business visibility.";
-  }
-
-  if (planDescriptions[2]) {
-    planDescriptions[2].textContent =
-      "The advanced customer lifecycle system for established contractors ready to automate more of the journey from first contact through repeat business.";
-  }
-
-  /* ---------------------------------------------------------
-     2. PRICING — REVISED RECOMMENDED CGC PRICING
-  --------------------------------------------------------- */
-
-  const pricing = all(".pricing-card");
-
-  const pricingData = [
-    {
-      setup: "$1,497",
-      monthly: "$397",
-      outcome: "CAPTURE EVERY OPPORTUNITY"
-    },
-    {
-      setup: "$1,997",
-      monthly: "$697",
-      outcome: "CONVERT MORE LEADS"
-    },
-    {
-      setup: "$2,997",
-      monthly: "$997",
-      outcome: "AUTOMATE THE CUSTOMER LIFECYCLE"
-    }
-  ];
-
-  pricing.forEach((card, i) => {
-    const data = pricingData[i];
-    if (!data) return;
-
-    const setup = card.querySelector(".setup strong");
-    const monthly = card.querySelector(".monthly");
-
-    if (setup) setup.textContent = data.setup;
-
-    if (monthly) {
-      const small = monthly.querySelector("small");
-      monthly.childNodes.forEach(node => {
-        if (node.nodeType === Node.TEXT_NODE) {
-          node.textContent = data.monthly + " ";
-        }
-      });
-      if (!monthly.textContent.includes(data.monthly)) {
-        monthly.insertBefore(
-          document.createTextNode(data.monthly + " "),
-          monthly.firstChild
-        );
-      }
-      if (small) small.textContent = "/ month";
-    }
-
-    if (!card.querySelector(".cgc-package-outcome")) {
-      const outcome = document.createElement("div");
-      outcome.className = "cgc-package-outcome";
-      outcome.textContent = data.outcome;
-
-      const tier = card.querySelector(".tier");
-      if (tier) tier.insertAdjacentElement("afterend", outcome);
-    }
-  });
-
-  /* ---------------------------------------------------------
-     3. FOUNDATION FEATURES
-  --------------------------------------------------------- */
-
-  const foundation = pricing[0];
-  if (foundation) {
-    const features = foundation.querySelector(".features");
-
-    if (features) {
-      features.innerHTML = `
-        <li><span class="check">✓</span>Conversion-focused website</li>
-        <li><span class="check">✓</span>Lead capture system</li>
-        <li><span class="check">✓</span>Basic speed-to-lead follow-up</li>
-        <li><span class="check">✓</span>Missed-opportunity follow-up</li>
-        <li><span class="check">✓</span>Lead notifications</li>
-        <li><span class="check">✓</span>Basic TrackPR reporting</li>
-        <li><span class="check">✓</span>Website maintenance</li>
-        <li><span class="check">✓</span>Ongoing management & support</li>
-      `;
-    }
-  }
-
-  /* ---------------------------------------------------------
-     4. GROWTH FEATURES — FLAGSHIP PACKAGE
-  --------------------------------------------------------- */
-
-  const growth = pricing[1];
-  if (growth) {
-    const features = growth.querySelector(".features");
-
-    if (features) {
-      features.innerHTML = `
-        <li><span class="check">✓</span>Everything in Foundation</li>
-        <li><span class="check">✓</span>Advanced speed-to-lead follow-up</li>
-        <li><span class="check">✓</span>AI-assisted lead qualification</li>
-        <li><span class="check">✓</span>Conversation intelligence</li>
-        <li><span class="check">✓</span>Appointment confirmations & reminders</li>
-        <li><span class="check">✓</span>Accepted estimate → job workflow</li>
-        <li><span class="check">✓</span>Lead reactivation</li>
-        <li><span class="check">✓</span>Human hot-lead alerts</li>
-        <li><span class="check">✓</span>Daily contractor briefing</li>
-        <li><span class="check">✓</span>AI business insights</li>
-        <li><span class="check">✓</span>Enhanced TrackPR analytics</li>
-        <li><span class="check">✓</span>Ongoing optimization</li>
-      `;
-    }
-  }
-
-  /* ---------------------------------------------------------
-     5. DOMINATE FEATURES
-  --------------------------------------------------------- */
-
-  const dominate = pricing[2];
-  if (dominate) {
-    const features = dominate.querySelector(".features");
-
-    if (features) {
-      features.innerHTML = `
-        <li><span class="check">✓</span>Everything in Growth</li>
-        <li><span class="check">✓</span>AI voice receptionist</li>
-        <li><span class="check">✓</span>Advanced AI customer communication</li>
-        <li><span class="check">✓</span>Automated estimate follow-up</li>
-        <li><span class="check">✓</span>Post-job customer growth engine</li>
-        <li><span class="check">✓</span>Review & referral automation</li>
-        <li><span class="check">✓</span>Past-customer win-back campaigns</li>
-        <li><span class="check">✓</span>Payment & revenue synchronization</li>
-        <li><span class="check">✓</span>Multi-source attribution</li>
-        <li><span class="check">✓</span>Advanced TrackPR revenue intelligence</li>
-        <li><span class="check">✓</span>Custom integrations & AI workflows</li>
-      `;
-    }
-  }
-
-  /* ---------------------------------------------------------
-     6. PRICING NOTE
-  --------------------------------------------------------- */
-
-  const pricingNote = document.querySelector(".pricing-note");
-
-  if (pricingNote) {
-    pricingNote.textContent =
-      "No long-term contract required. Usage-based SMS, voice, or third-party costs may apply where applicable.";
-  }
-
-  /* ---------------------------------------------------------
-     7. ADD TRUST / GUARANTEE / MANAGEMENT MESSAGE
-  --------------------------------------------------------- */
-
-  const pricingHeading = document.querySelector("#packages .section-heading");
-
-  if (pricingHeading && !document.querySelector(".cgc-managed-note")) {
-    const note = document.createElement("div");
-    note.className = "cgc-managed-note";
-    note.innerHTML =
-      "<strong>This is a managed growth system — not another piece of software.</strong> We build it, manage it, maintain it, and keep improving it so your team can stay focused on running the business.";
-    pricingHeading.appendChild(note);
-  }
-
-  const finalContent = document.querySelector(".final-content");
-
-  if (finalContent && !document.querySelector(".cgc-guarantee")) {
-    const guarantee = document.createElement("div");
-    guarantee.className = "cgc-guarantee";
-    guarantee.innerHTML = `
-      <span>30-Day Satisfaction Guarantee</span>
-      <span>No Long-Term Contract Required</span>
-      <span>Managed For You</span>
-    `;
-
-    const finePrint = finalContent.querySelector(".fine-print");
-    if (finePrint) {
-      finePrint.insertAdjacentElement("beforebegin", guarantee);
-    } else {
-      finalContent.appendChild(guarantee);
-    }
-  }
-
-  /* ---------------------------------------------------------
-     8. HERO COPY — STRONGER OUTCOME POSITIONING
-  --------------------------------------------------------- */
-
-  const heroCopy = document.querySelector(".hero-copy");
-
-  if (heroCopy) {
-    heroCopy.textContent =
-      "We build and manage the website, lead capture, follow-up automation, AI, and business intelligence systems that help contractors capture more opportunities, respond faster, and turn more leads into booked work.";
-  }
-
-  /* ---------------------------------------------------------
-     9. SYSTEM CARDS — OUTCOME LANGUAGE
-  --------------------------------------------------------- */
-
-  const systemCards = all(".system-card");
-
-  const systemUpdates = [
-    [
-      "Conversion Website",
-      "A modern contractor website built to turn visitors into calls, forms, and real opportunities."
-    ],
-    [
-      "Lead Capture",
-      "Capture inquiries from your website and connected lead sources so opportunities don't disappear."
-    ],
-    [
-      "Automated Follow-Up",
-      "Keep leads moving with timely follow-up that continues even when your team is busy."
-    ],
-    [
-      "AI Assistance",
-      "AI helps qualify opportunities, understand conversations, surface important leads, and reduce repetitive work."
-    ],
-    [
-      "Business Analytics",
-      "See leads, appointments, estimates, jobs, revenue, close rates, and lead sources in one place."
-    ],
-    [
-      "Ongoing Management",
-      "We maintain and optimize the system so you don't have to become the person responsible for your automation."
-    ]
-  ];
-
-  systemCards.forEach((card, i) => {
-    const update = systemUpdates[i];
-    if (!update) return;
-
-    const h3 = card.querySelector("h3");
-    const p = card.querySelector("p");
-
-    if (h3) h3.textContent = update[0];
-    if (p) p.textContent = update[1];
-  });
-
-  /* ---------------------------------------------------------
-     10. AI SECTION — POSITION AS BACK-END ENGINE
-  --------------------------------------------------------- */
-
-  const workflowCards = all(".workflow-card");
-
-  const workflowUpdates = [
-    ["01 — CAPTURE", "The opportunity enters.", "A new inquiry comes through your website, a connected source, a call, or another supported channel."],
-    ["02 — UNDERSTAND", "AI understands it.", "AI helps identify the service, urgency, customer intent, and important details."],
-    ["03 — PRIORITIZE", "The important leads stand out.", "Higher-value or urgent opportunities can be surfaced for faster human attention."],
-    ["04 — RESPOND", "The system keeps things moving.", "Automated communication and notifications help reduce delays and missed opportunities."],
-    ["05 — FOLLOW UP", "Follow-up continues.", "The system can continue the appropriate follow-up instead of relying on someone to remember every lead."],
-    ["06 — TRACK", "The business learns from it.", "Activity and results flow into your reporting and business intelligence."]
-  ];
-
-  workflowCards.forEach((card, i) => {
-    const update = workflowUpdates[i];
-    if (!update) return;
-
-    const span = card.querySelector("span");
-    const h3 = card.querySelector("h3");
-    const p = card.querySelector("p");
-
-    if (span) span.textContent = update[0];
-    if (h3) h3.textContent = update[1];
-    if (p) p.textContent = update[2];
-  });
-
-  /* ---------------------------------------------------------
-     11. FAQ — CLARIFY MANAGED SERVICE MODEL
-  --------------------------------------------------------- */
-
-  const faqItems = all(".faq-item");
-
-  faqItems.forEach(item => {
-    const question = item.querySelector(".faq-question strong");
-    const answer = item.querySelector(".faq-answer > div");
-    if (!question || !answer) return;
-
-    const q = question.textContent.trim();
-
-    if (q === "Do I need to know anything about AI?") {
-      answer.textContent =
-        "No. You don't need to learn AI or become an automation expert. We build and manage the technology behind the system so your team can use the finished experience.";
-    }
-
-    if (q === "Will I have to manage the automations?") {
-      answer.textContent =
-        "No. Your system is managed for you. We build, monitor, maintain, and optimize the automations included with your package.";
-    }
-
-    if (q === "Do I need to use a complicated CRM?") {
-      answer.textContent =
-        "No. TrackPR is designed to give you a clear view of the business without forcing your team to learn a massive CRM just to understand what is happening.";
-    }
-
-    if (q === "Can I upgrade later?") {
-      answer.textContent =
-        "Absolutely. Start with the level that fits your business today and move into more advanced automation, AI, integrations, and intelligence as your needs grow.";
-    }
-  });
-
-  /* ---------------------------------------------------------
-     12. REMOVE OLD LANDING-PAGE ROUTING
-         The current marketing site should send visitors to
-         the package section rather than the old landing page.
-  --------------------------------------------------------- */
-
-  setHrefContaining(
-    "contractorgrowthco.pro/landing-page",
-    "#packages"
-  );
-
-  /* ---------------------------------------------------------
-     13. ACCESSIBILITY / POLISH
-  --------------------------------------------------------- */
-
-  all(".pricing-card .btn").forEach(btn => {
-    btn.setAttribute("aria-label", btn.textContent.trim());
-  });
-
-  all("a.btn").forEach(btn => {
-    btn.style.textDecoration = "none";
-  });
-
-})();
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
-<!-- =========================================================
-     END CGC WEBSITE PATCH
-========================================================= -->
+</body>
+</html>
